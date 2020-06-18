@@ -17,6 +17,7 @@ Tutorials
    :maxdepth: 1
 
    01_overview 
+   tutorials 
 
 
 Indices and tables
