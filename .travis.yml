@@ -5,7 +5,7 @@ install:
   - pip install sphinx sphinx_rtd_theme nbsphinx recommonmark
 script: 
   - make -C docs/ html
-  - touch docs/build/html/.nojekyll
+  - touch docs/_build/html/.nojekyll
 deploy:
   - provider: pages:git
     verbose: true
