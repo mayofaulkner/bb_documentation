@@ -14,9 +14,7 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import os
-import sys
-#sys.path.insert(0, os.path.abspath('../src'))
-#sys.path.insert(0, '..')
+
 src = os.path.abspath('../src')
 os.environ['PYTHONPATH'] = src
 
@@ -39,6 +37,7 @@ release = '0.0.1'
 extensions = [
     'nbsphinx',
     'sphinx.ext.mathjax',
+    'recommonmark'
 ]
 
 nbsphinx_execute_arguments = [
@@ -47,13 +46,11 @@ nbsphinx_execute_arguments = [
 ]
 
 # Only execute Jupyter notebooks that have no evaluated cells
-nbsphinx_execute = 'always'
+nbsphinx_execute = 'never'
 # Kernel to use for execution
 nbsphinx_kernel_name = 'python3'
 # Cancel compile on errors in notebooks
 nbsphinx_allow_errors = False
-
-#nbsphinx_kernel_name = 'conda-env-iblenv-py
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -75,3 +72,8 @@ html_theme = 'alabaster'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+source_parsers = {
+    '.md': 'recommonmark.parser.CommonMarkParser',
+}
+source_suffix = ['.rst', '.md']

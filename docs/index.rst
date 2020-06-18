@@ -16,7 +16,7 @@ Tutorials
 .. toctree::
    :maxdepth: 1
 
-   tutorials
+   01_overview 
 
 
 Indices and tables
