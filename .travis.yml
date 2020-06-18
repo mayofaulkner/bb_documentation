@@ -2,7 +2,7 @@ language: python
 python:
   - 3.5
 install:
-  - pip install sphinx sphinx_rtd_theme nbsphinx recommonmark
+  - pip install -r requirements.txt
 script: 
   - make -C docs/ html
   - touch docs/_build/html/.nojekyll
