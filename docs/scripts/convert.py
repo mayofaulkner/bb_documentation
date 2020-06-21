@@ -49,8 +49,8 @@ class NotebookConverter(object):
         self.rst_path = path.join(self.output_path, f'{self.nb_name}.rst')
 
         self.execute_kwargs = dict(timeout=900)
-        if kernel_name:
-            self.execute_kwargs['kernel_name'] = kernel_name
+        #if kernel_name:
+        self.execute_kwargs['kernel_name'] = 'python3'
 
     def execute(self, write=True):
         """

@@ -2,4 +2,4 @@ recommonmark
 nbconvert
 sphinx_rtd_theme
 sphinx
-jupyter_client
+jupyter-client
