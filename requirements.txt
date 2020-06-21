@@ -1,4 +1,4 @@
 recommonmark
-nbsphinx
+nbconvert
 sphinx_rtd_theme
 sphinx
