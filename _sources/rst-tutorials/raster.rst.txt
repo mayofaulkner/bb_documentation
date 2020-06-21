@@ -1,0 +1,48 @@
+Tutorial 2 -looking at spikes
+=============================
+
+Author: M Faulkner
+------------------
+
+Date: 12/06/20
+--------------
+
+About the tutorial
+~~~~~~~~~~~~~~~~~~
+
+This tutorial shows how to load in spikes object and produce a histogram
+plot
+
+Get all the imports etttcccc. This is a link to this tutorial `press the
+link <../01_overview.html>`__
+
+.. code:: ipython3
+
+    #from oneibl.one import ONE
+    #import alf.io
+    from pathlib import Path
+    import matplotlib.pyplot as plt
+    import numpy as np
+    
+    #one = ONE()
+    eid = 'a3df91c8-52a6-4afa-957b-3479a7d0897c'
+    probe_label = 'probe00'
+    
+    #sess_path = one.path_from_eid(eid)
+    #alf_path = Path(sess_path, 'alf', probe_label)
+    
+    #spikes = alf.io.load_object(alf_path, 'spikes')
+    
+    
+    
+    
+
+
+.. code:: ipython3
+
+     #clust, counts = np.unique(spikes.clusters, return_counts=True)
+
+.. code:: ipython3
+
+    #plt.hist(clust, weights=counts)
+

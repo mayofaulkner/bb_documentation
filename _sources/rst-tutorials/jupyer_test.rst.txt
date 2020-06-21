@@ -1,0 +1,59 @@
+Title of your tutorial
+======================
+
+Author: M Faulkner
+------------------
+
+Date: 12/06/2020
+----------------
+
+About tutorial
+~~~~~~~~~~~~~~
+
+This is a testing tutorial to see how this all works
+lalalallallalallalla
+
+First import everything you need
+
+.. code:: ipython3
+
+    import matplotlib.pyplot as plt
+    import os
+    import numpy as np
+    #from brainbox import plot
+    #import alf.io
+    #from my_module import add_numbers
+    #from ibllib.pipes import misc
+
+Next make a simple plot
+
+.. code:: ipython3
+
+    x = np.arange(100)
+    y = np.arange(100)
+    
+    plt.plot(x,y)
+
+
+
+
+.. parsed-literal::
+
+    [<matplotlib.lines.Line2D at 0x7f8b5175b6a0>]
+
+
+
+
+.. image:: nboutput/jupyer_test_4_1.png
+
+
+.. code:: ipython3
+
+    #ra=add_numbers(3, 4)
+    #print(ra)
+
+Test out the help function to make sure it can find ibllib stuff
+
+.. code:: ipython3
+
+    #help(alf.io.load_file_content)
