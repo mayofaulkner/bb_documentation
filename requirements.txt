@@ -3,3 +3,4 @@ nbconvert
 sphinx_rtd_theme
 sphinx
 jupyter-client
+ipykernel
