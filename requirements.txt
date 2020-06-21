@@ -4,3 +4,5 @@ sphinx_rtd_theme
 sphinx
 jupyter-client
 ipykernel
+matplotlib>=3.0.3
+numpy>=1.16.4
