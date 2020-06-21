@@ -50,7 +50,7 @@ class NotebookConverter(object):
 
         self.execute_kwargs = dict(timeout=900)
         #if kernel_name:
-        self.execute_kwargs['kernel_name'] = 'python3'
+        #self.execute_kwargs['kernel_name'] = 'python3'
 
     def execute(self, write=True):
         """
