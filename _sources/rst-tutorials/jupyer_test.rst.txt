@@ -39,7 +39,7 @@ Next make a simple plot
 
 .. parsed-literal::
 
-    [<matplotlib.lines.Line2D at 0x7f8b5175b6a0>]
+    [<matplotlib.lines.Line2D at 0x23d67f06dc8>]
 
 
 
