@@ -3,11 +3,14 @@
 {% block header %}
 
 {# Remove the exec_ prefix #}
-{% set nb_name = resources.metadata.name[5:] %}
+{% set nb_name = resources.metadata.name[9:] %}
+{% set colab_name = 'colab_' + nb_name %}
 
 .. raw:: html
 
-    <a href="../_static/{{ nb_name }}.ipynb"><button id="download">Download tutorial notebook</button></a>
+    <a href="../_static/{{ nb_name }}/{{ nb_name }}.ipynb"><button id="download">Download tutorial notebook</button></a>
+    <a href="https://github.com/mayofaulkner/bb_documentation/tree/master/docs/notebooks/{{ nb_name }}/{{ nb_name }}.ipynb"><button id="github">Github link</button></a>
+    <a href="https://colab.research.google.com/github/mayofaulkner/bb_documentation/blob/gh-pages/_static/{{ nb_name }}/{{ colab_name }}.ipynb"><button id="colab">Colab link</button></a>
 
     <div id="spacer"></div>
 
@@ -29,8 +32,8 @@
 
     <div id="spacer"></div>
 
-    <a href="../_static/{{ nb_name }}/{{ nb_name }}.ipynb"><button id="download">Download tutorial notebook</button></a>
-    <a href="https://beta.mybinder.org/v2/gh/astropy/astropy-tutorials/master?filepath=/tutorials/notebooks/{{ nb_name }}/{{ nb_name }}.ipynb"><button id="binder">Interactive tutorial notebook</button></a>
+    <a href="../_static/tutorials/{{ nb_name }}/{{ nb_name }}.ipynb"><button id="download">Download tutorial notebook</button></a>
+    <a href="https://github.com/mayofaulkner/bb_documentation/tree/master/docs/tutorials/{{ nb_name }}/{{ nb_name }}.ipynb"><button id="github">Github link</button></a>
 
 {% endblock %}
 

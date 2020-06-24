@@ -36,9 +36,10 @@ release = '0.0.1'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-   # 'nbsphinx',
+   #'nbsphinx',
     'sphinx.ext.mathjax',
-    'recommonmark'
+    'recommonmark',
+    'sphinx.ext.githubpages'
 ]
 
 nbsphinx_execute_arguments = [
@@ -84,9 +85,10 @@ if _scripts_path not in sys.path:
     sys.path.insert(1, _scripts_path)
 
 from convert import process_notebooks
-nb_tutorials_path = os.path.join(_root, 'tutorials')
-#template_path = os.path.join(_root, 'tutorials', 'astropy.tpl')
-rst_output_path = os.path.join(_root, 'rst-tutorials')
+nb_tutorials_path = os.path.join(_root, 'notebooks_processed')
+template_path = os.path.join(_root, 'templates', 'template.tpl')
+rst_output_path = os.path.join(_root, 'rst-notebooks')
+colab_template_path = os.path.join(_root, 'templates', 'colab_template.ipynb')
 
 #processkwargs = dict(output_path=rst_output_path, template_file=template_path)
 #if os.environ.get('NBCONVERT_KERNEL'):  # this allows access from "make html"
@@ -95,14 +97,16 @@ rst_output_path = os.path.join(_root, 'rst-tutorials')
 #if os.environ.get('NBFILE'):  # this allows only building a single tutorial file
 #    nb_tutorials_path = os.path.abspath(os.environ.get('NBFILE'))
 
-process_notebooks(nb_tutorials_path, output_path=rst_output_path, overwrite=True)
+process_notebooks(nb_tutorials_path, output_path=rst_output_path, template_file=template_path,
+                  colab_template=colab_template_path, overwrite=True)
 
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 #_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
-html_static_path = ['tutorials', '_static']
+html_static_path = ['notebooks_processed', '_static']
 html_static_path = [os.path.join(_root, x)
                     for x in html_static_path]
+
 
