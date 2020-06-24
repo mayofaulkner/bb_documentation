@@ -1,0 +1,106 @@
+.. raw:: html
+
+    <a href="../_static/jupyer_test/jupyer_test.ipynb"><button id="download">Download tutorial notebook</button></a>
+    <a href="https://github.com/mayofaulkner/bb_documentation/tree/master/docs/notebooks/jupyer_test/jupyer_test.ipynb"><button id="github">Github link</button></a>
+
+    <div id="spacer"></div>
+
+.. meta::
+    :keywords: 
+
+.. role:: inputnumrole
+.. role:: outputnumrole
+
+.. _jupyer_test:
+
+Title of your tutorial
+======================
+
+Author: M Faulkner
+------------------
+
+Date: 12/06/2020
+----------------
+
+About tutorial
+~~~~~~~~~~~~~~
+
+This is a testing tutorial to see how this all works
+lalalallallalallalla
+
+First import everything you need
+
+
+:inputnumrole:`In[1]:`
+
+
+.. code:: python
+
+    import matplotlib.pyplot as plt
+    import os
+    import numpy as np
+    #from brainbox import plot
+    #import alf.io
+    #from my_module import add_numbers
+    #from ibllib.pipes import misc
+
+Next make a simple plot
+
+
+:inputnumrole:`In[2]:`
+
+
+.. code:: python
+
+    x = np.arange(100)
+    y = np.arange(100)
+    
+    plt.plot(x,y)
+
+
+:outputnumrole:`Out[2]:`
+
+
+
+
+.. parsed-literal::
+
+    [<matplotlib.lines.Line2D at 0x25221885588>]
+
+
+
+
+.. image:: nboutput/jupyer_test_4_1.png
+
+
+
+
+:inputnumrole:`In[3]:`
+
+
+.. code:: python
+
+    #ra=add_numbers(3, 4)
+    #print(ra)
+
+Test out the help function to make sure it can find ibllib stuff
+
+
+:inputnumrole:`In[4]:`
+
+
+.. code:: python
+
+    #help(alf.io.load_file_content)
+
+
+
+
+
+.. raw:: html
+
+    <div id="spacer"></div>
+
+    <a href="../_static/tutorials/ted_jupyer_test/ted_jupyer_test.ipynb"><button id="download">Download tutorial notebook</button></a>
+    <a href="https://github.com/mayofaulkner/bb_documentation/tree/master/docs/tutorials/ted_jupyer_test/ted_jupyer_test.ipynb"><button id="github">Github link</button></a>
+

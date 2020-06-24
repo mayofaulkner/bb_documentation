@@ -1,0 +1,91 @@
+.. raw:: html
+
+    <a href="../_static/raster/raster.ipynb"><button id="download">Download tutorial notebook</button></a>
+    <a href="https://github.com/mayofaulkner/bb_documentation/tree/master/docs/notebooks/raster/raster.ipynb"><button id="github">Github link</button></a>
+
+    <div id="spacer"></div>
+
+.. meta::
+    :keywords: 
+
+.. role:: inputnumrole
+.. role:: outputnumrole
+
+.. _raster:
+
+Tutorial 2 -looking at spikes
+=============================
+
+Author: M Faulkner
+------------------
+
+Date: 12/06/20
+--------------
+
+About the tutorial
+~~~~~~~~~~~~~~~~~~
+
+This tutorial shows how to load in spikes object and produce a histogram
+plot
+
+Get all the imports etttcccc. This is a link to this tutorial `press the
+link <../01_overview.html>`__
+
+
+:inputnumrole:`In[1]:`
+
+
+.. code:: python
+
+    #from oneibl.one import ONE
+    #import alf.io
+    from pathlib import Path
+    import matplotlib.pyplot as plt
+    import numpy as np
+    
+    #one = ONE()
+    eid = 'a3df91c8-52a6-4afa-957b-3479a7d0897c'
+    probe_label = 'probe00'
+    
+    #sess_path = one.path_from_eid(eid)
+    #alf_path = Path(sess_path, 'alf', probe_label)
+    
+    #spikes = alf.io.load_object(alf_path, 'spikes')
+    
+    
+    
+    
+    
+
+
+:inputnumrole:`In[2]:`
+
+
+.. code:: python
+
+     #clust, counts = np.unique(spikes.clusters, return_counts=True)
+
+
+:inputnumrole:`In[3]:`
+
+
+.. code:: python
+
+    #plt.hist(clust, weights=counts)
+
+
+:inputnumrole:`In[None]:`
+
+
+
+
+
+
+
+.. raw:: html
+
+    <div id="spacer"></div>
+
+    <a href="../_static/tutorials/ted_raster/ted_raster.ipynb"><button id="download">Download tutorial notebook</button></a>
+    <a href="https://github.com/mayofaulkner/bb_documentation/tree/master/docs/tutorials/ted_raster/ted_raster.ipynb"><button id="github">Github link</button></a>
+
