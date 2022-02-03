@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ibllib.tests.test_io &mdash; IBL Library  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> IBL Library
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dj_docs/dj_introduction.html">Introduction to DataJoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dj_docs/dj_public.html">Publicly available IBL data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dj_docs/dj_credentials.html">DataJoint credentials for internal IBL users</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Public</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../public_docs/public_introduction.html">Publicly available IBL data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploring IBL Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../loading_examples.html">Loading Data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../02_installation.html">Unified Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../09_contribution.html">How to contribute</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples &amp; Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../06_examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../010_api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Detailed Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">IBL Library</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>ibllib.tests.test_io</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ibllib.tests.test_io</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="kn">import</span> <span class="n">patch</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">one.api</span> <span class="kn">import</span> <span class="n">ONE</span>
+<span class="kn">from</span> <span class="nn">iblutil.io</span> <span class="kn">import</span> <span class="n">params</span>
+
+<span class="kn">from</span> <span class="nn">ibllib.tests</span> <span class="kn">import</span> <span class="n">TEST_DB</span>
+<span class="kn">from</span> <span class="nn">ibllib.io</span> <span class="kn">import</span> <span class="n">flags</span><span class="p">,</span> <span class="n">misc</span><span class="p">,</span> <span class="n">globus</span><span class="p">,</span> <span class="n">video</span>
+<span class="kn">import</span> <span class="nn">ibllib.io.raw_data_loaders</span> <span class="k">as</span> <span class="nn">raw</span>
+
+
+<div class="viewcode-block" id="TestsParams"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsParams">[docs]</a><span class="k">class</span> <span class="nc">TestsParams</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="TestsParams.setUp"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsParams.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">par_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;tata&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="s1">&#39;toto&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="s1">&#39;titi&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+                         <span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;turlu&#39;</span><span class="p">],</span>
+                         <span class="s1">&#39;apath&#39;</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/gna/gna/gna&#39;</span><span class="p">)}</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">par_dict</span><span class="p">)</span>
+        <span class="n">params</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">par_dict</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestsParams.test_params"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsParams.test_params">[docs]</a>    <span class="k">def</span> <span class="nf">test_params</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#  first go to and from dictionary</span>
+        <span class="n">par_dict</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">par_dict</span>
+        <span class="n">par</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">par_dict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">as_dict</span><span class="p">(</span><span class="n">par</span><span class="p">),</span> <span class="n">par_dict</span><span class="p">)</span>
+        <span class="c1"># next go to and from dictionary via json</span>
+        <span class="n">par2</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">par2</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestsParams.test_param_get_file"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsParams.test_param_get_file">[docs]</a>    <span class="k">def</span> <span class="nf">test_param_get_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">home_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="s2">&quot;toto&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">parent</span>
+        <span class="c1"># straight case the file is .{str} in the home directory</span>
+        <span class="k">assert</span> <span class="n">home_dir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;.toto&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="s2">&quot;toto&quot;</span><span class="p">))</span>
+        <span class="c1"># straight case the file is .{str} in the home directory</span>
+        <span class="k">assert</span> <span class="n">home_dir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;.toto&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="s2">&quot;.toto&quot;</span><span class="p">))</span>
+        <span class="c1"># subfolder case</span>
+        <span class="k">assert</span> <span class="n">home_dir</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s2">&quot;.toto&quot;</span><span class="p">,</span> <span class="s2">&quot;.titi&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="s2">&quot;toto/titi&quot;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestsParams.test_new_default_param"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsParams.test_new_default_param">[docs]</a>    <span class="k">def</span> <span class="nf">test_new_default_param</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># in this case an updated version of the codes brings in a new parameter</span>
+        <span class="n">default</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;tata2&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="s1">&#39;toto2&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="s1">&#39;titi2&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="s1">&#39;tete2&#39;</span><span class="p">,</span>
+                   <span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+                   <span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;turlu&#39;</span><span class="p">]}</span>
+        <span class="n">expected_result</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="s1">&#39;tata&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;O&#39;</span><span class="p">:</span> <span class="s1">&#39;toto&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;I&#39;</span><span class="p">:</span> <span class="s1">&#39;titi&#39;</span><span class="p">,</span>
+                           <span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+                           <span class="s1">&#39;liste&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;turlu&#39;</span><span class="p">],</span>
+                           <span class="s1">&#39;apath&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/gna/gna/gna&#39;</span><span class="p">)),</span>
+                           <span class="s1">&#39;E&#39;</span><span class="p">:</span> <span class="s1">&#39;tete2&#39;</span><span class="p">,</span>
+                           <span class="p">}</span>
+        <span class="n">par2</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertCountEqual</span><span class="p">(</span><span class="n">par2</span><span class="o">.</span><span class="n">as_dict</span><span class="p">(),</span> <span class="n">expected_result</span><span class="p">)</span>
+        <span class="c1"># on the next path the parameter has been added to the param file</span>
+        <span class="n">par2</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertCountEqual</span><span class="p">(</span><span class="n">par2</span><span class="o">.</span><span class="n">as_dict</span><span class="p">(),</span> <span class="n">expected_result</span><span class="p">)</span>
+        <span class="c1"># check that it doesn&#39;t break if a named tuple is given instead of a dict</span>
+        <span class="n">par3</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">par2</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">par2</span><span class="p">,</span> <span class="n">par3</span><span class="p">)</span>
+        <span class="c1"># check that a non-existing parfile raises error</span>
+        <span class="n">pstring</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">())</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">FileNotFoundError</span><span class="p">):</span>
+            <span class="n">params</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">pstring</span><span class="p">)</span>
+        <span class="c1"># check that a non-existing parfile with default returns default</span>
+        <span class="n">par</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">pstring</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertCountEqual</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">default</span><span class="p">))</span>
+        <span class="c1"># even if this default is a Params named tuple</span>
+        <span class="n">par</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">pstring</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">par</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">par</span><span class="p">,</span> <span class="n">params</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">default</span><span class="p">))</span>
+        <span class="c1"># check default empty dict</span>
+        <span class="n">pstring</span> <span class="o">=</span> <span class="s1">&#39;foobar&#39;</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="n">pstring</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span>
+        <span class="n">par</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">pstring</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">{})</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">par</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">filename</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="TestsParams.tearDown"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsParams.tearDown">[docs]</a>    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># at last delete the param file</span>
+        <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="s1">&#39;toto&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">Path</span><span class="p">(</span><span class="n">params</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="s1">&#39;foobar&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TestsRawDataLoaders"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders">[docs]</a><span class="k">class</span> <span class="nc">TestsRawDataLoaders</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.setUp"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bin_session_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+            <span class="s1">&#39;fixtures&#39;</span><span class="p">,</span> <span class="s1">&#39;io&#39;</span><span class="p">,</span> <span class="s1">&#39;data_loaders&#39;</span><span class="p">,</span> <span class="s2">&quot;_iblrig_test_mouse_2020-01-01_001&quot;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.testFlagFileRead"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.testFlagFileRead">[docs]</a>    <span class="k">def</span> <span class="nf">testFlagFileRead</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># empty file should return True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># test with 2 lines and a trailing</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+            <span class="n">fid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;file1</span><span class="se">\n</span><span class="s1">file2</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">)),</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;file1&#39;</span><span class="p">,</span> <span class="s1">&#39;file2&#39;</span><span class="p">]))</span>
+        <span class="c1"># test with 2 lines and a trailing, Windows convention</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+            <span class="n">fid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;file1</span><span class="se">\r\n</span><span class="s1">file2</span><span class="se">\r\n</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">)),</span> <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;file1&#39;</span><span class="p">,</span> <span class="s1">&#39;file2&#39;</span><span class="p">]))</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.testAppendFlagFile"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.testAppendFlagFile">[docs]</a>    <span class="k">def</span> <span class="nf">testAppendFlagFile</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1">#  DO NOT CHANGE THE ORDER OF TESTS BELOW</span>
+        <span class="c1"># prepare a file with 3 dataset types</span>
+        <span class="n">file_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;_ibl_extraRewards.times&#39;</span><span class="p">,</span> <span class="s1">&#39;_ibl_lickPiezo.raw&#39;</span><span class="p">,</span> <span class="s1">&#39;_ibl_lickPiezo.timestamps&#39;</span><span class="p">]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+            <span class="n">fid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file_list</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">)),</span> <span class="nb">set</span><span class="p">(</span><span class="n">file_list</span><span class="p">))</span>
+
+        <span class="c1"># with an existing file containing files, writing more files append to it</span>
+        <span class="n">file_list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;turltu&#39;</span><span class="p">]</span>
+        <span class="c1"># also makes sure that if a string is provided it works</span>
+        <span class="n">flags</span><span class="o">.</span><span class="n">write_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">file_list_2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">)),</span>
+                         <span class="nb">set</span><span class="p">(</span><span class="n">file_list</span> <span class="o">+</span> <span class="n">file_list_2</span><span class="p">))</span>
+
+        <span class="c1"># writing again keeps unique file values</span>
+        <span class="n">flags</span><span class="o">.</span><span class="n">write_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">file_list_2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="mi">1</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span> <span class="o">==</span> <span class="n">file_list_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="c1"># with an existing file containing files, writing empty filelist returns True for all files</span>
+        <span class="n">flags</span><span class="o">.</span><span class="n">write_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># with an existing empty file, writing filelist returns True for all files</span>
+        <span class="n">flags</span><span class="o">.</span><span class="n">write_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;file1&#39;</span><span class="p">,</span> <span class="s1">&#39;file2&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># makes sure that read after write empty list also returns True</span>
+        <span class="n">flags</span><span class="o">.</span><span class="n">write_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># with an existing empty file, writing filelist returns the list if clobber</span>
+        <span class="n">flags</span><span class="o">.</span><span class="n">write_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;file1&#39;</span><span class="p">,</span> <span class="s1">&#39;file2&#39;</span><span class="p">,</span> <span class="s1">&#39;file3&#39;</span><span class="p">],</span> <span class="n">clobber</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">)),</span>
+                         <span class="nb">set</span><span class="p">([</span><span class="s1">&#39;file1&#39;</span><span class="p">,</span> <span class="s1">&#39;file2&#39;</span><span class="p">,</span> <span class="s1">&#39;file3&#39;</span><span class="p">]))</span>
+
+        <span class="c1"># test the removal of a file within the list</span>
+        <span class="n">flags</span><span class="o">.</span><span class="n">excise_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">removed_files</span><span class="o">=</span><span class="s1">&#39;file1&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">)),</span> <span class="p">[</span><span class="s1">&#39;file2&#39;</span><span class="p">,</span> <span class="s1">&#39;file3&#39;</span><span class="p">])</span>
+
+        <span class="c1"># if file-list is True it means all files and file_list should be empty after read</span>
+        <span class="n">flags</span><span class="o">.</span><span class="n">write_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">file_list</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">flags</span><span class="o">.</span><span class="n">read_flag_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="kc">True</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.test_load_encoder_trial_info"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.test_load_encoder_trial_info">[docs]</a>    <span class="k">def</span> <span class="nf">test_load_encoder_trial_info</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;extractors&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;session_biased_ge5&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_encoder_trial_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.test_load_camera_ssv_times"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.test_load_camera_ssv_times">[docs]</a>    <span class="k">def</span> <span class="nf">test_load_camera_ssv_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">session</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;extractors&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;session_ephys&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_ssv_times</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;tail&#39;</span><span class="p">)</span>
+        <span class="n">bonsai</span><span class="p">,</span> <span class="n">camera</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_ssv_times</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">bonsai</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">camera</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">6001</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">bonsai</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">str</span><span class="p">,</span> <span class="s1">&#39;&lt;M8[ns]&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">bonsai</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s1">&#39;2020-08-19T16:42:57.790361600&#39;</span><span class="p">)</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">69.466875</span><span class="p">,</span> <span class="mf">69.5</span><span class="p">,</span> <span class="mf">69.533</span><span class="p">,</span> <span class="mf">69.566125</span><span class="p">,</span> <span class="mf">69.59925</span><span class="p">])</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_equal</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">camera</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+        <span class="c1"># Many sessions have the columns in the wrong order.  Here we write 5 lines from the</span>
+        <span class="c1"># fixture file to another file in a temporary folder, with the columns swapped.</span>
+        <span class="n">from_file</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;raw_video_data&#39;</span><span class="p">,</span> <span class="s1">&#39;_iblrig_bodyCamera.timestamps.ssv&#39;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tempdir</span><span class="p">:</span>
+            <span class="c1"># New file with columns swapped (also checks loading files with UUID in name)</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;_iblrig_leftCamera.timestamps.</span><span class="si">{</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="si">}</span><span class="s1">.ssv&#39;</span>
+            <span class="n">to_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tempdir</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;raw_video_data&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+            <span class="n">to_file</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">from_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">a</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">to_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">b</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+                    <span class="c1"># Read line from fixture file and write into file in swapped order</span>
+                    <span class="n">b</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{1}</span><span class="s1"> </span><span class="si">{0}</span><span class="s1"> </span><span class="si">{2}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)))</span>
+            <span class="k">assert</span> <span class="n">to_file</span><span class="o">.</span><span class="n">exists</span><span class="p">(),</span> <span class="s1">&#39;failed to write test file&#39;</span>
+            <span class="n">bonsai</span><span class="p">,</span> <span class="n">camera</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_ssv_times</span><span class="p">(</span><span class="n">to_file</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
+            <span class="c1"># Verify that values returned in the same order as before</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">bonsai</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">str</span><span class="p">,</span> <span class="s1">&#39;&lt;M8[ns]&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">camera</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">str</span><span class="p">,</span> <span class="s1">&#39;&lt;f8&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertAlmostEqual</span><span class="p">(</span><span class="mf">69.466875</span><span class="p">,</span> <span class="n">camera</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.test_load_camera_gpio"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.test_load_camera_gpio">[docs]</a>    <span class="k">def</span> <span class="nf">test_load_camera_gpio</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Embedded frame data comes from 057e25ef-3f80-42e8-aa9f-e259df8bc9ad, left camera</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">session</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;extractors&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;session_ephys&#39;</span><span class="p">)</span>
+        <span class="n">session2</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span>
+            <span class="s1">&#39;fixtures&#39;</span><span class="p">,</span> <span class="s1">&#39;io&#39;</span><span class="p">,</span> <span class="s1">&#39;data_loaders&#39;</span><span class="p">,</span> <span class="s1">&#39;_iblrig_test_mouse_2020-01-01_001&#39;</span>
+        <span class="p">)</span>
+        <span class="n">gpio</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_gpio</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="n">as_dicts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">gpio2</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_gpio</span><span class="p">(</span><span class="n">session2</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">as_dicts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gpio</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># One dict per pin</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gpio2</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># One dict per pin</span>
+        <span class="o">*</span><span class="n">gpio_</span><span class="p">,</span> <span class="n">gpio_4</span> <span class="o">=</span> <span class="n">gpio</span>  <span class="c1"># Check last dict; pin 4 should have one pulse</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;indices&#39;</span><span class="p">,</span> <span class="s1">&#39;polarities&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">gpio_4</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_equal</span><span class="p">(</span><span class="n">gpio_4</span><span class="p">[</span><span class="s1">&#39;indices&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">166</span><span class="p">,</span> <span class="mi">172</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">))</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_equal</span><span class="p">(</span><span class="n">gpio_4</span><span class="p">[</span><span class="s1">&#39;polarities&#39;</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+
+        <span class="c1"># Test raw flag</span>
+        <span class="n">gpio</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_gpio</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="n">as_dicts</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">gpio</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">gpio</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="p">(</span><span class="mi">510</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+        <span class="c1"># Test empty / None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">load_camera_gpio</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">load_camera_gpio</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">))</span>
+        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_gpio</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">as_dicts</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
+
+        <span class="c1"># Test noisy GPIO data</span>
+        <span class="n">side</span> <span class="o">=</span> <span class="s1">&#39;right&#39;</span>
+        <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tdir</span><span class="p">:</span>
+            <span class="n">session_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">tdir</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;mouse&#39;</span><span class="p">,</span> <span class="s1">&#39;2020-06-01&#39;</span><span class="p">,</span> <span class="s1">&#39;001&#39;</span><span class="p">)</span>
+            <span class="n">session_path</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;raw_video_data&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="c1"># Test loads file with UUID</span>
+            <span class="n">did</span> <span class="o">=</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span>  <span class="c1"># Random uuid</span>
+            <span class="n">filename</span> <span class="o">=</span> <span class="n">session_path</span> <span class="o">/</span> <span class="s1">&#39;raw_video_data&#39;</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">&#39;_iblrig_</span><span class="si">{</span><span class="n">side</span><span class="si">}</span><span class="s1">Camera.GPIO.</span><span class="si">{</span><span class="n">did</span><span class="si">}</span><span class="s1">.bin&#39;</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">1.87904819e+09</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertLogs</span><span class="p">(</span><span class="s1">&#39;ibllib&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;WARNING&#39;</span><span class="p">):</span>
+                <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_gpio</span><span class="p">(</span><span class="n">session_path</span><span class="p">,</span> <span class="n">side</span><span class="p">,</span> <span class="n">as_dicts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="c1"># Test dead pin array</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3000</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+            <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertLogs</span><span class="p">(</span><span class="s1">&#39;ibllib&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="s1">&#39;ERROR&#39;</span><span class="p">):</span>
+                <span class="n">gpio</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_gpio</span><span class="p">(</span><span class="n">session_path</span><span class="p">,</span> <span class="n">side</span><span class="p">,</span> <span class="n">as_dicts</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">gpio</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.test_load_camera_frame_count"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.test_load_camera_frame_count">[docs]</a>    <span class="k">def</span> <span class="nf">test_load_camera_frame_count</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Embedded frame data comes from 057e25ef-3f80-42e8-aa9f-e259df8bc9ad, left camera</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">session</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;extractors&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;session_ephys&#39;</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_frame_count</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_equal</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">510</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">count</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+        <span class="c1"># Test raw flag</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_frame_count</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">int</span><span class="p">(</span><span class="mi">16696704</span><span class="p">))</span>
+
+        <span class="c1"># Test empty / None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">load_camera_frame_count</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">load_camera_frame_count</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.test_load_embedded_frame_data"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.test_load_embedded_frame_data">[docs]</a>    <span class="k">def</span> <span class="nf">test_load_embedded_frame_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">session</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;extractors&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="s1">&#39;session_ephys&#39;</span><span class="p">)</span>
+        <span class="n">count</span><span class="p">,</span> <span class="n">gpio</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_embedded_frame_data</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">gpio</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span>
+        <span class="n">count</span><span class="p">,</span> <span class="n">gpio</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_embedded_frame_data</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertNotEqual</span><span class="p">(</span><span class="n">count</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">gpio</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.test_load_camera_frameData"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.test_load_camera_frameData">[docs]</a>    <span class="k">def</span> <span class="nf">test_load_camera_frameData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+        <span class="n">fd_raw</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_frameData</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bin_session_path</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">fd</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_frameData</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bin_session_path</span><span class="p">)</span>
+        <span class="c1"># Wrong camera input file not found</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">AssertionError</span><span class="p">):</span>
+            <span class="n">raw</span><span class="o">.</span><span class="n">load_camera_frameData</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bin_session_path</span><span class="p">,</span> <span class="n">camera</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+        <span class="c1"># Shape</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">fd_raw</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span>
+        <span class="c1"># Type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">fd_raw</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">))</span>
+        <span class="c1"># Column names</span>
+        <span class="n">df_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Timestamp&quot;</span><span class="p">,</span> <span class="s2">&quot;embeddedTimeStamp&quot;</span><span class="p">,</span>
+                   <span class="s2">&quot;embeddedFrameCounter&quot;</span><span class="p">,</span> <span class="s2">&quot;embeddedGPIOPinState&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([</span><span class="n">x</span> <span class="ow">in</span> <span class="n">fd</span><span class="o">.</span><span class="n">columns</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df_cols</span><span class="p">]))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([</span><span class="n">x</span> <span class="ow">in</span> <span class="n">fd_raw</span><span class="o">.</span><span class="n">columns</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df_cols</span><span class="p">]))</span>
+        <span class="c1"># Column types</span>
+        <span class="n">parsed_dtypes</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;Timestamp&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+            <span class="s2">&quot;embeddedTimeStamp&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+            <span class="s2">&quot;embeddedFrameCounter&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
+            <span class="s2">&quot;embeddedGPIOPinState&quot;</span><span class="p">:</span> <span class="nb">object</span>
+        <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">fd</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span> <span class="o">==</span> <span class="n">parsed_dtypes</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">([</span><span class="n">x</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">fd_raw</span><span class="o">.</span><span class="n">dtypes</span><span class="p">]))</span></div>
+
+<div class="viewcode-block" id="TestsRawDataLoaders.tearDown"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsRawDataLoaders.tearDown">[docs]</a>    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempfile</span><span class="o">.</span><span class="n">name</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TestsMisc"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsMisc">[docs]</a><span class="k">class</span> <span class="nc">TestsMisc</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+<div class="viewcode-block" id="TestsMisc.setUp"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsMisc.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tdir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span>
+        <span class="c1"># self.addClassCleanup(tmpdir.cleanup)  # py3.8</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tdir</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subdirs</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">/</span> <span class="s1">&#39;test_empty_parent&#39;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">/</span> <span class="s1">&#39;test_empty_parent&#39;</span> <span class="o">/</span> <span class="s1">&#39;test_empty&#39;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">/</span> <span class="s1">&#39;test_empty&#39;</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">/</span> <span class="s1">&#39;test_full&#39;</span><span class="p">,</span>
+        <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">/</span> <span class="s1">&#39;test_full&#39;</span> <span class="o">/</span> <span class="s1">&#39;file.txt&#39;</span>
+
+        <span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdirs</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="TestsMisc.tearDown"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsMisc.tearDown">[docs]</a>    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tdir</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">_resetup_folders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
+        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span> <span class="o">/</span> <span class="s1">&#39;test_full&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rmdir</span><span class="p">()</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">rmdir</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdirs</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">exists</span><span class="p">()]</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdirs</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+
+<div class="viewcode-block" id="TestsMisc.test_delete_empty_folders"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsMisc.test_delete_empty_folders">[docs]</a>    <span class="k">def</span> <span class="nf">test_delete_empty_folders</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">pre</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdirs</span><span class="p">]</span>
+        <span class="n">pre_expected</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">([</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pre</span><span class="p">,</span> <span class="n">pre_expected</span><span class="p">)]))</span>
+
+        <span class="c1"># Test dry run</span>
+        <span class="n">pos_expected</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">misc</span><span class="o">.</span><span class="n">delete_empty_folders</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">pos</span> <span class="o">==</span> <span class="n">pos_expected</span><span class="p">)</span>
+        <span class="c1"># Test dry=False, non recursive</span>
+        <span class="n">pos_expected</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+        <span class="n">misc</span><span class="o">.</span><span class="n">delete_empty_folders</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span><span class="p">,</span> <span class="n">dry</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdirs</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">([</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">pos_expected</span><span class="p">)]))</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_resetup_folders</span><span class="p">()</span>
+
+        <span class="c1"># Test recursive</span>
+        <span class="n">pos_expected</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+        <span class="n">misc</span><span class="o">.</span><span class="n">delete_empty_folders</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tempdir</span><span class="p">,</span> <span class="n">dry</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">subdirs</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">([</span><span class="n">x</span> <span class="o">==</span> <span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">pos</span><span class="p">,</span> <span class="n">pos_expected</span><span class="p">)]))</span></div></div>
+
+
+<div class="viewcode-block" id="TestsGlobus"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsGlobus">[docs]</a><span class="k">class</span> <span class="nc">TestsGlobus</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestsGlobus.setUp"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsGlobus.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patcher</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">multiple</span><span class="p">(</span><span class="s1">&#39;globus_sdk&#39;</span><span class="p">,</span>
+                                      <span class="n">NativeAppAuthClient</span><span class="o">=</span><span class="n">unittest</span><span class="o">.</span><span class="n">mock</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">,</span>
+                                      <span class="n">RefreshTokenAuthorizer</span><span class="o">=</span><span class="n">unittest</span><span class="o">.</span><span class="n">mock</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">,</span>
+                                      <span class="n">TransferClient</span><span class="o">=</span><span class="n">unittest</span><span class="o">.</span><span class="n">mock</span><span class="o">.</span><span class="n">DEFAULT</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patcher</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">patcher</span><span class="o">.</span><span class="n">stop</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestsGlobus.test_as_globus_path"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsGlobus.test_as_globus_path">[docs]</a>    <span class="k">def</span> <span class="nf">test_as_globus_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># A Windows path</span>
+        <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;win32&#39;</span><span class="p">:</span>
+            <span class="c1"># &quot;/E/FlatIron/integration&quot;</span>
+            <span class="n">actual</span> <span class="o">=</span> <span class="n">globus</span><span class="o">.</span><span class="n">as_globus_path</span><span class="p">(</span><span class="s1">&#39;E:</span><span class="se">\\</span><span class="s1">FlatIron</span><span class="se">\\</span><span class="s1">integration&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">actual</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;/E/&#39;</span><span class="p">))</span>
+            <span class="c1"># A relative POSIX path</span>
+            <span class="n">actual</span> <span class="o">=</span> <span class="n">globus</span><span class="o">.</span><span class="n">as_globus_path</span><span class="p">(</span><span class="s1">&#39;/mnt/foo/../data/integration&#39;</span><span class="p">)</span>
+            <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;/mnt/data/integration&#39;</span>  <span class="c1"># &quot;/C/mnt/data/integration</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">actual</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">expected</span><span class="p">))</span>
+
+        <span class="c1"># A globus path</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="n">globus</span><span class="o">.</span><span class="n">as_globus_path</span><span class="p">(</span><span class="s1">&#39;/E/FlatIron/integration&#39;</span><span class="p">)</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="s1">&#39;/E/FlatIron/integration&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestsGlobus.test_login_auto"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestsGlobus.test_login_auto">[docs]</a>    <span class="nd">@unittest</span><span class="o">.</span><span class="n">mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;iblutil.io.params.read&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_login_auto</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mock_params</span><span class="p">):</span>
+        <span class="n">client_id</span> <span class="o">=</span> <span class="s1">&#39;h3u2ier&#39;</span>
+        <span class="c1"># Test ValueError thrown with incorrect parameters</span>
+        <span class="n">mock_params</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># No parameters saved</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">globus</span><span class="o">.</span><span class="n">login_auto</span><span class="p">(</span><span class="n">client_id</span><span class="p">)</span>
+        <span class="c1"># mock_params.assert_called_with(&#39;globus/default&#39;)</span>
+
+        <span class="n">pars</span> <span class="o">=</span> <span class="n">params</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span><span class="s1">&#39;access_token&#39;</span><span class="p">:</span> <span class="s1">&#39;7r3hj89&#39;</span><span class="p">,</span> <span class="s1">&#39;expires_at_seconds&#39;</span><span class="p">:</span> <span class="s1">&#39;2020-09-10&#39;</span><span class="p">})</span>
+        <span class="n">mock_params</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">pars</span>  <span class="c1"># Incomplete parameter object</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">globus</span><span class="o">.</span><span class="n">login_auto</span><span class="p">(</span><span class="n">client_id</span><span class="p">)</span>
+
+        <span class="c1"># Complete parameter object</span>
+        <span class="n">mock_params</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="n">pars</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;refresh_token&#39;</span><span class="p">,</span> <span class="s1">&#39;37yh4&#39;</span><span class="p">)</span>
+        <span class="n">gtc</span> <span class="o">=</span> <span class="n">globus</span><span class="o">.</span><span class="n">login_auto</span><span class="p">(</span><span class="n">client_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsInstance</span><span class="p">(</span><span class="n">gtc</span><span class="p">,</span> <span class="n">unittest</span><span class="o">.</span><span class="n">mock</span><span class="o">.</span><span class="n">Mock</span><span class="p">)</span>
+        <span class="n">mock</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patcher</span><span class="o">.</span><span class="n">get_original</span><span class="p">()</span>
+        <span class="n">mock</span><span class="o">.</span><span class="n">assert_called_once_with</span><span class="p">(</span><span class="n">client_id</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TestVideo"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestVideo">[docs]</a><span class="k">class</span> <span class="nc">TestVideo</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="TestVideo.setUpClass"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestVideo.setUpClass">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">setUpClass</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">one</span> <span class="o">=</span> <span class="n">ONE</span><span class="p">(</span><span class="o">**</span><span class="n">TEST_DB</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestVideo.setUp"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestVideo.setUp">[docs]</a>    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">eid</span> <span class="o">=</span> <span class="s1">&#39;8dd0fcb0-1151-4c97-ae35-2e2421695ad7&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;https://ibl.flatironinstitute.org/mainenlab/&#39;</span>
+                    <span class="s1">&#39;Subjects/ZM_1743/2019-06-14/001/raw_video_data/&#39;</span>
+                    <span class="s1">&#39;_iblrig_leftCamera.raw.71cfeef2-2aa5-46b5-b88f-ca07e3d92474.mp4&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestVideo.test_label_from_path"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestVideo.test_label_from_path">[docs]</a>    <span class="k">def</span> <span class="nf">test_label_from_path</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># Test file path</span>
+        <span class="n">session_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">eid2path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eid</span><span class="p">)</span>
+        <span class="n">video_path</span> <span class="o">=</span> <span class="n">session_path</span> <span class="o">/</span> <span class="s1">&#39;raw_video_data&#39;</span> <span class="o">/</span> <span class="s1">&#39;_iblrig_bodyCamera.raw.mp4&#39;</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">label_from_path</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="c1"># Test URL</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">label_from_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="c1"># Test file name</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">label_from_path</span><span class="p">(</span><span class="s1">&#39;_iblrig_rightCamera.raw.mp4&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+        <span class="c1"># Test wrong file</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">label_from_path</span><span class="p">(</span><span class="s1">&#39;_iblrig_taskSettings.raw.json&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIsNone</span><span class="p">(</span><span class="n">label</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestVideo.test_url_from_eid"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestVideo.test_url_from_eid">[docs]</a>    <span class="k">def</span> <span class="nf">test_url_from_eid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">mode</span> <span class="o">!=</span> <span class="s1">&#39;remote&#39;</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">url_from_eid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eid</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">url_from_eid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eid</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="p">)</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">url_from_eid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">),</span> <span class="n">one</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="p">)</span>
+        <span class="n">expected</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;left&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="s1">&#39;right&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">expected</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+
+        <span class="c1"># Test remote mode</span>
+        <span class="n">old_mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">mode</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s1">&#39;remote&#39;</span>
+        <span class="n">actual</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">url_from_eid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eid</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="n">old_mode</span>
+
+        <span class="c1"># Test arg checks</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">video</span><span class="o">.</span><span class="n">url_from_eid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">eid</span><span class="p">,</span> <span class="s1">&#39;back&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="TestVideo.test_assert_valid_label"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_io.html#ibllib.tests.test_io.TestVideo.test_assert_valid_label">[docs]</a>    <span class="k">def</span> <span class="nf">test_assert_valid_label</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
+            <span class="n">video</span><span class="o">.</span><span class="n">assert_valid_label</span><span class="p">(</span><span class="s1">&#39;tail&#39;</span><span class="p">)</span>
+        <span class="n">label</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">assert_valid_label</span><span class="p">(</span><span class="s1">&#39;LEFT&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span>
+        <span class="c1"># Verify works with lists</span>
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">video</span><span class="o">.</span><span class="n">assert_valid_label</span><span class="p">([</span><span class="s1">&#39;Right&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="s1">&#39;body&#39;</span><span class="p">))</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">TypeError</span><span class="p">):</span>
+            <span class="n">video</span><span class="o">.</span><span class="n">assert_valid_label</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">unittest</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">exit</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">verbosity</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, International Brain Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

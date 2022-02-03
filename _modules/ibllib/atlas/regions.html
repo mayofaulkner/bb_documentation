@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ibllib.atlas.regions &mdash; IBL Library  documentation</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/clipboard.min.js"></script>
+        <script src="../../../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../../index.html" class="icon icon-home"> IBL Library
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dj_docs/dj_introduction.html">Introduction to DataJoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dj_docs/dj_public.html">Publicly available IBL data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dj_docs/dj_credentials.html">DataJoint credentials for internal IBL users</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Public</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../public_docs/public_introduction.html">Publicly available IBL data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploring IBL Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../loading_examples.html">Loading Data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../02_installation.html">Unified Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../09_contribution.html">How to contribute</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples &amp; Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../06_examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../010_api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Detailed Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">IBL Library</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+      <li>ibllib.atlas.regions</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for ibllib.atlas.regions</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">iblutil.util</span> <span class="kn">import</span> <span class="n">Bunch</span>
+<span class="kn">from</span> <span class="nn">iblutil.numerical</span> <span class="kn">import</span> <span class="n">ismember</span>
+
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ibllib&#39;</span><span class="p">)</span>
+<span class="c1"># &#39;Beryl&#39; is the name given to an atlas containing a subset of the most relevant allen annotations</span>
+<span class="n">FILE_BERYL</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;beryl.npy&#39;</span><span class="p">))</span>
+<span class="n">FILE_COSMOS</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;cosmos.npy&#39;</span><span class="p">))</span>
+<span class="n">FILE_MAPPINGS</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;mappings.pqt&#39;</span><span class="p">))</span>
+<span class="n">FILE_REGIONS</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;allen_structure_tree.csv&#39;</span><span class="p">))</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span> <span class="nc">_BrainRegions</span><span class="p">:</span>
+    <span class="nb">id</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">object</span>
+    <span class="n">acronym</span><span class="p">:</span> <span class="nb">object</span>
+    <span class="n">rgb</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span>
+    <span class="n">level</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">parent</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+
+
+<div class="viewcode-block" id="BrainRegions"><a class="viewcode-back" href="../../../_autosummary/ibllib.atlas.regions.html#ibllib.atlas.regions.BrainRegions">[docs]</a><span class="k">class</span> <span class="nc">BrainRegions</span><span class="p">(</span><span class="n">_BrainRegions</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    ibllib.atlas.regions.BrainRegions(brainmap=&#39;Allen&#39;)</span>
+<span class="sd">    The Allen atlas ids are kept intact but lateralized as follows: labels are duplicated</span>
+<span class="sd">     and ids multiplied by -1, with the understanding that left hemisphere regions have negative</span>
+<span class="sd">     ids.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">df_regions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">FILE_REGIONS</span><span class="p">)</span>
+        <span class="c1"># lateralize</span>
+        <span class="n">df_regions_left</span> <span class="o">=</span> <span class="n">df_regions</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">df_regions</span><span class="o">.</span><span class="n">id</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">),</span> <span class="p">:]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">df_regions_left</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">df_regions_left</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">df_regions_left</span><span class="p">[</span><span class="s1">&#39;parent_structure_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">df_regions_left</span><span class="p">[</span><span class="s1">&#39;parent_structure_id&#39;</span><span class="p">]</span>
+        <span class="n">df_regions_left</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_regions_left</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">+</span> <span class="s1">&#39; (left)&#39;</span><span class="p">)</span>
+        <span class="n">df_regions</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">((</span><span class="n">df_regions</span><span class="p">,</span> <span class="n">df_regions_left</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># converts colors to RGB uint8 array</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">(</span><span class="n">df_regions</span><span class="o">.</span><span class="n">color_hex_triplet</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
+            <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="mi">256</span> <span class="o">**</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span> <span class="p">(</span><span class="n">df_regions</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">4</span><span class="p">))[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># set the void region to black</span>
+        <span class="c1"># creates the BrainRegion instance</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">df_regions</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+                         <span class="n">name</span><span class="o">=</span><span class="n">df_regions</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+                         <span class="n">acronym</span><span class="o">=</span><span class="n">df_regions</span><span class="o">.</span><span class="n">acronym</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+                         <span class="n">rgb</span><span class="o">=</span><span class="n">c</span><span class="p">,</span>
+                         <span class="n">level</span><span class="o">=</span><span class="n">df_regions</span><span class="o">.</span><span class="n">depth</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+                         <span class="n">parent</span><span class="o">=</span><span class="n">df_regions</span><span class="o">.</span><span class="n">parent_structure_id</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+        <span class="c1"># mappings are indices not ids: they range from 0 to n regions -1</span>
+        <span class="n">mappings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_parquet</span><span class="p">(</span><span class="n">FILE_MAPPINGS</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mappings</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">mappings</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">mappings</span><span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">_compute_mappings</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recomputes the mapping indices for all mappings</span>
+<span class="sd">        This is left mainly as a reference for adding future mappings as this take a few seconds</span>
+<span class="sd">        to execute. In production,we use the MAPPING_FILES npz to avoid recompuing at each \</span>
+<span class="sd">        instantiation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">beryl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">FILE_BERYL</span><span class="p">)</span>
+        <span class="n">cosmos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">FILE_COSMOS</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mappings</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;Allen&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_from_regions_list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)),</span> <span class="n">lateralize</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s1">&#39;Allen-lr&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">size</span><span class="p">),</span>
+            <span class="s1">&#39;Beryl&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_from_regions_list</span><span class="p">(</span><span class="n">beryl</span><span class="p">,</span> <span class="n">lateralize</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s1">&#39;Beryl-lr&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_from_regions_list</span><span class="p">(</span><span class="n">beryl</span><span class="p">,</span> <span class="n">lateralize</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="s1">&#39;Cosmos&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_from_regions_list</span><span class="p">(</span><span class="n">cosmos</span><span class="p">,</span> <span class="n">lateralize</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+            <span class="s1">&#39;Cosmos-lr&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mapping_from_regions_list</span><span class="p">(</span><span class="n">cosmos</span><span class="p">,</span> <span class="n">lateralize</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="p">}</span>
+        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mappings</span><span class="p">)</span><span class="o">.</span><span class="n">to_parquet</span><span class="p">(</span><span class="n">FILE_MAPPINGS</span><span class="p">)</span>
+
+<div class="viewcode-block" id="BrainRegions.get"><a class="viewcode-back" href="../../../_autosummary/ibllib.atlas.regions.html#ibllib.atlas.regions.BrainRegions.get">[docs]</a>    <span class="k">def</span> <span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bunch</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a bunch of the name/id</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">uid</span><span class="p">,</span> <span class="n">uind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">return_inverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">,</span> <span class="n">iself</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">assume_unique</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">return_indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">Bunch</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__dataclass_fields__</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">b</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__getattribute__</span><span class="p">(</span><span class="n">k</span><span class="p">)[</span><span class="n">iself</span><span class="p">[</span><span class="n">uind</span><span class="p">]]</span>
+        <span class="k">return</span> <span class="n">b</span></div>
+
+    <span class="k">def</span> <span class="nf">_navigate_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Private method to navigate the tree and get all related objects either up or down</span>
+<span class="sd">        :param ids:</span>
+<span class="sd">        :param direction:</span>
+<span class="sd">        :return: Bunch</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">indices</span> <span class="o">=</span> <span class="n">ismember</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">ids</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;down&#39;</span><span class="p">:</span>
+                <span class="n">indices</span> <span class="o">|=</span> <span class="n">ismember</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">[</span><span class="n">indices</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">direction</span> <span class="o">==</span> <span class="s1">&#39;up&#39;</span><span class="p">:</span>
+                <span class="n">indices</span> <span class="o">|=</span> <span class="n">ismember</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">[</span><span class="n">indices</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;direction should be either &#39;up&#39; or &#39;down&#39;&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">count</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">indices</span><span class="p">):</span>  <span class="c1"># last iteration didn&#39;t find any match</span>
+                <span class="k">break</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">indices</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">[</span><span class="n">indices</span><span class="p">])</span>
+
+<div class="viewcode-block" id="BrainRegions.descendants"><a class="viewcode-back" href="../../../_autosummary/ibllib.atlas.regions.html#ibllib.atlas.regions.BrainRegions.descendants">[docs]</a>    <span class="k">def</span> <span class="nf">descendants</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get descendants from one or an array of ids</span>
+<span class="sd">        :param ids: np.array or scalar representing the region primary key</span>
+<span class="sd">        :return: Bunch</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_navigate_tree</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;down&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BrainRegions.ancestors"><a class="viewcode-back" href="../../../_autosummary/ibllib.atlas.regions.html#ibllib.atlas.regions.BrainRegions.ancestors">[docs]</a>    <span class="k">def</span> <span class="nf">ancestors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ids</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get ancestors from one or an array of ids</span>
+<span class="sd">        :param ids: np.array or scalar representing the region primary key</span>
+<span class="sd">        :return: Bunch</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_navigate_tree</span><span class="p">(</span><span class="n">ids</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="BrainRegions.leaves"><a class="viewcode-back" href="../../../_autosummary/ibllib.atlas.regions.html#ibllib.atlas.regions.BrainRegions.leaves">[docs]</a>    <span class="k">def</span> <span class="nf">leaves</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get all regions that do not have children</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">leaves</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">setxor1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">(</span><span class="n">leaves</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">leaves</span><span class="p">)]))</span></div>
+
+    <span class="k">def</span> <span class="nf">_mapping_from_regions_list</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_map</span><span class="p">,</span> <span class="n">lateralize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        From a vector of regions id, creates a mapping such as</span>
+<span class="sd">        newids = self.mapping</span>
+<span class="sd">        :param new_map: np.array: vector of regions id</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">I_ROOT</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">I_VOID</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c1"># to lateralize we make sure all regions are represented in + and -</span>
+        <span class="n">new_map</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="o">-</span><span class="n">new_map</span><span class="p">,</span> <span class="n">new_map</span><span class="p">])</span>
+        <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">new_map</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)),</span> \
+            <span class="s2">&quot;All mapping ids should be represented in the Allen ids&quot;</span>
+        <span class="c1"># with the lateralization, self.id may have duplicate values so ismember is necessary</span>
+        <span class="n">iid</span><span class="p">,</span> <span class="n">inm</span> <span class="o">=</span> <span class="n">ismember</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">new_map</span><span class="p">)</span>
+        <span class="n">iid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">iid</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">mapind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span> <span class="o">+</span> <span class="n">I_ROOT</span>  <span class="c1"># non assigned regions are root</span>
+        <span class="n">mapind</span><span class="p">[</span><span class="n">iid</span><span class="p">]</span> <span class="o">=</span> <span class="n">iid</span>  <span class="c1"># regions present in the list have the same index</span>
+        <span class="c1"># Starting by the higher up levels in the hierarchy, assign all descendants to the mapping</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">level</span><span class="p">[</span><span class="n">iid</span><span class="p">]):</span>
+            <span class="n">descendants</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">descendants</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">[</span><span class="n">iid</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span><span class="o">.</span><span class="n">id</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">idesc</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">intersect1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">descendants</span><span class="p">,</span> <span class="n">return_indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">mapind</span><span class="p">[</span><span class="n">idesc</span><span class="p">]</span> <span class="o">=</span> <span class="n">iid</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">mapind</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">I_VOID</span>  <span class="c1"># void stays void</span>
+        <span class="c1"># to delateralize the regions, assign the positive index to all mapind elements</span>
+        <span class="k">if</span> <span class="n">lateralize</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">iregion</span> <span class="o">=</span> <span class="n">ismember</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="n">mapind</span> <span class="o">=</span> <span class="n">mapind</span><span class="p">[</span><span class="n">iregion</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">mapind</span>
+
+<div class="viewcode-block" id="BrainRegions.remap"><a class="viewcode-back" href="../../../_autosummary/ibllib.atlas.regions.html#ibllib.atlas.regions.BrainRegions.remap">[docs]</a>    <span class="k">def</span> <span class="nf">remap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region_ids</span><span class="p">,</span> <span class="n">source_map</span><span class="o">=</span><span class="s1">&#39;Allen&#39;</span><span class="p">,</span> <span class="n">target_map</span><span class="o">=</span><span class="s1">&#39;Beryl&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Remap atlas regions ids from source map to target map</span>
+<span class="sd">        :param region_ids: atlas ids to map</span>
+<span class="sd">        :param source_map: map name which original region_ids are in</span>
+<span class="sd">        :param target_map: map name onto which to map</span>
+<span class="sd">        :return:</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">inds</span> <span class="o">=</span> <span class="n">ismember</span><span class="p">(</span><span class="n">region_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mappings</span><span class="p">[</span><span class="n">source_map</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mappings</span><span class="p">[</span><span class="n">target_map</span><span class="p">][</span><span class="n">inds</span><span class="p">]]</span></div></div>
+
+
+<div class="viewcode-block" id="regions_from_allen_csv"><a class="viewcode-back" href="../../../_autosummary/ibllib.atlas.regions.html#ibllib.atlas.regions.regions_from_allen_csv">[docs]</a><span class="k">def</span> <span class="nf">regions_from_allen_csv</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Reads csv file containing the ALlen Ontology and instantiates a BrainRegions object</span>
+<span class="sd">    :return: BrainRegions object</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">&quot;ibllib.atlas.regions.regions_from_allen_csv() is deprecated. &quot;</span>
+                    <span class="s2">&quot;Use BrainRegions() instead&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">BrainRegions</span><span class="p">()</span></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, International Brain Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

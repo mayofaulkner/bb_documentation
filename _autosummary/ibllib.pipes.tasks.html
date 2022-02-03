@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ibllib.pipes.tasks &mdash; IBL Library  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ibllib.pipes.training_preprocessing" href="ibllib.pipes.training_preprocessing.html" />
+    <link rel="prev" title="ibllib.pipes.scan_fix_passive_files" href="ibllib.pipes.scan_fix_passive_files.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> IBL Library
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dj_docs/dj_introduction.html">Introduction to DataJoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dj_docs/dj_public.html">Publicly available IBL data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dj_docs/dj_credentials.html">DataJoint credentials for internal IBL users</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Public</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../public_docs/public_introduction.html">Publicly available IBL data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploring IBL Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../loading_examples.html">Loading Data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_installation.html">Unified Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_contribution.html">How to contribute</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples &amp; Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../010_api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.io.html">ibllib.io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.misc.html">ibllib.misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.oneibl.html">ibllib.oneibl</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="ibllib.pipes.html">ibllib.pipes</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.ephys_alignment.html">ibllib.pipes.ephys_alignment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.ephys_preprocessing.html">ibllib.pipes.ephys_preprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.histology.html">ibllib.pipes.histology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.local_server.html">ibllib.pipes.local_server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.misc.html">ibllib.pipes.misc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.purge_rig_data.html">ibllib.pipes.purge_rig_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.remote_server.html">ibllib.pipes.remote_server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.scan_fix_passive_files.html">ibllib.pipes.scan_fix_passive_files</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ibllib.pipes.tasks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.training_preprocessing.html">ibllib.pipes.training_preprocessing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.pipes.transfer_rig_data.html">ibllib.pipes.transfer_rig_data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.plots.html">ibllib.plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.qc.html">ibllib.qc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.tests.html">ibllib.tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.time.html">ibllib.time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IBL Library</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
+          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
+          <li><a href="ibllib.pipes.html">ibllib.pipes</a> &raquo;</li>
+      <li>ibllib.pipes.tasks</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/ibllib.pipes.tasks.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="module-ibllib.pipes.tasks">
+<span id="ibllib-pipes-tasks"></span><h1>ibllib.pipes.tasks<a class="headerlink" href="#module-ibllib.pipes.tasks" title="Permalink to this headline"></a></h1>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.pipes.tasks.run_alyx_task" title="ibllib.pipes.tasks.run_alyx_task"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_alyx_task</span></code></a></p></td>
+<td><p>Runs a single Alyx job and registers output datasets</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.pipes.tasks.Pipeline" title="ibllib.pipes.tasks.Pipeline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Pipeline</span></code></a></p></td>
+<td><p>Pipeline class: collection of related and potentially interdependent tasks</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.pipes.tasks.Task" title="ibllib.pipes.tasks.Task"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Task</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parents</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">taskid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clobber</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'server'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.log">
+<span class="sig-name descname"><span class="pre">log</span></span><em class="property"> <span class="pre">=</span> <span class="pre">''</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.log" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.cpu">
+<span class="sig-name descname"><span class="pre">cpu</span></span><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.cpu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.gpu">
+<span class="sig-name descname"><span class="pre">gpu</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.gpu" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.io_charge">
+<span class="sig-name descname"><span class="pre">io_charge</span></span><em class="property"> <span class="pre">=</span> <span class="pre">5</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.io_charge" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.priority">
+<span class="sig-name descname"><span class="pre">priority</span></span><em class="property"> <span class="pre">=</span> <span class="pre">30</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.priority" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.ram">
+<span class="sig-name descname"><span class="pre">ram</span></span><em class="property"> <span class="pre">=</span> <span class="pre">4</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.ram" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.level">
+<span class="sig-name descname"><span class="pre">level</span></span><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.level" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.outputs">
+<span class="sig-name descname"><span class="pre">outputs</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.outputs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.time_elapsed_secs">
+<span class="sig-name descname"><span class="pre">time_elapsed_secs</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.time_elapsed_secs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.time_out_secs">
+<span class="sig-name descname"><span class="pre">time_out_secs</span></span><em class="property"> <span class="pre">=</span> <span class="pre">7200</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.time_out_secs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.version">
+<span class="sig-name descname"><span class="pre">version</span></span><em class="property"> <span class="pre">=</span> <span class="pre">'2.0.9'</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.version" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.signature">
+<span class="sig-name descname"><span class="pre">signature</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'input_files':</span> <span class="pre">[],</span> <span class="pre">'output_files':</span> <span class="pre">[]}</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.signature" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.force">
+<span class="sig-name descname"><span class="pre">force</span></span><em class="property"> <span class="pre">=</span> <span class="pre">False</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.force" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.one">
+<span class="sig-name descname"><span class="pre">one</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Task.one" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.name">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibllib.pipes.tasks.Task.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.run" title="Permalink to this definition"></a></dt>
+<dd><p>— do not overload, see _run() below—
+wraps the _run() method with
+-   error management
+-   logging to variable
+-   writing a lock file if the GPU is used
+-   labels the status property of the object. The status value is labeled as:</p>
+<blockquote>
+<div><blockquote>
+<div><p>0: Complete</p>
+</div></blockquote>
+<p>-1: Errored
+-2: Didn’t run as a lock was encountered
+-3: Incomplete</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.register_datasets">
+<span class="sig-name descname"><span class="pre">register_datasets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.register_datasets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.register_datasets" title="Permalink to this definition"></a></dt>
+<dd><p>Register output datasets form the task to Alyx</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>one</strong> – </p></li>
+<li><p><strong>jobid</strong> – </p></li>
+<li><p><strong>kwargs</strong> – directly passed to the register_dataset function</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.register_images">
+<span class="sig-name descname"><span class="pre">register_images</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.register_images"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.register_images" title="Permalink to this definition"></a></dt>
+<dd><p>Registers images to alyx database
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.rerun">
+<span class="sig-name descname"><span class="pre">rerun</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.rerun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.rerun" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.get_signatures">
+<span class="sig-name descname"><span class="pre">get_signatures</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.get_signatures"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.get_signatures" title="Permalink to this definition"></a></dt>
+<dd><p>This is the default but should be overwritten for each task
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.setUp">
+<span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.setUp" title="Permalink to this definition"></a></dt>
+<dd><p>Setup method to get the data handler and ensure all data is available locally to run task</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>kwargs</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.tearDown">
+<span class="sig-name descname"><span class="pre">tearDown</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.tearDown"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.tearDown" title="Permalink to this definition"></a></dt>
+<dd><p>Function after runs()
+Does not run if a lock is encountered by the task (status -2)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.cleanUp">
+<span class="sig-name descname"><span class="pre">cleanUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.cleanUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.cleanUp" title="Permalink to this definition"></a></dt>
+<dd><p>Function to optionally overload to clean up
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.assert_expected_outputs">
+<span class="sig-name descname"><span class="pre">assert_expected_outputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raise_error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.assert_expected_outputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.assert_expected_outputs" title="Permalink to this definition"></a></dt>
+<dd><p>After a run, asserts that all signature files are present at least once in the output files
+Mainly useful for integration tests
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.assert_expected_inputs">
+<span class="sig-name descname"><span class="pre">assert_expected_inputs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raise_error</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.assert_expected_inputs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.assert_expected_inputs" title="Permalink to this definition"></a></dt>
+<dd><p>Before running a task, check that all the files necessary to run the task have been downloaded/ are on the local file
+system already
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.assert_expected">
+<span class="sig-name descname"><span class="pre">assert_expected</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">expected_files</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.assert_expected"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.assert_expected" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.get_data_handler">
+<span class="sig-name descname"><span class="pre">get_data_handler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.get_data_handler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.get_data_handler" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the relevant data handler based on location argument
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.make_lock_file">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">make_lock_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">taskname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_out_secs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">7200</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.make_lock_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.make_lock_file" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a GPU lock file with a timeout of</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Task.is_locked">
+<span class="sig-name descname"><span class="pre">is_locked</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Task.is_locked"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Task.is_locked" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if there is a lock file for this given task</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Pipeline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eid</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Pipeline"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Pipeline class: collection of related and potentially interdependent tasks</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline.tasks">
+<span class="sig-name descname"><span class="pre">tasks</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{}</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline.tasks" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline.one">
+<span class="sig-name descname"><span class="pre">one</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline.one" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline.make_graph">
+<span class="sig-name descname"><span class="pre">make_graph</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_dir</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Pipeline.make_graph"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline.make_graph" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline.create_alyx_tasks">
+<span class="sig-name descname"><span class="pre">create_alyx_tasks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rerun__status__in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Pipeline.create_alyx_tasks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline.create_alyx_tasks" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiate the pipeline and create the tasks in Alyx, then create the jobs for the session
+If the jobs already exist, they are left untouched. The re-run parameter will re-init the
+job by emptying the log and set the status to Waiting</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>rerun__status__in</strong> – by default no re-run. To re-run tasks if they already exist,</p>
+</dd>
+</dl>
+<p>specify a list of statuses string that will be re-run, those are the possible choices:
+[‘Waiting’, ‘Started’, ‘Errored’, ‘Empty’, ‘Complete’]
+to always patch, the string ‘__all__’ can also be provided
+:return: list of alyx tasks dictionaries (existing and or created)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status__in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['Waiting']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clobber</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Pipeline.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline.run" title="Permalink to this definition"></a></dt>
+<dd><p>Get all the session related jobs from alyx and run them</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>status__in</strong> – lists of status strings to run in</p>
+</dd>
+</dl>
+<p>[‘Waiting’, ‘Started’, ‘Errored’, ‘Empty’, ‘Complete’]
+:param machine: string identifying the machine the task is run on, optional
+:param clobber: bool, if True any existing logs are overwritten, default is True
+:param kwargs: arguments passed downstream to run_alyx_task
+:return: jalyx: list of REST dictionaries of the job endpoints
+:return: job_deck: list of REST dictionaries of the jobs endpoints
+:return: all_datasets: list of REST dictionaries of the dataset endpoints</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline.rerun_failed">
+<span class="sig-name descname"><span class="pre">rerun_failed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Pipeline.rerun_failed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline.rerun_failed" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline.rerun">
+<span class="sig-name descname"><span class="pre">rerun</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#Pipeline.rerun"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline.rerun" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.Pipeline.name">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#ibllib.pipes.tasks.Pipeline.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ibllib.pipes.tasks.run_alyx_task">
+<span class="sig-name descname"><span class="pre">run_alyx_task</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">session_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">job_deck</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_md5_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">machine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clobber</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'server'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/pipes/tasks.html#run_alyx_task"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.pipes.tasks.run_alyx_task" title="Permalink to this definition"></a></dt>
+<dd><p>Runs a single Alyx job and registers output datasets</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdict</strong> – </p></li>
+<li><p><strong>session_path</strong> – </p></li>
+<li><p><strong>one</strong> – </p></li>
+<li><p><strong>job_deck</strong> – optional list of job dictionaries belonging to the session. Needed</p></li>
+</ul>
+</dd>
+</dl>
+<p>to check dependency status if the jdict has a parent field. If jdict has a parent and
+job_deck is not entered, will query the database
+:param max_md5_size: in bytes, if specified, will not compute the md5 checksum above a given
+filesize to save time
+:param machine: string identifying the machine the task is run on, optional
+:param clobber: bool, if True any existing logs are overwritten, default is True
+:param location: where you are running the task, ‘server’ - local lab server, ‘remote’ - any
+compute node/ computer, ‘SDSC’ - flatiron compute node, ‘AWS’ - using data from aws s3
+:return:</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ibllib.pipes.scan_fix_passive_files.html" class="btn btn-neutral float-left" title="ibllib.pipes.scan_fix_passive_files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ibllib.pipes.training_preprocessing.html" class="btn btn-neutral float-right" title="ibllib.pipes.training_preprocessing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, International Brain Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

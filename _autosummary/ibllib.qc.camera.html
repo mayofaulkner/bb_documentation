@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ibllib.qc.camera &mdash; IBL Library  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/style.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ibllib.qc.critical_reasons" href="ibllib.qc.critical_reasons.html" />
+    <link rel="prev" title="ibllib.qc.base" href="ibllib.qc.base.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> IBL Library
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dj_docs/dj_introduction.html">Introduction to DataJoint</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dj_docs/dj_public.html">Publicly available IBL data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dj_docs/dj_credentials.html">DataJoint credentials for internal IBL users</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Public</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../public_docs/public_introduction.html">Publicly available IBL data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Exploring IBL Data</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../loading_examples.html">Loading Data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Miscellaneous</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_installation.html">Unified Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../09_contribution.html">How to contribute</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Examples &amp; Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../010_api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.io.html">ibllib.io</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.misc.html">ibllib.misc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.oneibl.html">ibllib.oneibl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.pipes.html">ibllib.pipes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.plots.html">ibllib.plots</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="ibllib.qc.html">ibllib.qc</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="ibllib.qc.alignment_qc.html">ibllib.qc.alignment_qc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.qc.base.html">ibllib.qc.base</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ibllib.qc.camera</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.qc.critical_reasons.html">ibllib.qc.critical_reasons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.qc.dlc.html">ibllib.qc.dlc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.qc.qcplots.html">ibllib.qc.qcplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.qc.task_extractors.html">ibllib.qc.task_extractors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.qc.task_metrics.html">ibllib.qc.task_metrics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.tests.html">ibllib.tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ibllib.time.html">ibllib.time</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IBL Library</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
+          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
+          <li><a href="ibllib.qc.html">ibllib.qc</a> &raquo;</li>
+      <li>ibllib.qc.camera</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/_autosummary/ibllib.qc.camera.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<section id="module-ibllib.qc.camera">
+<span id="ibllib-qc-camera"></span><h1>ibllib.qc.camera<a class="headerlink" href="#module-ibllib.qc.camera" title="Permalink to this headline"></a></h1>
+<p>Camera QC
+This module runs a list of quality control metrics on the camera and extracted video data.</p>
+<dl class="simple">
+<dt>Example - Run right camera QC, downloading all but video file</dt><dd><p>qc = CameraQC(eid, ‘right’, download_data=True, stream=True)
+qc.run()</p>
+</dd>
+<dt>Example - Run left camera QC with session path, update QC field in Alyx</dt><dd><p>qc = CameraQC(session_path, ‘left’)
+outcome, extended = qc.run(update=True)  # Returns outcome of videoQC only
+print(f’video QC = {outcome}; overall session QC = {qc.outcome}’)  # NB difference outcomes</p>
+</dd>
+<dt>Example - Run only video QC (no timestamp/alignment checks) on 20 frames for the body camera</dt><dd><p>qc = CameraQC(eid, ‘body’, n_samples=20)
+qc.load_video_data()  # Quicker than loading all data
+qc.run()</p>
+</dd>
+<dt>Example - Run specific video QC check and display the plots</dt><dd><p>qc = CameraQC(eid, ‘left;)
+qc.load_data(download_data=True)
+qc.check_position(display=True)  # NB: Not all checks make plots</p>
+</dd>
+<dt>Example - Run the QC for all cameras</dt><dd><p>qcs = run_all_qc(eid)
+qcs[‘left’].metrics  # Dict of checks and outcomes for left camera</p>
+</dd>
+</dl>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.qc.camera.data_for_keys" title="ibllib.qc.camera.data_for_keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">data_for_keys</span></code></a></p></td>
+<td><p>Check keys exist in 'data' dict and contain values other than None</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.qc.camera.run_all_qc" title="ibllib.qc.camera.run_all_qc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run_all_qc</span></code></a></p></td>
+<td><p>Run QC for all cameras Run the camera QC for left, right and body cameras.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.qc.camera.CameraQC" title="ibllib.qc.camera.CameraQC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CameraQC</span></code></a></p></td>
+<td><p>A class for computing camera QC metrics</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC">
+<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">CameraQC</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path_or_eid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">camera</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="ibllib.qc.base.html#ibllib.qc.base.QC" title="ibllib.qc.base.QC"><code class="xref py py-class docutils literal notranslate"><span class="pre">ibllib.qc.base.QC</span></code></a></p>
+<p>A class for computing camera QC metrics</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.dstypes">
+<span class="sig-name descname"><span class="pre">dstypes</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['_iblrig_Camera.frame_counter',</span> <span class="pre">'_iblrig_Camera.GPIO',</span> <span class="pre">'_iblrig_Camera.timestamps',</span> <span class="pre">'_iblrig_taskData.raw',</span> <span class="pre">'_iblrig_taskSettings.raw',</span> <span class="pre">'_iblrig_Camera.raw',</span> <span class="pre">'camera.times',</span> <span class="pre">'wheel.position',</span> <span class="pre">'wheel.timestamps']</span></em><a class="headerlink" href="#ibllib.qc.camera.CameraQC.dstypes" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.dstypes_fpga">
+<span class="sig-name descname"><span class="pre">dstypes_fpga</span></span><em class="property"> <span class="pre">=</span> <span class="pre">['_spikeglx_sync.channels',</span> <span class="pre">'_spikeglx_sync.polarities',</span> <span class="pre">'_spikeglx_sync.times',</span> <span class="pre">'ephysData.raw.meta']</span></em><a class="headerlink" href="#ibllib.qc.camera.CameraQC.dstypes_fpga" title="Permalink to this definition"></a></dt>
+<dd><p>Recall that for the training rig there is only one side camera at 30 Hz and 1280 x 1024 px.
+For the recording rig there are two label cameras (left: 60 Hz, 1280 x 1024 px;
+right: 150 Hz, 640 x 512 px) and one body camera (30 Hz, 640 x 512 px).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.video_meta">
+<span class="sig-name descname"><span class="pre">video_meta</span></span><em class="property"> <span class="pre">=</span> <span class="pre">{'ephys':</span> <span class="pre">{'body':</span> <span class="pre">{'fps':</span> <span class="pre">30,</span> <span class="pre">'height':</span> <span class="pre">512,</span> <span class="pre">'width':</span> <span class="pre">640},</span> <span class="pre">'left':</span> <span class="pre">{'fps':</span> <span class="pre">60,</span> <span class="pre">'height':</span> <span class="pre">1024,</span> <span class="pre">'width':</span> <span class="pre">1280},</span> <span class="pre">'right':</span> <span class="pre">{'fps':</span> <span class="pre">150,</span> <span class="pre">'height':</span> <span class="pre">512,</span> <span class="pre">'width':</span> <span class="pre">640}},</span> <span class="pre">'training':</span> <span class="pre">{'left':</span> <span class="pre">{'fps':</span> <span class="pre">30,</span> <span class="pre">'height':</span> <span class="pre">1024,</span> <span class="pre">'width':</span> <span class="pre">1280}}}</span></em><a class="headerlink" href="#ibllib.qc.camera.CameraQC.video_meta" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.type">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">type</span></span><a class="headerlink" href="#ibllib.qc.camera.CameraQC.type" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the camera type based on the protocol.
+:return: Returns either None, ‘ephys’ or ‘training’</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">download_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_times</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_video</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.load_data" title="Permalink to this definition"></a></dt>
+<dd><p>Extract the data from raw data files
+Extracts all the required task data from the raw data files.</p>
+<dl class="simple">
+<dt>Data keys:</dt><dd><ul class="simple">
+<li><p>count (int array): the sequential frame number (n, n+1, n+2…)</p></li>
+<li><p>pin_state (): the camera GPIO pin; records the audio TTLs; should be one per frame</p></li>
+<li><p>audio (float array): timestamps of audio TTL fronts</p></li>
+<li><p>fpga_times (float array): timestamps of camera TTLs recorded by FPGA</p></li>
+<li><p>timestamps (float array): extracted video timestamps (the camera.times ALF)</p></li>
+<li><p>bonsai_times (datetime array): system timestamps of video PC; should be one per frame</p></li>
+<li><p>camera_times (float array): camera frame timestamps extracted from frame headers</p></li>
+<li><p>wheel (Bunch): rotary encoder timestamps, position and period used for wheel motion</p></li>
+<li><p>video (Bunch): video meta data, including dimensions and FPS</p></li>
+<li><p>frame_samples (h x w x n array): array of evenly sampled frames (1 colour channel)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>download_data</strong> – if True, any missing raw data is downloaded via ONE.</p>
+</dd>
+</dl>
+<p>Missing data will raise an AssertionError
+:param extract_times: if True, the camera.times are re-extracted from the raw data
+:param load_video: if True, calls the load_video_data method</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.load_video_data">
+<span class="sig-name descname"><span class="pre">load_video_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.load_video_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.load_video_data" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.get_active_wheel_period">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_active_wheel_period</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">wheel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(3.0,</span> <span class="pre">20.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.get_active_wheel_period"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.get_active_wheel_period" title="Permalink to this definition"></a></dt>
+<dd><p>Attempts to find a period of movement where the wheel accelerates and decelerates for
+the wheel motion alignment QC.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wheel</strong> – A Bunch of wheel timestamps and position data</p></li>
+<li><p><strong>duration_range</strong> – The candidates must be within min/max duration range</p></li>
+<li><p><strong>display</strong> – If true, plot the selected wheel movement</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>2-element array comprising the start and end times of the active period</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.ensure_required_data">
+<span class="sig-name descname"><span class="pre">ensure_required_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.ensure_required_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.ensure_required_data" title="Permalink to this definition"></a></dt>
+<dd><p>Ensures the datasets required for QC are local.  If the download_data attribute is True,
+any missing data are downloaded.  If all the data are not present locally at the end of
+it an exception is raised.  If the stream attribute is True, the video file is not
+required to be local, however it must be remotely accessible.
+NB: Requires a valid instance of ONE and a valid session eid.
+:return:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="pre">update:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></em>, <em class="sig-param"><span class="pre">**kwargs)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'str'&gt;</span></em>, <em class="sig-param"><span class="pre">&lt;class</span> <span class="pre">'dict'&gt;</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.run" title="Permalink to this definition"></a></dt>
+<dd><p>Run video QC checks and return outcome</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>update</strong> – if True, updates the session QC fields on Alyx</p></li>
+<li><p><strong>download_data</strong> – if True, downloads any missing data if required</p></li>
+<li><p><strong>extract_times</strong> – if True, re-extracts the camera timestamps from the raw data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>overall outcome as a str, a dict of checks and their outcomes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_brightness">
+<span class="sig-name descname"><span class="pre">check_brightness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(40,</span> <span class="pre">200)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_std</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_brightness"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_brightness" title="Permalink to this definition"></a></dt>
+<dd><p>Check that the video brightness is within a given range
+The mean brightness of each frame must be with the bounds provided, and the standard
+deviation across samples frames should be less then the given value.  Assumes that the
+frame samples are 2D (no colour channels).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>bounds</strong> – For each frame, check that: bounds[0] &lt; M &lt; bounds[1],</p>
+</dd>
+</dl>
+<p>where M = mean(frame). If less than 75% of sample frames outside of these bounds, the
+outcome is WARNING. If &lt;75% of frames within twice the bounds, the outcome is FAIL.
+:param max_std: The standard deviation of the frame luminance means must be less than this
+:param roi: If True, check brightness on ROI of frame
+:param display: When True the mean frame luminance is plotted against sample frames.
+The sample frames with the lowest and highest mean luminance are shown.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_file_headers">
+<span class="sig-name descname"><span class="pre">check_file_headers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_file_headers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_file_headers" title="Permalink to this definition"></a></dt>
+<dd><p>Check reported frame rate matches FPGA frame rate</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_framerate">
+<span class="sig-name descname"><span class="pre">check_framerate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_framerate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_framerate" title="Permalink to this definition"></a></dt>
+<dd><p>Check camera times match specified frame rate for camera</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>threshold</strong> – The maximum absolute difference between timestamp sample rate and video</p>
+</dd>
+</dl>
+<p>frame rate.  NB: Does not take into account dropped frames.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_pin_state">
+<span class="sig-name descname"><span class="pre">check_pin_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_pin_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_pin_state" title="Permalink to this definition"></a></dt>
+<dd><p>Check the pin state reflects Bpod TTLs</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_dropped_frames">
+<span class="sig-name descname"><span class="pre">check_dropped_frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_dropped_frames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_dropped_frames" title="Permalink to this definition"></a></dt>
+<dd><p>Check how many frames were reported missing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>threshold</strong> – The maximum allowable percentage of dropped frames</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_timestamps">
+<span class="sig-name descname"><span class="pre">check_timestamps</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_timestamps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_timestamps" title="Permalink to this definition"></a></dt>
+<dd><p>Check that the camera.times array is reasonable</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_camera_times">
+<span class="sig-name descname"><span class="pre">check_camera_times</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_camera_times"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_camera_times" title="Permalink to this definition"></a></dt>
+<dd><p>Check that the number of raw camera timestamps matches the number of video frames</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_resolution">
+<span class="sig-name descname"><span class="pre">check_resolution</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_resolution"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_resolution" title="Permalink to this definition"></a></dt>
+<dd><p>Check that the timestamps and video file resolution match what we expect</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_wheel_alignment">
+<span class="sig-name descname"><span class="pre">check_wheel_alignment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">2)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_wheel_alignment"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_wheel_alignment" title="Permalink to this definition"></a></dt>
+<dd><p>Check wheel motion in video correlates with the rotary encoder signal</p>
+<p>Check is skipped for body camera videos as the wheel is often obstructed</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>tolerance</strong> – maximum absolute offset in frames.  If two values, the maximum value</p>
+</dd>
+</dl>
+<p>is taken as the warning threshold
+:param display: if true, the wheel motion energy is plotted against the rotary encoder
+:returns: outcome string, frame offset</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_position">
+<span class="sig-name descname"><span class="pre">check_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hist_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(75,</span> <span class="pre">80)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pos_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(10,</span> <span class="pre">15)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pct_thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_position"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_position" title="Permalink to this definition"></a></dt>
+<dd><p>Check camera is positioned correctly
+For the template matching zero-normalized cross-correlation (default) should be more
+robust to exposure (which we’re not checking here).  The L2 norm (TM_SQDIFF) should
+also work.</p>
+<p>If display is True, the template ROI (pick hashed) is plotted over a video frame,
+along with the threshold regions (green solid).  The histogram correlations are plotted
+and the full histogram is plotted for one of the sample frames and the reference frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hist_thresh</strong> – The minimum histogram cross-correlation threshold to pass (0-1).</p></li>
+<li><p><strong>pos_thresh</strong> – The maximum number of pixels off that the template matcher may be off
+by. If two values are provided, the lower threshold is treated as a warning boundary.</p></li>
+<li><p><strong>metric</strong> – The metric to use for template matching.</p></li>
+<li><p><strong>display</strong> – If true, the results are plotted</p></li>
+<li><p><strong>test</strong> – If true a reference frame instead of the frames in frame_samples.</p></li>
+<li><p><strong>roi</strong> – A tuple of indices for the face template in the for ((y1, y2), (x1, x2))</p></li>
+<li><p><strong>pct_thresh</strong> – If true, the thresholds are treated as percentages</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.check_focus">
+<span class="sig-name descname"><span class="pre">check_focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(100,</span> <span class="pre">6)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">display</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">equalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.check_focus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.check_focus" title="Permalink to this definition"></a></dt>
+<dd><p>Check video is in focus
+Two methods are used here: Looking at the high frequencies with a DFT and
+applying a Laplacian HPF and looking at the variance.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>Both methods are sensitive to noise (Laplacian is 2nd order filter).</p></li>
+<li><p>The thresholds for the fft may need to be different for the left/right vs body as
+the distribution of frequencies in the image is different (e.g. the holder
+comprises mostly very high frequencies).</p></li>
+<li><p>The image may be overall in focus but the places we care about can still be out of
+focus (namely the face).  For this we’ll take an ROI around the face.</p></li>
+<li><p>Focus check thrown off by brightness.  This may be fixed by equalizing the histogram
+(set equalize=True)</p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – number of frames from frame_samples data to use in check.</p></li>
+<li><p><strong>threshold</strong> – the lower boundary for Laplacian variance and mean FFT filtered
+brightness, respectively</p></li>
+<li><p><strong>roi</strong> – if False, the roi is determined via template matching for the face or body.</p></li>
+</ul>
+</dd>
+</dl>
+<p>If None, some set ROIs for face and paws are used.  A list of slices may also be passed.
+:param display: if true, the results are displayed
+:param test: if true, a set of artificially blurred reference frames are used as the
+input.  This can be used to selecting reasonable thresholds.
+:param equalize: if true, the histograms of the frames are equalized, resulting in an
+increased the global contrast and linear CDF.  This makes check robust to low light
+conditions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.find_face">
+<span class="sig-name descname"><span class="pre">find_face</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">roi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">refs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.find_face"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.find_face" title="Permalink to this definition"></a></dt>
+<dd><p>Use template matching to find face location in frame
+For the template matching zero-normalized cross-correlation (default) should be more
+robust to exposure (which we’re not checking here).  The L2 norm (TM_SQDIFF) should
+also work.  That said, normalizing the histograms works best.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>roi</strong> – A tuple of indices for the face template in the for ((y1, y2), (x1, x2))</p></li>
+<li><p><strong>test</strong> – If True the template is matched against frames that come from the same session</p></li>
+<li><p><strong>metric</strong> – The metric to use for template matching</p></li>
+<li><p><strong>refs</strong> – An array of frames to match the template to</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>(y1, y2), (x1, x2)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.load_reference_frames">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">load_reference_frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">side</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.load_reference_frames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.load_reference_frames" title="Permalink to this definition"></a></dt>
+<dd><p>Load some reference frames for a given video</p>
+<p>The reference frames are from sessions where the camera was well positioned. The
+frames are in qc/reference, one file per camera, only one channel per frame.  The
+session eids can be found in qc/reference/frame_src.json</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>side</strong> – Video label, e.g. ‘left’</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>numpy array of frames with the shape (n, h, w)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.qc.camera.CameraQC.imshow">
+<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">imshow</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#CameraQC.imshow"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.CameraQC.imshow" title="Permalink to this definition"></a></dt>
+<dd><p>plt.imshow with some convenient defaults for greyscale frames</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ibllib.qc.camera.data_for_keys">
+<span class="sig-name descname"><span class="pre">data_for_keys</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#data_for_keys"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.data_for_keys" title="Permalink to this definition"></a></dt>
+<dd><p>Check keys exist in ‘data’ dict and contain values other than None</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ibllib.qc.camera.run_all_qc">
+<span class="sig-name descname"><span class="pre">run_all_qc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cameras</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">('left',</span> <span class="pre">'right',</span> <span class="pre">'body')</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/qc/camera.html#run_all_qc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.qc.camera.run_all_qc" title="Permalink to this definition"></a></dt>
+<dd><p>Run QC for all cameras
+Run the camera QC for left, right and body cameras.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>session</strong> – A session path or eid.</p></li>
+<li><p><strong>update</strong> – If True, QC fields are updated on Alyx.</p></li>
+<li><p><strong>cameras</strong> – A list of camera names to perform QC on.</p></li>
+<li><p><strong>stream</strong> – If true and local video files not available, the data are streamed from</p></li>
+</ul>
+</dd>
+</dl>
+<p>the remote source.
+:return: dict of CameraCQ objects</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ibllib.qc.base.html" class="btn btn-neutral float-left" title="ibllib.qc.base" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ibllib.qc.critical_reasons.html" class="btn btn-neutral float-right" title="ibllib.qc.critical_reasons" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020, International Brain Laboratory.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
