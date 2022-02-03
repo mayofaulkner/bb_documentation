@@ -31,9 +31,10 @@ jobs:
         
       - name: Move ibllib anc checkout develop
         run: |
-          mv ibllib-repo ../
-          cd ../ibllib-repo
+          cd ibllib-repo
           git checkout develop
+          cd ../
+          mv ibllib-repo ../
       
       - name: Set up Python
         uses: actions/setup-python@v2
