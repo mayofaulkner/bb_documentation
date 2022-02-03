@@ -51,7 +51,7 @@ jobs:
           cd ../ibllib-repo
           pip install -r requirements.txt
           pip install -e.
-	 
+
       - name: setup one
         run: |
           cd docs_gh_pages
