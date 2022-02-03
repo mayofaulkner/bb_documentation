@@ -28,12 +28,10 @@ jobs:
         with:
           repository: int-brain-lab/ibllib
           path: ibllib-repo
+          ref: develop
         
       - name: Move ibllib anc checkout develop
         run: |
-          cd ibllib-repo
-          git checkout develop
-          cd ../
           mv ibllib-repo ../
       
       - name: Set up Python
