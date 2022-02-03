@@ -12,12 +12,16 @@ _logger = logging.getLogger('ibllib')
 root = Path.cwd()
 scripts_path = root.joinpath('scripts')
 
+#nb_path = root.joinpath('notebooks')
+#nb_path_external = [Path(root.parent.parent).joinpath('ibllib-repo', 'examples'),
+#                    Path(root.parent.parent).joinpath('ibllib-repo', 'examples', 'loading_data'),
+#                    Path(root.parent.parent).joinpath('ibllib-repo', 'brainbox', 'examples'),
+#                    Path(root.parent.parent).joinpath('ONE', 'docs', 'notebooks')]
+#external_file_patterns = ['docs', 'loading', 'docs', 'quickstart']
+
 nb_path = root.joinpath('notebooks')
-nb_path_external = [Path(root.parent.parent).joinpath('ibllib-repo', 'examples'),
-                    Path(root.parent.parent).joinpath('ibllib-repo', 'examples', 'loading_data'),
-                    Path(root.parent.parent).joinpath('ibllib-repo', 'brainbox', 'examples'),
-                    Path(root.parent.parent).joinpath('ONE', 'docs', 'notebooks')]
-external_file_patterns = ['docs', 'loading', 'docs', 'quickstart']
+nb_path_external = [Path(root.parent.parent).joinpath('ibllib-repo', 'examples', 'loading_data')]
+external_file_patterns = ['loading']
 
 
 def make_documentation(execute, force, documentation, clean, specific, github, message):

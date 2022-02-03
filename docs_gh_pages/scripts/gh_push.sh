@@ -1,8 +1,8 @@
 # Script to push html doc files to gh pages
 
 # Repo information
-ORG=int-brain-lab
-REPO=iblenv
+ORG=mayofaulkner
+REPO=bb_documentation
 
 # Clone the gh-pages branch to local documentation directory
 git clone -b gh-pages "https://github.com/$ORG/$REPO.git" gh-pages
