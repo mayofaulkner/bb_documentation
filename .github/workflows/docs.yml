@@ -29,9 +29,11 @@ jobs:
           repository: int-brain-lab/ibllib
           path: ibllib-repo
         
-      - name: Move ibllib
+      - name: Move ibllib anc checkout develop
         run: |
           mv ibllib-repo ../
+          cd ../ibllib-repo
+          git checkout develop
       
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -47,7 +49,7 @@ jobs:
       
       - name: Install ibllib
         run: |
-          cd ../
+          cd ../ibllib-repo
           pip install -r requirements.txt
           pip install -e.
 
