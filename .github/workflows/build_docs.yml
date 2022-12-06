@@ -1,0 +1,68 @@
+name: Build Docs
+on:
+  workflow_dispatch:  # manual trigger to kick off workflow
+    inputs:
+      logLevel:
+        description: "Log level"
+        required: true
+        default: "warning"
+
+jobs:
+  build_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout iblenv doc build branch
+        uses: actions/checkout@v3
+        with:
+          ref: master  # TODO: Change this for production
+
+      - name: Checkout ibllib doc build branch
+        uses: actions/checkout@v3
+        with:
+          repository: int-brain-lab/ibllib
+          ref: GC_Doc
+          path: ibllib-repo
+
+      - name: Checkout ONE-api
+        uses: actions/checkout@v3
+        with:
+          repository: int-brain-lab/one
+          path: ONE
+
+      - name: Move ibllib and ONE up a directory
+        run: |
+          mv ibllib-repo ..
+          mv ONE ..
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.9
+
+      - name: Install docs requirements
+        run: |
+          sudo apt-get install -y pandoc
+          pip install -r docs_gh_pages/requirements-docs.txt
+          pip install -e ../ibllib-repo
+          jupyter nbextension enable --py --sys-prefix ipyevents
+
+      - name: ONE setup and build docs
+        run: |
+          cd docs_gh_pages
+          python scripts/one_setup.py
+          python make_script.py -e
+          ls -l _build
+
+      - name: Zip up documentation
+        run: |
+          sudo apt-get install -y zip
+          zip -r build_zip.zip docs_gh_pages/_build
+          # zip -r output_file file1 file2 folder1
+          # python -c "import shutil; shutil.make_archive('build_zip', 'zip', '.', 'docs_gh_pages/_build')"
+
+      - name: Store zip file as artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build_zip
+          path: |
+            build_zip.zip
