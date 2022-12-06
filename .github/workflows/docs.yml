@@ -52,10 +52,14 @@ jobs:
           pip install -r requirements.txt
           pip install -e.
 
+      - name: one setup
+        run: |
+          cd docs_gh_pages
+          python ./scripts/one_setup.py
+
       - name: build docs
         run: |
           cd docs_gh_pages
-	  python scripts/one_setup.py
           python ./make_script.py -e
 
       # Runs a set of commands using the runners shell
