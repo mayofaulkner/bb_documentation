@@ -15,7 +15,9 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/clipboard.min.js"></script>
         <script src="../../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-      <li>ibllib.tests.extractors.test_ephys_trials</li>
+      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ibllib.tests.extractors.test_ephys_trials</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -105,7 +105,7 @@
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="kn">import</span> <span class="nn">ibllib.io.extractors.ephys_fpga</span> <span class="k">as</span> <span class="nn">ephys_fpga</span>
+<span class="kn">from</span> <span class="nn">ibllib.io.extractors</span> <span class="kn">import</span> <span class="n">ephys_fpga</span><span class="p">,</span> <span class="n">biased_trials</span>
 <span class="kn">import</span> <span class="nn">ibllib.io.raw_data_loaders</span> <span class="k">as</span> <span class="nn">raw</span>
 
 
@@ -216,14 +216,14 @@
 <div class="viewcode-block" id="TestEphysBehaviorExtraction.test_get_probabilityLeft"><a class="viewcode-back" href="../../../../_autosummary/ibllib.tests.extractors.test_ephys_trials.html#ibllib.tests.extractors.test_ephys_trials.TestEphysBehaviorExtraction.test_get_probabilityLeft">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_probabilityLeft</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span>
         <span class="n">settings</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_settings</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span>
-        <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">pLeft0</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ephys_fpga</span><span class="o">.</span><span class="n">ProbaContrasts</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">pLeft0</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">biased_trials</span><span class="o">.</span><span class="n">ProbaContrasts</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">bpod_trials</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pLeft0</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">))</span>
         <span class="c1"># Test if only generative prob values in data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">([</span><span class="n">x</span> <span class="ow">in</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">pLeft0</span><span class="p">)]))</span>
         <span class="c1"># Test if settings file has empty LEN_DATA result is same</span>
         <span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;LEN_BLOCKS&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">})</span>
-        <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">pLeft1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ephys_fpga</span><span class="o">.</span><span class="n">ProbaContrasts</span><span class="p">(</span>
+        <span class="o">*</span><span class="n">_</span><span class="p">,</span> <span class="n">pLeft1</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">biased_trials</span><span class="o">.</span><span class="n">ProbaContrasts</span><span class="p">(</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">bpod_trials</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">settings</span><span class="o">=</span><span class="n">settings</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="n">pLeft0</span> <span class="o">==</span> <span class="n">pLeft1</span><span class="p">))</span>
         <span class="c1"># Test if only generative prob values in data</span>

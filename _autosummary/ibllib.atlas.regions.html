@@ -16,15 +16,17 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ibllib.dsp" href="ibllib.dsp.html" />
-    <link rel="prev" title="ibllib.atlas.projections" href="ibllib.atlas.projections.html" /> 
+    <link rel="next" title="ibllib.ephys" href="ibllib.ephys.html" />
+    <link rel="prev" title="ibllib.atlas.plots" href="ibllib.atlas.plots.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -79,12 +79,12 @@
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.atlas.html">ibllib.atlas.atlas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.flatmaps.html">ibllib.atlas.flatmaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.genes.html">ibllib.atlas.genes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.plots.html">ibllib.atlas.plots</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.projections.html">ibllib.atlas.projections</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">ibllib.atlas.regions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
@@ -101,7 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -117,11 +117,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-          <li><a href="ibllib.atlas.html">ibllib.atlas</a> &raquo;</li>
-      <li>ibllib.atlas.regions</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.atlas.html">ibllib.atlas</a></li>
+      <li class="breadcrumb-item active">ibllib.atlas.regions</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.atlas.regions.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -156,9 +156,9 @@
 }
 </style>
 <section id="module-ibllib.atlas.regions">
-<span id="ibllib-atlas-regions"></span><h1>ibllib.atlas.regions<a class="headerlink" href="#module-ibllib.atlas.regions" title="Permalink to this headline"></a></h1>
+<span id="ibllib-atlas-regions"></span><h1>ibllib.atlas.regions<a class="headerlink" href="#module-ibllib.atlas.regions" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -170,7 +170,7 @@
 </tbody>
 </table>
 <p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -179,53 +179,65 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.atlas.regions.BrainRegions" title="ibllib.atlas.regions.BrainRegions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BrainRegions</span></code></a></p></td>
 <td><p>The Allen atlas ids are kept intact but lateralized as follows: labels are duplicated and ids multiplied by -1, with the understanding that left hemisphere regions have negative ids.</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.atlas.regions.FranklinPaxinosRegions" title="ibllib.atlas.regions.FranklinPaxinosRegions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FranklinPaxinosRegions</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 <dl class="py class">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.FranklinPaxinosRegions">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FranklinPaxinosRegions</span></span><a class="reference internal" href="../_modules/ibllib/atlas/regions.html#FranklinPaxinosRegions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.regions.FranklinPaxinosRegions" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_BrainRegions</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.FranklinPaxinosRegions.id">
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.FranklinPaxinosRegions.id" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.FranklinPaxinosRegions.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></em><a class="headerlink" href="#ibllib.atlas.regions.FranklinPaxinosRegions.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.FranklinPaxinosRegions.acronym">
+<span class="sig-name descname"><span class="pre">acronym</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></em><a class="headerlink" href="#ibllib.atlas.regions.FranklinPaxinosRegions.acronym" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.FranklinPaxinosRegions.rgb">
+<span class="sig-name descname"><span class="pre">rgb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">uint8</span></em><a class="headerlink" href="#ibllib.atlas.regions.FranklinPaxinosRegions.rgb" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.FranklinPaxinosRegions.level">
+<span class="sig-name descname"><span class="pre">level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.FranklinPaxinosRegions.level" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.FranklinPaxinosRegions.parent">
+<span class="sig-name descname"><span class="pre">parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.FranklinPaxinosRegions.parent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.FranklinPaxinosRegions.order">
+<span class="sig-name descname"><span class="pre">order</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">uint16</span></em><a class="headerlink" href="#ibllib.atlas.regions.FranklinPaxinosRegions.order" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">BrainRegions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brainmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/regions.html#BrainRegions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ibllib.atlas.regions._BrainRegions</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BrainRegions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">brainmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/regions.html#BrainRegions"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">_BrainRegions</span></code></p>
 <p>The Allen atlas ids are kept intact but lateralized as follows: labels are duplicated
 and ids multiplied by -1, with the understanding that left hemisphere regions have negative
 ids.</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.get">
-<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">iblutil.util.Bunch</span></span></span><a class="reference internal" href="../_modules/ibllib/atlas/regions.html#BrainRegions.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.get" title="Permalink to this definition"></a></dt>
-<dd><p>Get a bunch of the name/id</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.descendants">
-<span class="sig-name descname"><span class="pre">descendants</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/regions.html#BrainRegions.descendants"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.descendants" title="Permalink to this definition"></a></dt>
-<dd><p>Get descendants from one or an array of ids</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ids</strong> – np.array or scalar representing the region primary key</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Bunch</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.ancestors">
-<span class="sig-name descname"><span class="pre">ancestors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ids</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/regions.html#BrainRegions.ancestors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.ancestors" title="Permalink to this definition"></a></dt>
-<dd><p>Get ancestors from one or an array of ids</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ids</strong> – np.array or scalar representing the region primary key</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Bunch</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.leaves">
-<span class="sig-name descname"><span class="pre">leaves</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/regions.html#BrainRegions.leaves"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.leaves" title="Permalink to this definition"></a></dt>
-<dd><p>Get all regions that do not have children
+<dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.compute_hierarchy">
+<span class="sig-name descname"><span class="pre">compute_hierarchy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/regions.html#BrainRegions.compute_hierarchy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.compute_hierarchy" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a self.hierarchy attributes that is a n_levels by n_region array
+of indices. This is useful to perform fast vectorized computations of
+ancestors and descendants.
 :return:</p>
 </dd></dl>
 
@@ -249,32 +261,37 @@ ids.</p>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.id">
-<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.id" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.id" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.name">
-<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="pre">:</span> <span class="pre">object</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.name" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.name" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.acronym">
-<span class="sig-name descname"><span class="pre">acronym</span></span><em class="property"><span class="pre">:</span> <span class="pre">object</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.acronym" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">acronym</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">object</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.acronym" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.rgb">
-<span class="sig-name descname"><span class="pre">rgb</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.uint8</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.rgb" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">rgb</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">uint8</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.rgb" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.level">
-<span class="sig-name descname"><span class="pre">level</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.level" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">level</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.level" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.parent">
-<span class="sig-name descname"><span class="pre">parent</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.parent" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">parent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.parent" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.atlas.regions.BrainRegions.order">
+<span class="sig-name descname"><span class="pre">order</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">uint16</span></em><a class="headerlink" href="#ibllib.atlas.regions.BrainRegions.order" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -292,8 +309,8 @@ ids.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ibllib.atlas.projections.html" class="btn btn-neutral float-left" title="ibllib.atlas.projections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ibllib.dsp.html" class="btn btn-neutral float-right" title="ibllib.dsp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ibllib.atlas.plots.html" class="btn btn-neutral float-left" title="ibllib.atlas.plots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ibllib.ephys.html" class="btn btn-neutral float-right" title="ibllib.ephys" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

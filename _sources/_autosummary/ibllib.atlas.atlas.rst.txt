@@ -1,0 +1,46 @@
+ibllib.atlas.atlas
+==================
+
+.. automodule:: ibllib.atlas.atlas
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      MRITorontoAtlas
+      NeedlesAtlas
+      cart2sph
+      sph2cart
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      AllenAtlas
+      BrainAtlas
+      BrainCoordinates
+      FlatMap
+      FranklinPaxinosAtlas
+      Insertion
+      Trajectory
+   
+   
+
+   
+   
+   
+
+
+

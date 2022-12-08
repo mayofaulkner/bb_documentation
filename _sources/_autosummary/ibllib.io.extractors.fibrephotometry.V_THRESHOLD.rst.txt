@@ -1,0 +1,6 @@
+ibllib.io.extractors.fibrephotometry.V\_THRESHOLD
+=================================================
+
+.. currentmodule:: ibllib.io.extractors.fibrephotometry
+
+.. autodata:: V_THRESHOLD

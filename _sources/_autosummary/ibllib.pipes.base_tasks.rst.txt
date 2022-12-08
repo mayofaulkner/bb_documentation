@@ -1,0 +1,36 @@
+ibllib.pipes.base\_tasks
+========================
+
+.. automodule:: ibllib.pipes.base_tasks
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      AudioTask
+      DynamicTask
+      EphysTask
+      ExperimentDescriptionRegisterRaw
+      RegisterRawDataTask
+      VideoTask
+      WidefieldTask
+   
+   
+
+   
+   
+   
+
+
+

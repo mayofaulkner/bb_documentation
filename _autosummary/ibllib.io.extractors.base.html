@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,27 +72,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../010_api_reference.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="ibllib.io.html">ibllib.io</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ibllib.io.certification_protocol.html">ibllib.io.certification_protocol</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="ibllib.io.extractors.html">ibllib.io.extractors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.ffmpeg.html">ibllib.io.ffmpeg</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.flags.html">ibllib.io.flags</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.globus.html">ibllib.io.globus</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.misc.html">ibllib.io.misc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.npy_header.html">ibllib.io.npy_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.io.raw_daq_loaders.html">ibllib.io.raw_daq_loaders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.raw_data_loaders.html">ibllib.io.raw_data_loaders</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.io.spikeglx.html">ibllib.io.spikeglx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.io.session_params.html">ibllib.io.session_params</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.video.html">ibllib.io.video</a></li>
 </ul>
 </li>
@@ -107,7 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -123,12 +122,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-          <li><a href="ibllib.io.html">ibllib.io</a> &raquo;</li>
-          <li><a href="ibllib.io.extractors.html">ibllib.io.extractors</a> &raquo;</li>
-      <li>ibllib.io.extractors.base</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.io.html">ibllib.io</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.io.extractors.html">ibllib.io.extractors</a></li>
+      <li class="breadcrumb-item active">ibllib.io.extractors.base</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.io.extractors.base.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -163,12 +162,12 @@
 }
 </style>
 <section id="module-ibllib.io.extractors.base">
-<span id="ibllib-io-extractors-base"></span><h1>ibllib.io.extractors.base<a class="headerlink" href="#module-ibllib.io.extractors.base" title="Permalink to this headline"></a></h1>
+<span id="ibllib-io-extractors-base"></span><h1>ibllib.io.extractors.base<a class="headerlink" href="#module-ibllib.io.extractors.base" title="Permalink to this heading"></a></h1>
 <p>Base Extractor classes
 A module for the base Extractor classes.  The Extractor, given a session path, will extract the
 processed data from raw hardware files and optionally save them.</p>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -192,7 +191,7 @@ processed data from raw hardware files and optionally save them.</p>
 </tbody>
 </table>
 <p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -208,8 +207,8 @@ processed data from raw hardware files and optionally save them.</p>
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="ibllib.io.extractors.base.BaseExtractor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">BaseExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/base.html#BaseExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.base.BaseExtractor" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BaseExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/base.html#BaseExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.base.BaseExtractor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ABC</span></code></p>
 <p>Base extractor class
 Writing an extractor checklist:
 -   on the child class, overload the _extract method
@@ -224,17 +223,17 @@ in the _extract method)</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.io.extractors.base.BaseExtractor.save_names">
-<span class="sig-name descname"><span class="pre">save_names</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseExtractor.save_names" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseExtractor.save_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.io.extractors.base.BaseExtractor.default_path">
-<span class="sig-name descname"><span class="pre">default_path</span></span><em class="property"> <span class="pre">=</span> <span class="pre">WindowsPath('alf')</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseExtractor.default_path" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">default_path</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PosixPath('alf')</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseExtractor.default_path" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.io.extractors.base.BaseExtractor.session_path">
-<span class="sig-name descname"><span class="pre">session_path</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseExtractor.session_path" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">session_path</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseExtractor.session_path" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -254,8 +253,8 @@ in the _extract method)</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibllib.io.extractors.base.BaseBpodTrialsExtractor">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">BaseBpodTrialsExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/base.html#BaseBpodTrialsExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.base.BaseBpodTrialsExtractor" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ibllib.io.extractors.base.BaseExtractor" title="ibllib.io.extractors.base.BaseExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ibllib.io.extractors.base.BaseExtractor</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BaseBpodTrialsExtractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/base.html#BaseBpodTrialsExtractor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.base.BaseBpodTrialsExtractor" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ibllib.io.extractors.base.BaseExtractor" title="ibllib.io.extractors.base.BaseExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseExtractor</span></code></a></p>
 <p>Base (abstract) extractor class for bpod jsonable data set
 Wrps the _extract private method</p>
 <dl class="field-list simple">
@@ -267,17 +266,17 @@ Wrps the _extract private method</p>
 :param settings</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.io.extractors.base.BaseBpodTrialsExtractor.bpod_trials">
-<span class="sig-name descname"><span class="pre">bpod_trials</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseBpodTrialsExtractor.bpod_trials" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">bpod_trials</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseBpodTrialsExtractor.bpod_trials" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.io.extractors.base.BaseBpodTrialsExtractor.settings">
-<span class="sig-name descname"><span class="pre">settings</span></span><em class="property"> <span class="pre">=</span> <span class="pre">None</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseBpodTrialsExtractor.settings" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">settings</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#ibllib.io.extractors.base.BaseBpodTrialsExtractor.settings" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.io.extractors.base.BaseBpodTrialsExtractor.extract">
-<span class="sig-name descname"><span class="pre">extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpod_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/base.html#BaseBpodTrialsExtractor.extract"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.base.BaseBpodTrialsExtractor.extract" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">extract</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">task_collection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raw_behavior_data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bpod_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/base.html#BaseBpodTrialsExtractor.extract"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.base.BaseBpodTrialsExtractor.extract" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Param</dt>
 <dd class="field-odd"><p>bpod_trials (optional) bpod trials from jsonable in a dictionary</p>

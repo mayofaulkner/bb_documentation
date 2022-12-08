@@ -1,0 +1,32 @@
+ibllib.io.raw\_daq\_loaders
+===========================
+
+.. automodule:: ibllib.io.raw_daq_loaders
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      load_channels_tdms
+      load_raw_daq_tdms
+      load_sync_tdms
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

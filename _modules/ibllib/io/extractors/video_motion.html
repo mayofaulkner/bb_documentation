@@ -15,7 +15,9 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/clipboard.min.js"></script>
         <script src="../../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-      <li>ibllib.io.extractors.video_motion</li>
+      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ibllib.io.extractors.video_motion</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -138,7 +138,7 @@
         <span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="p">((</span><span class="mi">402</span><span class="p">,</span> <span class="mi">481</span><span class="p">),</span> <span class="p">(</span><span class="mi">31</span><span class="p">,</span> <span class="mi">103</span><span class="p">))</span>
     <span class="p">}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ibllib&#39;</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">eid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">one</span> <span class="o">=</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">ONE</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">eid</span> <span class="o">=</span> <span class="n">eid</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">session_path</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;session_path&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">eid2path</span><span class="p">(</span><span class="n">eid</span><span class="p">)</span>
@@ -239,6 +239,34 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;session&#39; must be a valid session path or uuid&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="MotionAlignment.align_motion"><a class="viewcode-back" href="../../../../_autosummary/ibllib.io.extractors.video_motion.html#ibllib.io.extractors.video_motion.MotionAlignment.align_motion">[docs]</a>    <span class="k">def</span> <span class="nf">align_motion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">),</span> <span class="n">side</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sd_thresh</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Align video to the wheel using cross-correlation of the video motion signal and the rotary</span>
+<span class="sd">        encoder.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        period : (float, float)</span>
+<span class="sd">            The time period over which to do the alignment.</span>
+<span class="sd">        side : {&#39;left&#39;, &#39;right&#39;}</span>
+<span class="sd">            With which camera to perform the alignment.</span>
+<span class="sd">        sd_thresh : float</span>
+<span class="sd">            For plotting where the motion energy goes above this standard deviation threshold.</span>
+<span class="sd">        display : bool</span>
+<span class="sd">            When true, displays the aligned wheel motion energy along with the rotary encoder</span>
+<span class="sd">            signal.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            Frame offset, i.e. by how many frames the video was shifted to match the rotary encoder</span>
+<span class="sd">            signal.  Negative values mean the video was shifted backwards with respect to the wheel</span>
+<span class="sd">            timestamps.</span>
+<span class="sd">        float</span>
+<span class="sd">            The peak cross-correlation.</span>
+<span class="sd">        numpy.ndarray</span>
+<span class="sd">            The motion energy used in the cross-correlation, i.e. the frame difference for the</span>
+<span class="sd">            period given.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Get data samples within period</span>
         <span class="n">wheel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;wheel&#39;</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">alignment</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="n">side</span>

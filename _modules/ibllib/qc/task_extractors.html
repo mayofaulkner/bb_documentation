@@ -15,7 +15,9 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/clipboard.min.js"></script>
         <script src="../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>ibllib.qc.task_extractors</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ibllib.qc.task_extractors</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -112,6 +112,7 @@
 <span class="kn">from</span> <span class="nn">ibllib.io.extractors</span> <span class="kn">import</span> <span class="n">ephys_fpga</span>
 <span class="kn">import</span> <span class="nn">ibllib.io.raw_data_loaders</span> <span class="k">as</span> <span class="nn">raw</span>
 <span class="kn">from</span> <span class="nn">one.alf.spec</span> <span class="kn">import</span> <span class="n">is_session_path</span>
+<span class="kn">import</span> <span class="nn">one.alf.io</span> <span class="k">as</span> <span class="nn">alfio</span>
 <span class="kn">from</span> <span class="nn">one.api</span> <span class="kn">import</span> <span class="n">ONE</span>
 
 
@@ -129,7 +130,8 @@
 
 
 <div class="viewcode-block" id="TaskQCExtractor"><a class="viewcode-back" href="../../../_autosummary/ibllib.qc.task_extractors.html#ibllib.qc.task_extractors.TaskQCExtractor">[docs]</a><span class="k">class</span> <span class="nc">TaskQCExtractor</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_path</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bpod_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">session_path</span><span class="p">,</span> <span class="n">lazy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">download_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bpod_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">sync_collection</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sync_type</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        A class for extracting the task data required to perform task quality control</span>
 <span class="sd">        :param session_path: a valid session path</span>
@@ -151,6 +153,8 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wheel_encoding</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bpod_only</span> <span class="o">=</span> <span class="n">bpod_only</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sync_collection</span> <span class="o">=</span> <span class="n">sync_collection</span> <span class="ow">or</span> <span class="s1">&#39;raw_ephys_data&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="o">=</span> <span class="n">sync_type</span>
 
         <span class="k">if</span> <span class="n">download_data</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">one</span> <span class="o">=</span> <span class="n">one</span> <span class="ow">or</span> <span class="n">ONE</span><span class="p">()</span>
@@ -182,16 +186,28 @@
         <span class="n">settings</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">load_datasets</span><span class="p">(</span><span class="n">eid</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;_iblrig_taskSettings.raw.json&quot;</span><span class="p">],</span>
                                              <span class="n">collections</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;raw_behavior_data&#39;</span><span class="p">],</span>
                                              <span class="n">download_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">assert_present</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">settings</span> <span class="ow">and</span> <span class="n">get_session_extractor_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;ephys&#39;</span><span class="p">:</span>
+
+        <span class="n">is_ephys</span> <span class="o">=</span> <span class="n">get_session_extractor_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;ephys&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="ow">or</span> <span class="s1">&#39;nidq&#39;</span> <span class="k">if</span> <span class="n">is_ephys</span> <span class="k">else</span> <span class="s1">&#39;bpod&#39;</span>
+        <span class="n">is_fpga</span> <span class="o">=</span> <span class="s1">&#39;bpod&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span>
+
+        <span class="k">if</span> <span class="n">settings</span> <span class="ow">and</span> <span class="n">is_ephys</span><span class="p">:</span>
 
             <span class="n">dstypes</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;_spikeglx_sync.channels&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;_spikeglx_sync.polarities&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;_spikeglx_sync.times&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;ephysData.raw.meta&#39;</span><span class="p">,</span>
                             <span class="s1">&#39;ephysData.raw.wiring&#39;</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">settings</span> <span class="ow">and</span> <span class="n">is_fpga</span><span class="p">:</span>
+
+            <span class="n">dstypes</span><span class="o">.</span><span class="n">extend</span><span class="p">([</span><span class="s1">&#39;_spikeglx_sync.channels&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;_spikeglx_sync.polarities&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;_spikeglx_sync.times&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;DAQData.raw.meta&#39;</span><span class="p">,</span>
+                            <span class="s1">&#39;DAQData.wiring&#39;</span><span class="p">])</span>
 
         <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">type2datasets</span><span class="p">(</span><span class="n">eid</span><span class="p">,</span> <span class="n">dstypes</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">files</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">_download_datasets</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="n">files</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">_check_filesystem</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
 
         <span class="n">missing</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">dstypes</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">files</span> <span class="k">else</span> <span class="p">[</span><span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">files</span><span class="p">]</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">session_path</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="nb">all</span><span class="p">(</span><span class="n">missing</span><span class="p">):</span>
@@ -209,13 +225,16 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading raw data from </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="ow">or</span> <span class="n">get_session_extractor_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span>
+        <span class="c1"># Finds the sync type when it isn&#39;t explicitly set, if ephys we assume nidq otherwise bpod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="ow">or</span> <span class="s1">&#39;nidq&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;ephys&#39;</span> <span class="k">else</span> <span class="s1">&#39;bpod&#39;</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">settings</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_bpod</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span>
         <span class="c1"># Fetch the TTLs for the photodiode and audio</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s1">&#39;ephys&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">bpod_only</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># Extract from Bpod</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="o">==</span> <span class="s1">&#39;bpod&#39;</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">bpod_only</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>  <span class="c1"># Extract from Bpod</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">frame_ttls</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">audio_ttls</span> <span class="o">=</span> <span class="n">raw</span><span class="o">.</span><span class="n">load_bpod_fronts</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>  <span class="c1"># Extract from FPGA</span>
-            <span class="n">sync</span><span class="p">,</span> <span class="n">chmap</span> <span class="o">=</span> <span class="n">ephys_fpga</span><span class="o">.</span><span class="n">get_main_probe_sync</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span>
+            <span class="n">sync</span><span class="p">,</span> <span class="n">chmap</span> <span class="o">=</span> <span class="n">ephys_fpga</span><span class="o">.</span><span class="n">get_sync_and_chn_map</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sync_collection</span><span class="p">)</span>
 
             <span class="k">def</span> <span class="nf">channel_events</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
                 <span class="sd">&quot;&quot;&quot;Fetches the polarities and times for a given channel&quot;&quot;&quot;</span>
@@ -236,15 +255,18 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Extracting session: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="ow">or</span> <span class="n">get_session_extractor_type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wheel_encoding</span> <span class="o">=</span> <span class="s1">&#39;X4&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;ephys&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">bpod_only</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;X1&#39;</span>
+        <span class="c1"># Finds the sync type when it isn&#39;t explicitly set, if ephys we assume nidq otherwise bpod</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="ow">or</span> <span class="s1">&#39;nidq&#39;</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;ephys&#39;</span> <span class="k">else</span> <span class="s1">&#39;bpod&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">wheel_encoding</span> <span class="o">=</span> <span class="s1">&#39;X4&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="o">!=</span> <span class="s1">&#39;bpod&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">bpod_only</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;X1&#39;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">load_raw_data</span><span class="p">()</span>
         <span class="c1"># Run extractors</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s1">&#39;ephys&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">bpod_only</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sync_type</span> <span class="o">!=</span> <span class="s1">&#39;bpod&#39;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">bpod_only</span><span class="p">:</span>
             <span class="n">data</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">ephys_fpga</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">)</span>
-            <span class="n">bpod2fpga</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;intervals_bpod&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;intervals&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span>
-                                 <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>
+            <span class="n">bpod2fpga</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;intervals_bpod&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;table&#39;</span><span class="p">][</span><span class="s1">&#39;intervals_0&#39;</span><span class="p">],</span>
+                                 <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;extrapolate&#39;</span><span class="p">)</span>
             <span class="c1"># Add Bpod wheel data</span>
             <span class="n">re_ts</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">get_wheel_position</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">session_path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span><span class="p">)</span>
             <span class="n">data</span><span class="p">[</span><span class="s1">&#39;wheel_timestamps_bpod&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bpod2fpga</span><span class="p">(</span><span class="n">re_ts</span><span class="p">)</span>
@@ -260,14 +282,7 @@
                 <span class="c1"># Nasty hack to trim last trial due to stim off events happening at trial num + 1</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[:</span><span class="n">n_trials</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">quiescence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;quiescent_period&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[:</span><span class="n">n_trials</span><span class="p">]])</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-                    <span class="o">**</span><span class="n">trials</span><span class="p">,</span>
-                    <span class="o">**</span><span class="n">wheel</span><span class="p">,</span>
-                    <span class="s1">&#39;quiescence&#39;</span><span class="p">:</span> <span class="n">quiescence</span><span class="p">,</span>
-                    <span class="s1">&#39;position&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;position&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[:</span><span class="n">n_trials</span><span class="p">]]),</span>
-                    <span class="s1">&#39;phase&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;stim_phase&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">raw_data</span><span class="p">[:</span><span class="n">n_trials</span><span class="p">]])</span>
-                <span class="p">}</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">trials</span><span class="p">,</span> <span class="o">**</span><span class="n">wheel</span><span class="p">}</span>
         <span class="c1"># Update the data attribute with extracted data</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rename_data</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
 
@@ -279,6 +294,10 @@
 <span class="sd">        :param data: A dict of task data returned by the task extractors</span>
 <span class="sd">        :return: the same dict after modifying the keys</span>
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Expand trials dataframe into key value pairs</span>
+        <span class="n">trials_table</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;table&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">trials_table</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">alfio</span><span class="o">.</span><span class="n">AlfBunch</span><span class="o">.</span><span class="n">from_df</span><span class="p">(</span><span class="n">trials_table</span><span class="p">)}</span>
         <span class="n">correct</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;feedbackType&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="c1"># get valve_time and errorCue_times from feedback_times</span>
         <span class="k">if</span> <span class="s1">&#39;errorCue_times&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>

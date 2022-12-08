@@ -1,0 +1,37 @@
+ibllib.qc
+=========
+
+.. automodule:: ibllib.qc
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   ibllib.qc.alignment_qc
+   ibllib.qc.base
+   ibllib.qc.camera
+   ibllib.qc.critical_reasons
+   ibllib.qc.dlc
+   ibllib.qc.qcplots
+   ibllib.qc.task_extractors
+   ibllib.qc.task_metrics
+

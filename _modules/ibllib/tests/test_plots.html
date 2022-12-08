@@ -15,7 +15,9 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/clipboard.min.js"></script>
         <script src="../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>ibllib.tests.test_plots</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ibllib.tests.test_plots</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -140,7 +140,7 @@
         <span class="k">try</span><span class="p">:</span>
             <span class="n">img_file</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="s1">&#39;/var/www/&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="n">rel_path</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-            <span class="n">img_file</span> <span class="o">=</span> <span class="n">http_download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">cache_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmp_dir</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">username</span><span class="o">=</span><span class="n">TEST_DB</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
+            <span class="n">img_file</span> <span class="o">=</span> <span class="n">http_download_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">target_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmp_dir</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">username</span><span class="o">=</span><span class="n">TEST_DB</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span>
                                           <span class="n">password</span><span class="o">=</span><span class="n">TEST_DB</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">],</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">img_file</span>
 
@@ -251,12 +251,13 @@
 
 <div class="viewcode-block" id="TestDlcQcPlot.test_without_inputs"><a class="viewcode-back" href="../../../_autosummary/ibllib.tests.test_plots.html#ibllib.tests.test_plots.TestDlcQcPlot.test_without_inputs">[docs]</a>    <span class="k">def</span> <span class="nf">test_without_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">eid</span> <span class="o">=</span> <span class="s1">&#39;3473f9d2-aa5d-41a6-9048-c65d0b7ab97c&#39;</span>
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertLogs</span><span class="p">(</span><span class="s1">&#39;ibllib&#39;</span><span class="p">,</span> <span class="s1">&#39;WARNING&#39;</span><span class="p">):</span>
-            <span class="n">fig</span> <span class="o">=</span> <span class="n">dlc_qc_plot</span><span class="p">(</span><span class="n">eid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="p">)</span>
-        <span class="n">fig_path</span> <span class="o">=</span> <span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tmp_dir</span><span class="o">.</span><span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">joinpath</span><span class="p">(</span><span class="s1">&#39;dlc_qc_plot.png&#39;</span><span class="p">))</span>
-        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">fig_path</span><span class="p">)</span>
-        <span class="k">with</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fig_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">im</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="p">(</span><span class="mi">1700</span><span class="p">,</span> <span class="mi">1000</span><span class="p">))</span></div></div>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">AssertionError</span><span class="p">):</span>
+            <span class="n">dlc_qc_plot</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="o">.</span><span class="n">eid2path</span><span class="p">(</span><span class="n">eid</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">one</span><span class="p">)</span></div></div>
+            <span class="c1"># fig = dlc_qc_plot(self.one.eid2path(eid), self.one)</span>
+        <span class="c1"># fig_path = (Path(self.tmp_dir.name).joinpath(&#39;dlc_qc_plot.png&#39;))</span>
+        <span class="c1"># fig.savefig(fig_path)</span>
+        <span class="c1"># with Image.open(fig_path) as im:</span>
+        <span class="c1">#     self.assertEqual(im.size, (1700, 1000))</span>
 </pre></div>
 
            </div>

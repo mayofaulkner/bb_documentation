@@ -1,0 +1,32 @@
+ibllib.ephys
+============
+
+.. automodule:: ibllib.ephys
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   ibllib.ephys.ephysqc
+   ibllib.ephys.spikes
+   ibllib.ephys.sync_probes
+

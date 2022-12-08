@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,17 +72,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../010_api_reference.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ibllib.graphic</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ibllib.graphic</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ibllib.graphic.popup"><code class="docutils literal notranslate"><span class="pre">popup()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.io.html">ibllib.io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.misc.html">ibllib.misc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.oneibl.html">ibllib.oneibl</a></li>
@@ -95,7 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -111,10 +113,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-      <li>ibllib.graphic</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+      <li class="breadcrumb-item active">ibllib.graphic</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.graphic.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -149,70 +151,22 @@
 }
 </style>
 <section id="module-ibllib.graphic">
-<span id="ibllib-graphic"></span><h1>ibllib.graphic<a class="headerlink" href="#module-ibllib.graphic" title="Permalink to this headline"></a></h1>
+<span id="ibllib-graphic"></span><h1>ibllib.graphic<a class="headerlink" href="#module-ibllib.graphic" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.graphic.login" title="ibllib.graphic.login"><code class="xref py py-obj docutils literal notranslate"><span class="pre">login</span></code></a></p></td>
-<td><p>Dialog box prompting for username and password.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.graphic.multi_input" title="ibllib.graphic.multi_input"><code class="xref py py-obj docutils literal notranslate"><span class="pre">multi_input</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.graphic.popup" title="ibllib.graphic.popup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">popup</span></code></a></p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.graphic.numinput" title="ibllib.graphic.numinput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numinput</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.graphic.popup" title="ibllib.graphic.popup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">popup</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.graphic.strinput" title="ibllib.graphic.strinput"><code class="xref py py-obj docutils literal notranslate"><span class="pre">strinput</span></code></a></p></td>
-<td><p>Example: &gt;&gt;&gt; strinput(&quot;RIG CONFIG&quot;, &quot;Insert RE com port:&quot;, default=&quot;COM&quot;)</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="ibllib.graphic.popup">
 <span class="sig-name descname"><span class="pre">popup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/graphic.html#popup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.graphic.popup" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ibllib.graphic.numinput">
-<span class="sig-name descname"><span class="pre">numinput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maxval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nullable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">askint</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/graphic.html#numinput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.graphic.numinput" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ibllib.graphic.strinput">
-<span class="sig-name descname"><span class="pre">strinput</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prompt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'COM'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nullable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/graphic.html#strinput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.graphic.strinput" title="Permalink to this definition"></a></dt>
-<dd><p>Example:
-&gt;&gt;&gt; strinput(“RIG CONFIG”, “Insert RE com port:”, default=”COM”)</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ibllib.graphic.login">
-<span class="sig-name descname"><span class="pre">login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Enter</span> <span class="pre">Credentials'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_username</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_passwd</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/graphic.html#login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.graphic.login" title="Permalink to this definition"></a></dt>
-<dd><p>Dialog box prompting for username and password.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>title</strong> – Window title</p></li>
-<li><p><strong>default_username</strong> – default field for username</p></li>
-<li><p><strong>default_passwd</strong> – default field for password</p></li>
-<li><p><strong>add_fields</strong> – list of new fields to be added to the dialog</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ibllib.graphic.multi_input">
-<span class="sig-name descname"><span class="pre">multi_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Enter</span> <span class="pre">Credentials'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">defaults</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/graphic.html#multi_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.graphic.multi_input" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </section>

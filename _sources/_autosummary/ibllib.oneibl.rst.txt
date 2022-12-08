@@ -1,0 +1,33 @@
+ibllib.oneibl
+=============
+
+.. automodule:: ibllib.oneibl
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   ibllib.oneibl.data_handlers
+   ibllib.oneibl.patcher
+   ibllib.oneibl.registration
+   ibllib.oneibl.stream
+

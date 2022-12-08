@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -24,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ibllib.ephys.sync_probes" href="ibllib.ephys.sync_probes.html" />
-    <link rel="prev" title="ibllib.ephys.np2_converter" href="ibllib.ephys.np2_converter.html" /> 
+    <link rel="prev" title="ibllib.ephys.ephysqc" href="ibllib.ephys.ephysqc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,18 +72,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../010_api_reference.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="ibllib.ephys.ephysqc.html">ibllib.ephys.ephysqc</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.ephys.neuropixel.html">ibllib.ephys.neuropixel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.ephys.np2_converter.html">ibllib.ephys.np2_converter</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">ibllib.ephys.spikes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.ephys.sync_probes.html">ibllib.ephys.sync_probes</a></li>
 </ul>
@@ -102,7 +99,7 @@
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -118,11 +115,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-          <li><a href="ibllib.ephys.html">ibllib.ephys</a> &raquo;</li>
-      <li>ibllib.ephys.spikes</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.ephys.html">ibllib.ephys</a></li>
+      <li class="breadcrumb-item active">ibllib.ephys.spikes</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.ephys.spikes.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -157,9 +154,9 @@
 }
 </style>
 <section id="module-ibllib.ephys.spikes">
-<span id="ibllib-ephys-spikes"></span><h1>ibllib.ephys.spikes<a class="headerlink" href="#module-ibllib.ephys.spikes" title="Permalink to this headline"></a></h1>
+<span id="ibllib-ephys-spikes"></span><h1>ibllib.ephys.spikes<a class="headerlink" href="#module-ibllib.ephys.spikes" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -175,7 +172,7 @@
 <td><p>Compress output from kilosort 2 into tar file in order to register to flatiron and move to spikesorters/ks2_matlab/probexx path.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#ibllib.ephys.spikes.probes_description" title="ibllib.ephys.spikes.probes_description"><code class="xref py py-obj docutils literal notranslate"><span class="pre">probes_description</span></code></a></p></td>
-<td><p>Aggregate probes information into ALF files Register alyx probe insertions and Micro-manipulator trajectories Input:     raw_ephys_data/probeXX/ Output:     alf/probes.description.npy     alf/probes.trajectory.npy</p></td>
+<td><p>Aggregate probes information into ALF files Register alyx probe insertions and Micro-manipulator trajectories Input:     raw_ephys_data/probeXX/ Output:     alf/probes.description.npy</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.ephys.spikes.sync_spike_sorting" title="ibllib.ephys.spikes.sync_spike_sorting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sync_spike_sorting</span></code></a></p></td>
 <td><p>Synchronizes the spike.times using the previously computed sync files</p></td>
@@ -184,7 +181,7 @@
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="ibllib.ephys.spikes.probes_description">
-<span class="sig-name descname"><span class="pre">probes_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ses_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_exists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/ephys/spikes.html#probes_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.ephys.spikes.probes_description" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">probes_description</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ses_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">one</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/ephys/spikes.html#probes_description"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.ephys.spikes.probes_description" title="Permalink to this definition"></a></dt>
 <dd><p>Aggregate probes information into ALF files
 Register alyx probe insertions and Micro-manipulator trajectories
 Input:</p>
@@ -192,8 +189,7 @@ Input:</p>
 <div><p>raw_ephys_data/probeXX/</p>
 </div></blockquote>
 <dl class="simple">
-<dt>Output:</dt><dd><p>alf/probes.description.npy
-alf/probes.trajectory.npy</p>
+<dt>Output:</dt><dd><p>alf/probes.description.npy</p>
 </dd>
 </dl>
 </dd></dl>
@@ -256,7 +252,7 @@ with tarfile.open(‘_kilosort_output.tar’, ‘r’) as tar_dir:</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibllib.ephys.spikes.detection">
-<span class="sig-name descname"><span class="pre">detection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.002</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_threshold_um</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/ephys/spikes.html#detection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.ephys.spikes.detection" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">detection</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detect_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_tol</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.002</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance_threshold_um</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/ephys/spikes.html#detection"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.ephys.spikes.detection" title="Permalink to this definition"></a></dt>
 <dd><p>Detects and de-duplicates negative voltage spikes based on voltage thresholding.
 The de-duplication step locks in maximum amplitude events. To account for collisions the amplitude
 is assumed to be decaying from the peak. If this is a multipeak event, each is labeled as a spike.</p>
@@ -265,7 +261,7 @@ is assumed to be decaying from the peak. If this is a multipeak event, each is l
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> – 2D numpy array nsamples x nchannels</p></li>
 <li><p><strong>fs</strong> – sampling frequency (Hz)</p></li>
-<li><p><strong>h</strong> – dictionary with neuropixel geometry header: see. ibllib.ephys.neuropixel.trace_header</p></li>
+<li><p><strong>h</strong> – dictionary with neuropixel geometry header: see. neuropixel.trace_header</p></li>
 <li><p><strong>detect_threshold</strong> – negative value below which the voltage is considered to be a spike</p></li>
 <li><p><strong>time_tol</strong> – time in seconds for which samples before and after are assumed to be part of the spike</p></li>
 <li><p><strong>distance_threshold_um</strong> – distance for which exceeding threshold values are assumed to part of the same spike</p></li>
@@ -283,7 +279,7 @@ is assumed to be decaying from the peak. If this is a multipeak event, each is l
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ibllib.ephys.np2_converter.html" class="btn btn-neutral float-left" title="ibllib.ephys.np2_converter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ibllib.ephys.ephysqc.html" class="btn btn-neutral float-left" title="ibllib.ephys.ephysqc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="ibllib.ephys.sync_probes.html" class="btn btn-neutral float-right" title="ibllib.ephys.sync_probes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

@@ -1,0 +1,30 @@
+ibllib.pipes.transfer\_rig\_data
+================================
+
+.. automodule:: ibllib.pipes.transfer_rig_data
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      main
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

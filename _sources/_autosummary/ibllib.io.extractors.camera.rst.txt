@@ -1,0 +1,44 @@
+ibllib.io.extractors.camera
+===========================
+
+.. automodule:: ibllib.io.extractors.camera
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      align_with_audio
+      attribute_times
+      extract_all
+      extract_camera_sync
+      get_video_length
+      groom_pin_state
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      CameraTimestampsBpod
+      CameraTimestampsCamlog
+      CameraTimestampsFPGA
+   
+   
+
+   
+   
+   
+
+
+

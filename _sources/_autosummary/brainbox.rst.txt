@@ -1,0 +1,46 @@
+﻿brainbox
+========
+
+.. automodule:: brainbox
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   brainbox.atlas
+   brainbox.behavior
+   brainbox.core
+   brainbox.ephys_plots
+   brainbox.io
+   brainbox.lfp
+   brainbox.metrics
+   brainbox.plot
+   brainbox.plot_base
+   brainbox.population
+   brainbox.processing
+   brainbox.quality
+   brainbox.singlecell
+   brainbox.spike_features
+   brainbox.task
+   brainbox.tests
+   brainbox.video
+

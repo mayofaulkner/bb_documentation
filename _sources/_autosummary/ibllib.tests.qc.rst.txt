@@ -1,0 +1,35 @@
+ibllib.tests.qc
+===============
+
+.. automodule:: ibllib.tests.qc
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   ibllib.tests.qc.test_alignment_qc
+   ibllib.tests.qc.test_base_qc
+   ibllib.tests.qc.test_camera_qc
+   ibllib.tests.qc.test_critical_reasons
+   ibllib.tests.qc.test_dlc_qc
+   ibllib.tests.qc.test_task_metrics
+

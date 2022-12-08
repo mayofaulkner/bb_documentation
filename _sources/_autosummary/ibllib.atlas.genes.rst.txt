@@ -1,0 +1,30 @@
+ibllib.atlas.genes
+==================
+
+.. automodule:: ibllib.atlas.genes
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      allen_gene_expression
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

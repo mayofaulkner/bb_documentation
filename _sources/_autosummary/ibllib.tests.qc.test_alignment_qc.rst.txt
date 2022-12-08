@@ -1,0 +1,33 @@
+ibllib.tests.qc.test\_alignment\_qc
+===================================
+
+.. automodule:: ibllib.tests.qc.test_alignment_qc
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      TestAlignmentQcExisting
+      TestAlignmentQcManual
+      TestTracingQc
+      TestUploadToFlatIron
+   
+   
+
+   
+   
+   
+
+
+

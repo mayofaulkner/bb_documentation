@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -85,12 +86,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -106,8 +106,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Publicly available IBL data</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Publicly available IBL data</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/public_docs/public_introduction.md.txt" rel="nofollow"> View page source</a>
       </li>
@@ -141,10 +141,10 @@
     text-align: unset;
 }
 </style>
-<section class="tex2jax_ignore mathjax_ignore" id="publicly-available-ibl-data">
-<h1>Publicly available IBL data<a class="headerlink" href="#publicly-available-ibl-data" title="Permalink to this headline"></a></h1>
+<section id="publicly-available-ibl-data">
+<h1>Publicly available IBL data<a class="headerlink" href="#publicly-available-ibl-data" title="Permalink to this heading"></a></h1>
 <section id="introduction-to-the-ibl-experiments">
-<h2>Introduction to the IBL experiments<a class="headerlink" href="#introduction-to-the-ibl-experiments" title="Permalink to this headline"></a></h2>
+<h2>Introduction to the IBL experiments<a class="headerlink" href="#introduction-to-the-ibl-experiments" title="Permalink to this heading"></a></h2>
 <p>The aim of the International Brain Laboratory (IBL) is to understand the brain functions
 underlying decision making. Understanding these processes is a problem with a scale and complexity
 that far exceed what can be tackled by any single laboratory and that demands computational theory
@@ -165,7 +165,7 @@ Once a mouse has reached proficiency in the IBL task, it is moved to an “Ephys
 Neuropixels, Mesoscope, Fiberfluorophotometry, Widefield Imaging techniques all have their unique advantages over one another.
 Our most advanced project as of now is the one involving Neuropixels recordings.</p>
 <section id="neuropixels-datasets">
-<h3>Neuropixels datasets<a class="headerlink" href="#neuropixels-datasets" title="Permalink to this headline"></a></h3>
+<h3>Neuropixels datasets<a class="headerlink" href="#neuropixels-datasets" title="Permalink to this heading"></a></h3>
 <p>The data consists of neurophysiological and behavior measurements acquired in mice, using Neuropixels probes.
 In a single recording session, up to two Neuropixels probes (labelled typically <code class="docutils literal notranslate"><span class="pre">probe00</span></code> or <code class="docutils literal notranslate"><span class="pre">probe01</span></code>)
 are inserted in the mouse’s brain. The location of these probes in the brain will vary from mouse to mouse, as the
@@ -180,20 +180,20 @@ before being sent and stored onto our centralised database (see our <a class="re
 </section>
 </section>
 <section id="what-is-available-for-download">
-<h2>What is available for download<a class="headerlink" href="#what-is-available-for-download" title="Permalink to this headline"></a></h2>
+<h2>What is available for download<a class="headerlink" href="#what-is-available-for-download" title="Permalink to this heading"></a></h2>
 <section id="behavioral-data-associated-to-our-2020-s-publication">
-<h3>Behavioral data associated to our 2020’s publication<a class="headerlink" href="#behavioral-data-associated-to-our-2020-s-publication" title="Permalink to this headline"></a></h3>
+<h3>Behavioral data associated to our 2020’s publication<a class="headerlink" href="#behavioral-data-associated-to-our-2020-s-publication" title="Permalink to this heading"></a></h3>
 <p>The IBL has released all of the behavior sessions associated with the publication
 <a class="reference external" href="https://elifesciences.org/articles/63711">International Brain Laboratory et al., 2021</a>
 via <span class="xref myst">Datajoint</span>.</p>
 </section>
 <section id="neuropixels-datasets-pilot-release">
-<h3>Neuropixels datasets (pilot release)<a class="headerlink" href="#neuropixels-datasets-pilot-release" title="Permalink to this headline"></a></h3>
+<h3>Neuropixels datasets (pilot release)<a class="headerlink" href="#neuropixels-datasets-pilot-release" title="Permalink to this heading"></a></h3>
 <p>The IBL has released a handful of pilot datasets that are available for download through both ONE and Datajoint (see sections below).</p>
 </section>
 </section>
 <section id="how-to-browse-the-datasets">
-<h2>How to browse the datasets<a class="headerlink" href="#how-to-browse-the-datasets" title="Permalink to this headline"></a></h2>
+<h2>How to browse the datasets<a class="headerlink" href="#how-to-browse-the-datasets" title="Permalink to this heading"></a></h2>
 <p>If you first want to quickly view and browse what datasets are in a recording session, you can easily do so in a web browser via this <a class="reference external" href="https://ibl.flatironinstitute.org/public/">Flatiron web page</a>.</p>
 <p>Generally speaking, a single recording session fits into a folder, which name is characterised by:
 it’s lab name / a folder Subjects / the name of the subject (i.e. the mouse nickname) / the date / the session number.</p>
@@ -209,7 +209,7 @@ so it is not uncommon to see sessions for which only the <code class="docutils l
 </ul>
 </section>
 <section id="neuropixels-pilot-datasets">
-<h2>Neuropixels pilot datasets<a class="headerlink" href="#neuropixels-pilot-datasets" title="Permalink to this headline"></a></h2>
+<h2>Neuropixels pilot datasets<a class="headerlink" href="#neuropixels-pilot-datasets" title="Permalink to this heading"></a></h2>
 <p>Specifically, the Neuropixels pilot datasets are in the folders:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://ibl.flatironinstitute.org/public/churchlandlab/Subjects/CSHL047/2020-01-20/001/">churchlandlab/Subjects/CSHL047/2020-01-20/001</a></p></li>
@@ -248,12 +248,12 @@ is particularly heavy (several GB). In this specific case, you can view the raw 
 e.g. <a class="reference external" href="https://ibl.flatironinstitute.org/public/mainenlab/Subjects/ZM_2240/2020-01-21/001/raw_video_data/_iblrig_leftCamera.raw.edcfa043-6314-4f80-ba6f-bf6d08922eda.mp4">_iblrig_leftCamera.raw</a>.</p>
 <p>A detailed explanation of datasets definition and format are described
 in this <a class="reference external" href="https://docs.google.com/spreadsheets/u/1/d/1ieLXRPLLSgUKcLvFkrqizfZl5HjdfE6bQ2KLBCRmjQo/edit?usp=drive_web&amp;ouid=107692576857324699678">sheet</a>
-and <a class="reference external" href="https://docs.google.com/document/d/1OqIqqakPakHXRAwceYLwFY9gOrm8_P62XIfCTnHwstg/edit">document</a>.</p>
+and <a class="reference external" href="https://docs.google.com/document/d/1OqIqqakPakHXRAwceYLwFY9gOrm8_P62XIfCTnHwstg/edit#">document</a>.</p>
 </section>
 <section id="download-the-public-datasets">
-<h2>Download the public datasets<a class="headerlink" href="#download-the-public-datasets" title="Permalink to this headline"></a></h2>
+<h2>Download the public datasets<a class="headerlink" href="#download-the-public-datasets" title="Permalink to this heading"></a></h2>
 <p>To start downloading and performing analysis on the datasets, please follow the links below.</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p><a class="reference external" href="https://int-brain-lab.github.io/ONE/notebooks/one_quickstart.html">Accessing public data with ONE</a></p></li>
 <li><p><span class="xref myst">Accessing public data with Datajoint</span></p></li>
 </ol>

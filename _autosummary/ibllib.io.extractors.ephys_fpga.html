@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -24,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ibllib.io.extractors.ephys_passive" href="ibllib.io.extractors.ephys_passive.html" />
-    <link rel="prev" title="ibllib.io.extractors.camera" href="ibllib.io.extractors.camera.html" /> 
+    <link rel="prev" title="ibllib.io.extractors.default_channel_maps" href="ibllib.io.extractors.default_channel_maps.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,27 +72,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../010_api_reference.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="ibllib.io.html">ibllib.io</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="ibllib.io.certification_protocol.html">ibllib.io.certification_protocol</a></li>
 <li class="toctree-l4 current"><a class="reference internal" href="ibllib.io.extractors.html">ibllib.io.extractors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.ffmpeg.html">ibllib.io.ffmpeg</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.flags.html">ibllib.io.flags</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.globus.html">ibllib.io.globus</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.misc.html">ibllib.io.misc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.npy_header.html">ibllib.io.npy_header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.io.raw_daq_loaders.html">ibllib.io.raw_daq_loaders</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.raw_data_loaders.html">ibllib.io.raw_data_loaders</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.io.spikeglx.html">ibllib.io.spikeglx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.io.session_params.html">ibllib.io.session_params</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.io.video.html">ibllib.io.video</a></li>
 </ul>
 </li>
@@ -107,7 +106,7 @@
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -123,12 +122,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-          <li><a href="ibllib.io.html">ibllib.io</a> &raquo;</li>
-          <li><a href="ibllib.io.extractors.html">ibllib.io.extractors</a> &raquo;</li>
-      <li>ibllib.io.extractors.ephys_fpga</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.io.html">ibllib.io</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.io.extractors.html">ibllib.io.extractors</a></li>
+      <li class="breadcrumb-item active">ibllib.io.extractors.ephys_fpga</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.io.extractors.ephys_fpga.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -163,11 +162,11 @@
 }
 </style>
 <section id="module-ibllib.io.extractors.ephys_fpga">
-<span id="ibllib-io-extractors-ephys-fpga"></span><h1>ibllib.io.extractors.ephys_fpga<a class="headerlink" href="#module-ibllib.io.extractors.ephys_fpga" title="Permalink to this headline"></a></h1>
+<span id="ibllib-io-extractors-ephys-fpga"></span><h1>ibllib.io.extractors.ephys_fpga<a class="headerlink" href="#module-ibllib.io.extractors.ephys_fpga" title="Permalink to this heading"></a></h1>
 <p>Data extraction from raw FPGA output
 Complete FPGA data extraction depends on Bpod extraction</p>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -194,16 +193,25 @@ Complete FPGA data extraction depends on Bpod extraction</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.get_main_probe_sync" title="ibllib.io.extractors.ephys_fpga.get_main_probe_sync"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_main_probe_sync</span></code></a></p></td>
 <td><p>From 3A or 3B multiprobe session, returns the main probe (3A) or nidq sync pulses with the attached channel map (default chmap if none)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.get_sync_fronts" title="ibllib.io.extractors.ephys_fpga.get_sync_fronts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sync_fronts</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.get_sync_and_chn_map" title="ibllib.io.extractors.ephys_fpga.get_sync_and_chn_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sync_and_chn_map</span></code></a></p></td>
+<td><p>Return sync and channel map for session based on collection where main sync is stored</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.get_sync_fronts" title="ibllib.io.extractors.ephys_fpga.get_sync_fronts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sync_fronts</span></code></a></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.get_wheel_positions" title="ibllib.io.extractors.ephys_fpga.get_wheel_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_wheel_positions</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.get_wheel_positions" title="ibllib.io.extractors.ephys_fpga.get_wheel_positions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_wheel_positions</span></code></a></p></td>
 <td><p>Gets the wheel position from synchronisation pulses</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.load_channel_map" title="ibllib.io.extractors.ephys_fpga.load_channel_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_channel_map</span></code></a></p></td>
+<td><p>Load syncing channel map for session path and collection</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.load_sync" title="ibllib.io.extractors.ephys_fpga.load_sync"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_sync</span></code></a></p></td>
+<td><p>Load sync files from session path and collection</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -211,9 +219,6 @@ Complete FPGA data extraction depends on Bpod extraction</p>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials" title="ibllib.io.extractors.ephys_fpga.FpgaTrials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FpgaTrials</span></code></a></p></td>
 <td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.io.extractors.ephys_fpga.ProbaContrasts" title="ibllib.io.extractors.ephys_fpga.ProbaContrasts"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ProbaContrasts</span></code></a></p></td>
-<td><p>Bpod pre-generated values for probabilityLeft, contrastLR, phase, quiescence</p></td>
 </tr>
 </tbody>
 </table>
@@ -284,7 +289,7 @@ chmap = {‘bpod’: 7, ‘frame2ttl’: 12, ‘audio’: 15}</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.extract_sync">
-<span class="sig-name descname"><span class="pre">extract_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ephys_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#extract_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.extract_sync" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">extract_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ephys_files</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">namespace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'spikeglx'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#extract_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.extract_sync" title="Permalink to this definition"></a></dt>
 <dd><p>Reads ephys binary file (s) and extract sync within the binary file folder
 Assumes ephys data is within a <cite>raw_ephys_data</cite> folder</p>
 <dl class="field-list simple">
@@ -334,46 +339,34 @@ with the attached channel map (default chmap if none)</p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.ProbaContrasts">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">ProbaContrasts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#ProbaContrasts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.ProbaContrasts" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="ibllib.io.extractors.base.html#ibllib.io.extractors.base.BaseBpodTrialsExtractor" title="ibllib.io.extractors.base.BaseBpodTrialsExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ibllib.io.extractors.base.BaseBpodTrialsExtractor</span></code></a></p>
-<p>Bpod pre-generated values for probabilityLeft, contrastLR, phase, quiescence</p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.ProbaContrasts.save_names">
-<span class="sig-name descname"><span class="pre">save_names</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_ibl_trials.contrastLeft.npy',</span> <span class="pre">'_ibl_trials.contrastRight.npy',</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">'_ibl_trials.probabilityLeft.npy',</span> <span class="pre">None)</span></em><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.ProbaContrasts.save_names" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.ProbaContrasts.var_names">
-<span class="sig-name descname"><span class="pre">var_names</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('contrastLeft',</span> <span class="pre">'contrastRight',</span> <span class="pre">'phase',</span> <span class="pre">'position',</span> <span class="pre">'probabilityLeft',</span> <span class="pre">'quiescence')</span></em><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.ProbaContrasts.var_names" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.ProbaContrasts.get_pregenerated_events">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_pregenerated_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bpod_trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">settings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#ProbaContrasts.get_pregenerated_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.ProbaContrasts.get_pregenerated_events" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
 <dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.FpgaTrials">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">FpgaTrials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#FpgaTrials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="ibllib.io.extractors.base.html#ibllib.io.extractors.base.BaseExtractor" title="ibllib.io.extractors.base.BaseExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ibllib.io.extractors.base.BaseExtractor</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FpgaTrials</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#FpgaTrials"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="ibllib.io.extractors.base.html#ibllib.io.extractors.base.BaseExtractor" title="ibllib.io.extractors.base.BaseExtractor"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseExtractor</span></code></a></p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.FpgaTrials.save_names">
-<span class="sig-name descname"><span class="pre">save_names</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('_ibl_trials.feedbackType.npy',</span> <span class="pre">'_ibl_trials.choice.npy',</span> <span class="pre">'_ibl_trials.rewardVolume.npy',</span> <span class="pre">'_ibl_trials.intervals_bpod.npy',</span> <span class="pre">'_ibl_trials.intervals.npy',</span> <span class="pre">'_ibl_trials.response_times.npy',</span> <span class="pre">'_ibl_trials.goCueTrigger_times.npy',</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">'_ibl_trials.feedback_times.npy',</span> <span class="pre">'_ibl_trials.goCue_times.npy',</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">'_ibl_trials.stimOff_times.npy',</span> <span class="pre">'_ibl_trials.stimOn_times.npy',</span> <span class="pre">None,</span> <span class="pre">'_ibl_trials.firstMovement_times.npy',</span> <span class="pre">'_ibl_wheel.timestamps.npy',</span> <span class="pre">'_ibl_wheel.position.npy',</span> <span class="pre">'_ibl_wheelMoves.intervals.npy',</span> <span class="pre">'_ibl_wheelMoves.peakAmplitude.npy')</span></em><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials.save_names" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">save_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('_ibl_trials.intervals_bpod.npy',</span> <span class="pre">'_ibl_trials.goCueTrigger_times.npy',</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">'_ibl_trials.stimOff_times.npy',</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">None,</span> <span class="pre">'_ibl_trials.table.pqt',</span> <span class="pre">'_ibl_wheel.timestamps.npy',</span> <span class="pre">'_ibl_wheel.position.npy',</span> <span class="pre">'_ibl_wheelMoves.intervals.npy',</span> <span class="pre">'_ibl_wheelMoves.peakAmplitude.npy')</span></em><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials.save_names" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.FpgaTrials.var_names">
-<span class="sig-name descname"><span class="pre">var_names</span></span><em class="property"> <span class="pre">=</span> <span class="pre">('feedbackType',</span> <span class="pre">'choice',</span> <span class="pre">'rewardVolume',</span> <span class="pre">'intervals_bpod',</span> <span class="pre">'intervals',</span> <span class="pre">'response_times',</span> <span class="pre">'goCueTrigger_times',</span> <span class="pre">'stimOnTrigger_times',</span> <span class="pre">'stimOffTrigger_times',</span> <span class="pre">'stimFreezeTrigger_times',</span> <span class="pre">'errorCueTrigger_times',</span> <span class="pre">'errorCue_times',</span> <span class="pre">'feedback_times',</span> <span class="pre">'goCue_times',</span> <span class="pre">'itiIn_times',</span> <span class="pre">'stimFreeze_times',</span> <span class="pre">'stimOff_times',</span> <span class="pre">'stimOn_times',</span> <span class="pre">'valveOpen_times',</span> <span class="pre">'firstMovement_times',</span> <span class="pre">'wheel_timestamps',</span> <span class="pre">'wheel_position',</span> <span class="pre">'wheelMoves_intervals',</span> <span class="pre">'wheelMoves_peakAmplitude')</span></em><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials.var_names" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">var_names</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('intervals_bpod',</span> <span class="pre">'goCueTrigger_times',</span> <span class="pre">'stimOnTrigger_times',</span> <span class="pre">'stimOffTrigger_times',</span> <span class="pre">'stimFreezeTrigger_times',</span> <span class="pre">'errorCueTrigger_times',</span> <span class="pre">'errorCue_times',</span> <span class="pre">'itiIn_times',</span> <span class="pre">'stimFreeze_times',</span> <span class="pre">'stimOff_times',</span> <span class="pre">'valveOpen_times',</span> <span class="pre">'phase',</span> <span class="pre">'position',</span> <span class="pre">'quiescence',</span> <span class="pre">'table',</span> <span class="pre">'wheel_timestamps',</span> <span class="pre">'wheel_position',</span> <span class="pre">'wheelMoves_intervals',</span> <span class="pre">'wheelMoves_peakAmplitude')</span></em><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials.var_names" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.FpgaTrials.bpod_rsync_fields">
+<span class="sig-name descname"><span class="pre">bpod_rsync_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('intervals',</span> <span class="pre">'response_times',</span> <span class="pre">'goCueTrigger_times',</span> <span class="pre">'stimOnTrigger_times',</span> <span class="pre">'stimOffTrigger_times',</span> <span class="pre">'stimFreezeTrigger_times',</span> <span class="pre">'errorCueTrigger_times')</span></em><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials.bpod_rsync_fields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.FpgaTrials.bpod_fields">
+<span class="sig-name descname"><span class="pre">bpod_fields</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('feedbackType',</span> <span class="pre">'choice',</span> <span class="pre">'rewardVolume',</span> <span class="pre">'contrastLeft',</span> <span class="pre">'contrastRight',</span> <span class="pre">'probabilityLeft',</span> <span class="pre">'intervals_bpod',</span> <span class="pre">'phase',</span> <span class="pre">'position',</span> <span class="pre">'quiescence')</span></em><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.FpgaTrials.bpod_fields" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.extract_all">
-<span class="sig-name descname"><span class="pre">extract_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bin_exists</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#extract_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.extract_all" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">extract_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync_collection</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raw_ephys_data'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#extract_all"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.extract_all" title="Permalink to this definition"></a></dt>
 <dd><dl class="simple">
 <dt>For the IBL ephys task, reads ephys binary file and extract:</dt><dd><ul class="simple">
 <li><p>sync</p></li>
@@ -396,13 +389,64 @@ with the attached channel map (default chmap if none)</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.get_sync_and_chn_map">
+<span class="sig-name descname"><span class="pre">get_sync_and_chn_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync_collection</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#get_sync_and_chn_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.get_sync_and_chn_map" title="Permalink to this definition"></a></dt>
+<dd><p>Return sync and channel map for session based on collection where main sync is stored</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>session_path</strong> – </p></li>
+<li><p><strong>sync_collection</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.load_channel_map">
+<span class="sig-name descname"><span class="pre">load_channel_map</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync_collection</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#load_channel_map"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.load_channel_map" title="Permalink to this definition"></a></dt>
+<dd><p>Load syncing channel map for session path and collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>session_path</strong> – </p></li>
+<li><p><strong>collection</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ibllib.io.extractors.ephys_fpga.load_sync">
+<span class="sig-name descname"><span class="pre">load_sync</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">session_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sync_collection</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/io/extractors/ephys_fpga.html#load_sync"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.io.extractors.ephys_fpga.load_sync" title="Permalink to this definition"></a></dt>
+<dd><p>Load sync files from session path and collection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>session_path</strong> – </p></li>
+<li><p><strong>sync_collection</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ibllib.io.extractors.camera.html" class="btn btn-neutral float-left" title="ibllib.io.extractors.camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ibllib.io.extractors.default_channel_maps.html" class="btn btn-neutral float-left" title="ibllib.io.extractors.default_channel_maps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="ibllib.io.extractors.ephys_passive.html" class="btn btn-neutral float-right" title="ibllib.io.extractors.ephys_passive" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

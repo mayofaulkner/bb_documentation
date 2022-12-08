@@ -1,0 +1,31 @@
+ibllib.qc.critical\_reasons
+===========================
+
+.. automodule:: ibllib.qc.critical_reasons
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      main
+      main_gui
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

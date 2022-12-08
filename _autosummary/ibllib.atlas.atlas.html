@@ -16,14 +16,16 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ibllib.atlas.plots" href="ibllib.atlas.plots.html" />
+    <link rel="next" title="ibllib.atlas.flatmaps" href="ibllib.atlas.flatmaps.html" />
     <link rel="prev" title="ibllib.atlas" href="ibllib.atlas.html" /> 
 </head>
 
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -79,12 +79,12 @@
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">ibllib.atlas.atlas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.flatmaps.html">ibllib.atlas.flatmaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.genes.html">ibllib.atlas.genes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.plots.html">ibllib.atlas.plots</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.projections.html">ibllib.atlas.projections</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.regions.html">ibllib.atlas.regions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
@@ -101,7 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -117,11 +117,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-          <li><a href="ibllib.atlas.html">ibllib.atlas</a> &raquo;</li>
-      <li>ibllib.atlas.atlas</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.atlas.html">ibllib.atlas</a></li>
+      <li class="breadcrumb-item active">ibllib.atlas.atlas</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.atlas.atlas.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -156,27 +156,30 @@
 }
 </style>
 <section id="module-ibllib.atlas.atlas">
-<span id="ibllib-atlas-atlas"></span><h1>ibllib.atlas.atlas<a class="headerlink" href="#module-ibllib.atlas.atlas" title="Permalink to this headline"></a></h1>
+<span id="ibllib-atlas-atlas"></span><h1>ibllib.atlas.atlas<a class="headerlink" href="#module-ibllib.atlas.atlas" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.NeedlesAtlas" title="ibllib.atlas.atlas.NeedlesAtlas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeedlesAtlas</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.MRITorontoAtlas" title="ibllib.atlas.atlas.MRITorontoAtlas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MRITorontoAtlas</span></code></a></p></td>
 <td><p>Instantiates an atlas.BrainAtlas corresponding to the Allen CCF at the given resolution using the IBL Bregma and coordinate system.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.cart2sph" title="ibllib.atlas.atlas.cart2sph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cart2sph</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.NeedlesAtlas" title="ibllib.atlas.atlas.NeedlesAtlas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NeedlesAtlas</span></code></a></p></td>
+<td><p>Instantiates an atlas.BrainAtlas corresponding to the Allen CCF at the given resolution using the IBL Bregma and coordinate system.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.cart2sph" title="ibllib.atlas.atlas.cart2sph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cart2sph</span></code></a></p></td>
 <td><p>Converts cartesian to spherical Coordinates theta: polar angle, phi: azimuth</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.sph2cart" title="ibllib.atlas.atlas.sph2cart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sph2cart</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.sph2cart" title="ibllib.atlas.atlas.sph2cart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sph2cart</span></code></a></p></td>
 <td><p>Converts Spherical to Cartesian coordinates theta: polar angle, phi: azimuth</p></td>
 </tr>
 </tbody>
 </table>
 <p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -190,6 +193,12 @@
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.BrainCoordinates" title="ibllib.atlas.atlas.BrainCoordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BrainCoordinates</span></code></a></p></td>
 <td><p>Class for mapping and indexing a 3D array to real-world coordinates x = ml, right positive y = ap, anterior positive z = dv, dorsal positive</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.FlatMap" title="ibllib.atlas.atlas.FlatMap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FlatMap</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.FranklinPaxinosAtlas" title="ibllib.atlas.atlas.FranklinPaxinosAtlas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FranklinPaxinosAtlas</span></code></a></p></td>
+<td><p>Instantiates an atlas.BrainAtlas corresponding to the Allen CCF at the given resolution using the IBL Bregma and coordinate system</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#ibllib.atlas.atlas.Insertion" title="ibllib.atlas.atlas.Insertion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Insertion</span></code></a></p></td>
 <td><p>Defines an ephys probe insertion in 3D coordinate.</p></td>
@@ -215,7 +224,7 @@ theta: polar angle, phi: azimuth</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">BrainCoordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nxyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BrainCoordinates</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nxyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">1]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class for mapping and indexing a 3D array to real-world coordinates
 x = ml, right positive
@@ -228,12 +237,12 @@ xyz0: coordinates of the element volume[0, 0, 0]] in the coordinate space
 dxyz: spatial interval of the volume along the 3 dimensions</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.dxyz">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">dxyz</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.dxyz" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">dxyz</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.dxyz" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.nxyz">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">nxyz</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.nxyz" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">nxyz</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.nxyz" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -253,23 +262,31 @@ dxyz: spatial interval of the volume along the 3 dimensions</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.x2i">
-<span class="sig-name descname"><span class="pre">x2i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates.x2i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.x2i" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">x2i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates.x2i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.x2i" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.y2i">
-<span class="sig-name descname"><span class="pre">y2i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates.y2i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.y2i" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">y2i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates.y2i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.y2i" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.z2i">
-<span class="sig-name descname"><span class="pre">z2i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates.z2i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.z2i" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">z2i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">z</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates.z2i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.z2i" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.xyz2i">
-<span class="sig-name descname"><span class="pre">xyz2i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates.xyz2i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.xyz2i" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
+<span class="sig-name descname"><span class="pre">xyz2i</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">round</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainCoordinates.xyz2i"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.xyz2i" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>mode</strong> – {‘raise’, ‘clip’, ‘wrap’} determines what to do when determined index lies outside the atlas volume
+‘raise’ will raise a ValueError
+‘clip’ will replace the index with the closest index inside the volume
+‘wrap’ will wrap around to the other side of the volume. This is only here for legacy reasons</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.i2x">
@@ -293,17 +310,17 @@ dxyz: spatial interval of the volume along the 3 dimensions</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.xlim">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">xlim</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.xlim" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xlim</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.xlim" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.ylim">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">ylim</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.ylim" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ylim</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.ylim" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.zlim">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">zlim</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.zlim" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zlim</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.zlim" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -313,29 +330,29 @@ dxyz: spatial interval of the volume along the 3 dimensions</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.xscale">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">xscale</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.xscale" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xscale</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.xscale" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.yscale">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">yscale</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.yscale" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">yscale</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.yscale" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.zscale">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">zscale</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.zscale" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">zscale</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.zscale" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainCoordinates.mgrid">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">mgrid</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.mgrid" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mgrid</span></span><a class="headerlink" href="#ibllib.atlas.atlas.BrainCoordinates.mgrid" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">BrainAtlas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iorigin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims2xyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz2dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BrainAtlas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">image</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dxyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regions</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">iorigin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dims2xyz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xyz2dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Objects that holds image, labels and coordinate transforms for a brain Atlas.
 Currently this is designed for the AllenCCF at several resolutions,
@@ -344,18 +361,14 @@ yet this class can be used for other atlases arises.</p>
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.compute_surface">
 <span class="sig-name descname"><span class="pre">compute_surface</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.compute_surface"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.compute_surface" title="Permalink to this definition"></a></dt>
 <dd><p>Get the volume top, bottom, left and right surfaces, and from these the outer surface of
-the image volume. This is needed to compute probe insertions intersections</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.compute_boundaries">
-<span class="sig-name descname"><span class="pre">compute_boundaries</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.compute_boundaries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.compute_boundaries" title="Permalink to this definition"></a></dt>
-<dd><p>Compute the boundaries between regions</p>
+the image volume. This is needed to compute probe insertions intersections.</p>
+<p>NOTE: In places where the top or bottom surface touch the top or bottom of the atlas volume, the surface
+will be set to np.nan. If you encounter issues working with these surfaces check if this might be the cause.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.get_labels">
-<span class="sig-name descname"><span class="pre">get_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.get_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.get_labels" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius_um</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.get_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.get_labels" title="Permalink to this definition"></a></dt>
 <dd><p>Performs a 3D lookup from real world coordinates to the volume labels
 and return the regions ids according to the mapping</p>
 <dl class="field-list simple">
@@ -363,6 +376,8 @@ and return the regions ids according to the mapping</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>xyz</strong> – [n, 3] array of coordinates</p></li>
 <li><p><strong>mapping</strong> – brain region mapping (defaults to original Allen mapping)</p></li>
+<li><p><strong>radius_um</strong> – if not null, returns a regions ids array and an array of proportion
+of regions in a sphere of size radius around the coordinates.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -442,7 +457,7 @@ and return the regions ids according to the mapping</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.slice">
-<span class="sig-name descname"><span class="pre">slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.slice" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">slice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coordinate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.slice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.slice" title="Permalink to this definition"></a></dt>
 <dd><p>Get slice through atlas</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -477,8 +492,41 @@ and return the regions ids according to the mapping</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.compute_boundaries">
+<span class="sig-name descname"><span class="pre">compute_boundaries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.compute_boundaries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.compute_boundaries" title="Permalink to this definition"></a></dt>
+<dd><p>Compute the boundaries between regions on slice</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>values</strong> – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.plot_slices">
+<span class="sig-name descname"><span class="pre">plot_slices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_slices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_slices" title="Permalink to this definition"></a></dt>
+<dd><p>From a single coordinate, plots the 3 slices that intersect at this point in a single
+matplotlib figure</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>xyz</strong> – mlapdv coordinate in m</p></li>
+<li><p><strong>args</strong> – arguments to be forwarded to plot slices</p></li>
+<li><p><strong>kwargs</strong> – keyword arguments to be forwarded to plot slices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>2 by 2 array of axes</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.plot_cslice">
-<span class="sig-name descname"><span class="pre">plot_cslice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ap_coordinate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_cslice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_cslice" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot_cslice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ap_coordinate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_cslice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_cslice" title="Permalink to this definition"></a></dt>
 <dd><p>Plot coronal slice through atlas at given ap_coordinate</p>
 <dl class="field-list simple">
 <dt class="field-odd">Param</dt>
@@ -512,7 +560,7 @@ and return the regions ids according to the mapping</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.plot_hslice">
-<span class="sig-name descname"><span class="pre">plot_hslice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dv_coordinate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_hslice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_hslice" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot_hslice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dv_coordinate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_hslice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_hslice" title="Permalink to this definition"></a></dt>
 <dd><p>Plot horizontal slice through atlas at given dv_coordinate</p>
 <dl class="field-list simple">
 <dt class="field-odd">Param</dt>
@@ -546,7 +594,7 @@ and return the regions ids according to the mapping</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.plot_sslice">
-<span class="sig-name descname"><span class="pre">plot_sslice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ml_coordinate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_sslice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_sslice" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot_sslice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ml_coordinate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'image'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_sslice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_sslice" title="Permalink to this definition"></a></dt>
 <dd><p>Plot sagittal slice through atlas at given ml_coordinate</p>
 <dl class="field-list simple">
 <dt class="field-odd">Param</dt>
@@ -580,7 +628,7 @@ and return the regions ids according to the mapping</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.BrainAtlas.plot_top">
-<span class="sig-name descname"><span class="pre">plot_top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'annotation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_top"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_top" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot_top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'annotation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#BrainAtlas.plot_top"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.BrainAtlas.plot_top" title="Permalink to this definition"></a></dt>
 <dd><p>Plot top view of atlas</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -609,7 +657,7 @@ and return the regions ids according to the mapping</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Trajectory">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Trajectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">numpy.ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Trajectory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Trajectory" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Trajectory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Trajectory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Trajectory" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>3D Trajectory (usually for a linear probe). Minimally defined by a vector and a point.
 instantiate from a best fit from a n by 3 array containing xyz coordinates:</p>
@@ -618,17 +666,17 @@ instantiate from a best fit from a n by 3 array containing xyz coordinates:</p>
 </div></blockquote>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Trajectory.vector">
-<span class="sig-name descname"><span class="pre">vector</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Trajectory.vector" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">vector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Trajectory.vector" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Trajectory.point">
-<span class="sig-name descname"><span class="pre">point</span></span><em class="property"><span class="pre">:</span> <span class="pre">numpy.ndarray</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Trajectory.point" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">point</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Trajectory.point" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Trajectory.fit">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Trajectory.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Trajectory.fit" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Trajectory.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Trajectory.fit" title="Permalink to this definition"></a></dt>
 <dd><p>fits a line to a 3D cloud of points, returns a Trajectory object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -734,7 +782,7 @@ trajectory with the brain coordinates bounding box</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Insertion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Insertion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">label</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Defines an ephys probe insertion in 3D coordinate. IBL conventions.
 To instantiate, use the static methods:
@@ -742,47 +790,47 @@ Insertion.from_track
 Insertion.from_dict</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.x">
-<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.x" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">x</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.x" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.y">
-<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.y" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">y</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.y" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.z">
-<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.z" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">z</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.z" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.phi">
-<span class="sig-name descname"><span class="pre">phi</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.phi" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">phi</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.phi" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.theta">
-<span class="sig-name descname"><span class="pre">theta</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.theta" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">theta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.theta" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.depth">
-<span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.depth" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">depth</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.depth" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.label">
-<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="pre">:</span> <span class="pre">str</span></em><em class="property"> <span class="pre">=</span> <span class="pre">''</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.label" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">label</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.label" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.beta">
-<span class="sig-name descname"><span class="pre">beta</span></span><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.beta" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">beta</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.beta" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.from_track">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">from_track</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyzs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brain_atlas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion.from_track"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.from_track" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_track</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyzs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brain_atlas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion.from_track"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.from_track" title="Permalink to this definition"></a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>brain_atlas</strong> – None. If provided, disregards the z coordinate and locks the insertion</p>
@@ -794,7 +842,7 @@ Insertion.from_dict</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.from_dict">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brain_atlas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.from_dict" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_dict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brain_atlas</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion.from_dict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.from_dict" title="Permalink to this definition"></a></dt>
 <dd><p>Constructs an Insertion object from the json information stored in probes.description file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -821,29 +869,29 @@ Insertion.from_dict</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.trajectory">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">trajectory</span></span><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.trajectory" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">trajectory</span></span><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.trajectory" title="Permalink to this definition"></a></dt>
 <dd><p>Gets the trajectory object matching insertion coordinates
 :return: atlas.Trajectory</p>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.xyz">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">xyz</span></span><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.xyz" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">xyz</span></span><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.xyz" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.entry">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">entry</span></span><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.entry" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">entry</span></span><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.entry" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.tip">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">tip</span></span><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.tip" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">tip</span></span><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.tip" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.get_brain_exit">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_brain_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brain_atlas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion.get_brain_exit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.get_brain_exit" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_brain_exit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brain_atlas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion.get_brain_exit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.get_brain_exit" title="Permalink to this definition"></a></dt>
 <dd><p>Given a Trajectory and a BrainAtlas object, computes the brain exit coordinate as the
 intersection of the trajectory and the brain surface (brain_atlas.surface)</p>
 <dl class="field-list simple">
@@ -858,7 +906,7 @@ intersection of the trajectory and the brain surface (brain_atlas.surface)</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.Insertion.get_brain_entry">
-<em class="property"><span class="pre">static</span> </em><span class="sig-name descname"><span class="pre">get_brain_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brain_atlas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion.get_brain_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.get_brain_entry" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_brain_entry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">traj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">brain_atlas</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#Insertion.get_brain_entry"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.Insertion.get_brain_entry" title="Permalink to this definition"></a></dt>
 <dd><p>Given a Trajectory and a BrainAtlas object, computes the brain entry coordinate as the
 intersection of the trajectory and the brain surface (brain_atlas.surface)</p>
 <dl class="field-list simple">
@@ -875,13 +923,13 @@ intersection of the trajectory and the brain surface (brain_atlas.surface)</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.AllenAtlas">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">AllenAtlas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">res_um</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([1,</span> <span class="pre">1,</span> <span class="pre">1])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#AllenAtlas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.AllenAtlas" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#ibllib.atlas.atlas.BrainAtlas" title="ibllib.atlas.atlas.BrainAtlas"><code class="xref py py-class docutils literal notranslate"><span class="pre">ibllib.atlas.atlas.BrainAtlas</span></code></a></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AllenAtlas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">res_um</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([1,</span> <span class="pre">1,</span> <span class="pre">1])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#AllenAtlas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.AllenAtlas" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ibllib.atlas.atlas.BrainAtlas" title="ibllib.atlas.atlas.BrainAtlas"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrainAtlas</span></code></a></p>
 <p>Instantiates an atlas.BrainAtlas corresponding to the Allen CCF at the given resolution
 using the IBL Bregma and coordinate system</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="ibllib.atlas.atlas.AllenAtlas.xyz2ccf">
-<span class="sig-name descname"><span class="pre">xyz2ccf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccf_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mlapdv'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#AllenAtlas.xyz2ccf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.AllenAtlas.xyz2ccf" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">xyz2ccf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">xyz</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccf_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mlapdv'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'raise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#AllenAtlas.xyz2ccf"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.AllenAtlas.xyz2ccf" title="Permalink to this definition"></a></dt>
 <dd><p>Converts coordinates to the CCF coordinates, which is assumed to be the cube indices
 times the spacing.</p>
 <dl class="field-list simple">
@@ -893,8 +941,18 @@ times the spacing.</p>
 </dd>
 </dl>
 <p>(Allen mcc vertices)
-:return: coordinates in CCF space um, origin is the front left top corner of the data
-volume, order determined by ccf_order</p>
+:param mode: {‘raise’, ‘clip’, ‘wrap’} determines what to do when determined index lies outside the atlas volume</p>
+<blockquote>
+<div><p>‘raise’ will raise a ValueError
+‘clip’ will replace the index with the closest index inside the volume
+‘wrap’ will wrap around to the other side of the volume. This is only here for legacy reasons</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>coordinates in CCF space um, origin is the front left top corner of the data</p>
+</dd>
+</dl>
+<p>volume, order determined by ccf_order</p>
 </dd></dl>
 
 <dl class="py method">
@@ -927,6 +985,64 @@ axis and a sqeeze along the DV axis.</p>
 </dl>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="ibllib.atlas.atlas.MRITorontoAtlas">
+<span class="sig-name descname"><span class="pre">MRITorontoAtlas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#MRITorontoAtlas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.MRITorontoAtlas" title="Permalink to this definition"></a></dt>
+<dd><p>Instantiates an atlas.BrainAtlas corresponding to the Allen CCF at the given resolution
+using the IBL Bregma and coordinate system. The MRI Toronto atlas defines a stretch along AP
+a squeeze along DV <em>and</em> a squeeze along ML. These are based on 12 p65 mice MRIs averaged.
+See: <a class="reference external" href="https://www.nature.com/articles/s41467-018-04921-2">https://www.nature.com/articles/s41467-018-04921-2</a> DB has access to the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>res_um</strong> – 10, 25 or 50 um</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>atlas.BrainAtlas</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ibllib.atlas.atlas.FlatMap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FlatMap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flatmap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'dorsal_cortex'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">res_um</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">25</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#FlatMap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.FlatMap" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ibllib.atlas.atlas.AllenAtlas" title="ibllib.atlas.atlas.AllenAtlas"><code class="xref py py-class docutils literal notranslate"><span class="pre">AllenAtlas</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.atlas.atlas.FlatMap.plot_flatmap">
+<span class="sig-name descname"><span class="pre">plot_flatmap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">volume</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'annotation'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mapping</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Allen'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">region_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#FlatMap.plot_flatmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.FlatMap.plot_flatmap" title="Permalink to this definition"></a></dt>
+<dd><p>Displays the 2D image corresponding to the flatmap. If there are several depths, by default it
+will display the first one</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>depth</strong> – index of the depth to display in the flatmap volume (the last dimension)</p></li>
+<li><p><strong>volume</strong> – </p></li>
+<li><p><strong>mapping</strong> – </p></li>
+<li><p><strong>region_values</strong> – </p></li>
+<li><p><strong>ax</strong> – </p></li>
+<li><p><strong>kwargs</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="ibllib.atlas.atlas.FlatMap.extent_flmap">
+<span class="sig-name descname"><span class="pre">extent_flmap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#FlatMap.extent_flmap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.FlatMap.extent_flmap" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="ibllib.atlas.atlas.FranklinPaxinosAtlas">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">FranklinPaxinosAtlas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">res_um</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([10,</span> <span class="pre">100,</span> <span class="pre">10])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaling</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([1,</span> <span class="pre">1,</span> <span class="pre">1])</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mock</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hist_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/atlas/atlas.html#FranklinPaxinosAtlas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.atlas.atlas.FranklinPaxinosAtlas" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#ibllib.atlas.atlas.BrainAtlas" title="ibllib.atlas.atlas.BrainAtlas"><code class="xref py py-class docutils literal notranslate"><span class="pre">BrainAtlas</span></code></a></p>
+<p>Instantiates an atlas.BrainAtlas corresponding to the Allen CCF at the given resolution
+using the IBL Bregma and coordinate system</p>
+</dd></dl>
+
 </section>
 
 
@@ -934,7 +1050,7 @@ axis and a sqeeze along the DV axis.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ibllib.atlas.html" class="btn btn-neutral float-left" title="ibllib.atlas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ibllib.atlas.plots.html" class="btn btn-neutral float-right" title="ibllib.atlas.plots" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ibllib.atlas.flatmaps.html" class="btn btn-neutral float-right" title="ibllib.atlas.flatmaps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

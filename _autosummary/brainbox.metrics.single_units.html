@@ -16,14 +16,16 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="brainbox.modeling" href="brainbox.modeling.html" />
+    <link rel="next" title="brainbox.plot" href="brainbox.plot.html" />
     <link rel="prev" title="brainbox.metrics.electrode_drift" href="brainbox.metrics.electrode_drift.html" /> 
 </head>
 
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -89,7 +89,6 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">brainbox.metrics.single_units</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="brainbox.modeling.html">brainbox.modeling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot.html">brainbox.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot_base.html">brainbox.plot_base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.population.html">brainbox.population</a></li>
@@ -104,7 +103,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -120,11 +119,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="brainbox.html">brainbox</a> &raquo;</li>
-          <li><a href="brainbox.metrics.html">brainbox.metrics</a> &raquo;</li>
-      <li>brainbox.metrics.single_units</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.html">brainbox</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.metrics.html">brainbox.metrics</a></li>
+      <li class="breadcrumb-item active">brainbox.metrics.single_units</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/brainbox.metrics.single_units.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -159,11 +158,11 @@
 }
 </style>
 <section id="module-brainbox.metrics.single_units">
-<span id="brainbox-metrics-single-units"></span><h1>brainbox.metrics.single_units<a class="headerlink" href="#module-brainbox.metrics.single_units" title="Permalink to this headline"></a></h1>
+<span id="brainbox-metrics-single-units"></span><h1>brainbox.metrics.single_units<a class="headerlink" href="#module-brainbox.metrics.single_units" title="Permalink to this heading"></a></h1>
 <p>Computes metrics for assessing quality of single units.</p>
 <p>Run the following to set-up the workspace to run the docstring examples:
 &gt;&gt;&gt; import brainbox as bb
-&gt;&gt;&gt; import alf.io as aio
+&gt;&gt;&gt; import one.alf.io as aio
 &gt;&gt;&gt; import numpy as np
 &gt;&gt;&gt; import matplotlib.pyplot as plt
 &gt;&gt;&gt; import ibllib.ephys.spikes as e_spks
@@ -174,7 +173,7 @@
 &gt;&gt;&gt; clstrs_b = aio.load_object(path_to_alf_out, ‘clusters’)
 &gt;&gt;&gt; units_b = bb.processing.get_units_bunch(spks_b)  # may take a few mins to compute</p>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -202,7 +201,7 @@
 <td><p>Computes the approximate fraction of spikes missing from a spike feature distribution for a given unit, assuming the distribution is symmetric.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#brainbox.metrics.single_units.noise_cutoff" title="brainbox.metrics.single_units.noise_cutoff"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_cutoff</span></code></a></p></td>
-<td><p>A metric to determine whether a unit's amplitude distribution is cut off (at floor), without assuming a Gaussian distribution.</p></td>
+<td><p>A new metric to determine whether a unit's amplitude distribution is cut off (at floor), without assuming a Gaussian distribution.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#brainbox.metrics.single_units.pres_ratio" title="brainbox.metrics.single_units.pres_ratio"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pres_ratio</span></code></a></p></td>
 <td><p>Computes the presence ratio of spike counts: the number of bins where there is at least one spike, over the total number of bins, given a specified bin width.</p></td>
@@ -240,7 +239,7 @@ units.</p>
 <li><p><strong>units_b</strong> (<em>bunch</em>) – A units bunch containing fields with spike information (e.g. cluster IDs, times, features,
 etc.) for all units.</p></li>
 <li><p><strong>units</strong> (<em>array-like</em><em> (</em><em>optional</em><em>)</em>) – A subset of all units for which to create the bar plot. (If <cite>None</cite>, all units are used)</p></li>
-<li><p><strong>feat_names</strong> (<em>list of strings</em><em> (</em><em>optional</em><em>)</em>) – A list of names of spike features that can be found in <cite>spks</cite> to specify which features to
+<li><p><strong>feat_names</strong> (<em>list</em><em> of </em><em>strings</em><em> (</em><em>optional</em><em>)</em>) – A list of names of spike features that can be found in <cite>spks</cite> to specify which features to
 use for calculating unit stability.</p></li>
 <li><p><strong>dist</strong> (<em>string</em><em> (</em><em>optional</em><em>)</em>) – The type of hypothetical null distribution for which the empirical spike feature
 distributions are presumed to belong to.</p></li>
@@ -700,21 +699,27 @@ threshold of 10% acceptable contamination</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.metrics.single_units.noise_cutoff">
-<span class="sig-name descname"><span class="pre">noise_cutoff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quartile_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_low_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/metrics/single_units.html#noise_cutoff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.metrics.single_units.noise_cutoff" title="Permalink to this definition"></a></dt>
-<dd><p>A metric to determine whether a unit’s amplitude distribution is cut off
-(at floor), without assuming a Gaussian distribution.</p>
-<p>This metric takes the amplitude distribution, computes the mean and std
+<span class="sig-name descname"><span class="pre">noise_cutoff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantile_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.25</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bins</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">nc_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">percent_threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/metrics/single_units.html#noise_cutoff"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.metrics.single_units.noise_cutoff" title="Permalink to this definition"></a></dt>
+<dd><p>A new metric to determine whether a unit’s amplitude distribution is cut off
+(at floor), without assuming a Gaussian distribution.
+This metric takes the amplitude distribution, computes the mean and std
 of an upper quartile of the distribution, and determines how many standard
 deviations away from that mean a lower quartile lies.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>amps</strong> (<em>ndarray_like</em>) – The amplitudes (in uV) of the spikes.</p></li>
-<li><p><strong>quartile_length</strong> (<em>float</em>) – The size of the upper quartile of the amplitude distribution.</p></li>
+<li><p><strong>quantile_length</strong> (<em>float</em>) – The size of the upper quartile of the amplitude distribution.</p></li>
 <li><p><strong>n_bins</strong> (<em>int</em>) – The number of bins used to compute a histogram of the amplitude
 distribution.</p></li>
-<li><p><strong>n_low_bins</strong> (<em>int</em>) – The number of bins used in the lower part of the distribution (where
-cutoff is determined).</p></li>
+<li><p><strong>n_low_bins</strong> (<em>int</em>) – <dl class="simple">
+<dt>The number of bins used in the lower part of the distribution (where</dt><dd><p>cutoff is determined).</p>
+</dd>
+<dt>nc_threshold: float</dt><dd><p>the noise cutoff result has to be lower than this for a neuron to fail</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>percent_threshold</strong> (<em>float</em>) – the first bin has to be greater than percent_threshold for neuron the to fail</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -733,8 +738,7 @@ mean of the upper quartile.</p>
 <ol class="arabic">
 <li><dl>
 <dt>Compute whether a unit’s amplitude distribution is cut off</dt><dd><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">amps</span> <span class="o">=</span> <span class="n">spks_b</span><span class="p">[</span><span class="s1">&#39;amps&#39;</span><span class="p">][</span><span class="n">unit_idxs</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cutoff</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">noise_cutoff</span><span class="p">(</span><span class="n">amps</span><span class="p">,</span> <span class="n">quartile_length</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span>
-<span class="go">                                     n_bins=100, n_low_bins=2)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cutoff</span> <span class="o">=</span> <span class="n">bb</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">noise_cutoff</span><span class="p">(</span><span class="n">amps</span><span class="p">,</span> <span class="n">quantile_length</span><span class="o">=</span><span class="mf">.25</span><span class="p">,</span> <span class="n">n_bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
@@ -745,7 +749,7 @@ mean of the upper quartile.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.metrics.single_units.spike_sorting_metrics">
-<span class="sig-name descname"><span class="pre">spike_sorting_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'RPslide_thresh':</span> <span class="pre">0.1,</span> <span class="pre">'acceptable_contamination':</span> <span class="pre">0.1,</span> <span class="pre">'bin_size':</span> <span class="pre">0.25,</span> <span class="pre">'med_amp_thresh_uv':</span> <span class="pre">50,</span> <span class="pre">'min_isi':</span> <span class="pre">0.0001,</span> <span class="pre">'min_num_bins_for_missed_spks_est':</span> <span class="pre">50,</span> <span class="pre">'nc_bins':</span> <span class="pre">100,</span> <span class="pre">'nc_n_low_bins':</span> <span class="pre">2,</span> <span class="pre">'nc_quartile_length':</span> <span class="pre">0.2,</span> <span class="pre">'nc_thresh':</span> <span class="pre">20,</span> <span class="pre">'presence_window':</span> <span class="pre">10,</span> <span class="pre">'refractory_period':</span> <span class="pre">0.0015,</span> <span class="pre">'spks_per_bin_for_missed_spks_est':</span> <span class="pre">10,</span> <span class="pre">'std_smoothing_kernel_for_missed_spks_est':</span> <span class="pre">4}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/metrics/single_units.html#spike_sorting_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.metrics.single_units.spike_sorting_metrics" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">spike_sorting_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">depths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'RPslide_thresh':</span> <span class="pre">0.1,</span> <span class="pre">'acceptable_contamination':</span> <span class="pre">0.1,</span> <span class="pre">'bin_size':</span> <span class="pre">0.25,</span> <span class="pre">'med_amp_thresh_uv':</span> <span class="pre">50,</span> <span class="pre">'min_isi':</span> <span class="pre">0.0001,</span> <span class="pre">'missed_spikes_est':</span> <span class="pre">{'min_num_bins':</span> <span class="pre">50,</span> <span class="pre">'sigma':</span> <span class="pre">4,</span> <span class="pre">'spks_per_bin':</span> <span class="pre">10},</span> <span class="pre">'noise_cutoff':</span> <span class="pre">{'n_bins':</span> <span class="pre">100,</span> <span class="pre">'nc_threshold':</span> <span class="pre">5,</span> <span class="pre">'percent_threshold':</span> <span class="pre">0.1,</span> <span class="pre">'quantile_length':</span> <span class="pre">0.25},</span> <span class="pre">'presence_window':</span> <span class="pre">10,</span> <span class="pre">'refractory_period':</span> <span class="pre">0.0015}</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/metrics/single_units.html#spike_sorting_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.metrics.single_units.spike_sorting_metrics" title="Permalink to this definition"></a></dt>
 <dd><p>Computes:
 -   cell level metrics (cf quick_unit_metrics)
 -   label the metrics according to quality thresholds
@@ -774,7 +778,7 @@ see constant at the top of the module for default values and keys)</p></li>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.metrics.single_units.quick_unit_metrics">
-<span class="sig-name descname"><span class="pre">quick_unit_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spike_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_amps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_depths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'RPslide_thresh':</span> <span class="pre">0.1,</span> <span class="pre">'acceptable_contamination':</span> <span class="pre">0.1,</span> <span class="pre">'bin_size':</span> <span class="pre">0.25,</span> <span class="pre">'med_amp_thresh_uv':</span> <span class="pre">50,</span> <span class="pre">'min_isi':</span> <span class="pre">0.0001,</span> <span class="pre">'min_num_bins_for_missed_spks_est':</span> <span class="pre">50,</span> <span class="pre">'nc_bins':</span> <span class="pre">100,</span> <span class="pre">'nc_n_low_bins':</span> <span class="pre">2,</span> <span class="pre">'nc_quartile_length':</span> <span class="pre">0.2,</span> <span class="pre">'nc_thresh':</span> <span class="pre">20,</span> <span class="pre">'presence_window':</span> <span class="pre">10,</span> <span class="pre">'refractory_period':</span> <span class="pre">0.0015,</span> <span class="pre">'spks_per_bin_for_missed_spks_est':</span> <span class="pre">10,</span> <span class="pre">'std_smoothing_kernel_for_missed_spks_est':</span> <span class="pre">4}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tbounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/metrics/single_units.html#quick_unit_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.metrics.single_units.quick_unit_metrics" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">quick_unit_metrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spike_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_amps</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_depths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'RPslide_thresh':</span> <span class="pre">0.1,</span> <span class="pre">'acceptable_contamination':</span> <span class="pre">0.1,</span> <span class="pre">'bin_size':</span> <span class="pre">0.25,</span> <span class="pre">'med_amp_thresh_uv':</span> <span class="pre">50,</span> <span class="pre">'min_isi':</span> <span class="pre">0.0001,</span> <span class="pre">'missed_spikes_est':</span> <span class="pre">{'min_num_bins':</span> <span class="pre">50,</span> <span class="pre">'sigma':</span> <span class="pre">4,</span> <span class="pre">'spks_per_bin':</span> <span class="pre">10},</span> <span class="pre">'noise_cutoff':</span> <span class="pre">{'n_bins':</span> <span class="pre">100,</span> <span class="pre">'nc_threshold':</span> <span class="pre">5,</span> <span class="pre">'percent_threshold':</span> <span class="pre">0.1,</span> <span class="pre">'quantile_length':</span> <span class="pre">0.25},</span> <span class="pre">'presence_window':</span> <span class="pre">10,</span> <span class="pre">'refractory_period':</span> <span class="pre">0.0015}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster_ids</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tbounds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/metrics/single_units.html#quick_unit_metrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.metrics.single_units.quick_unit_metrics" title="Permalink to this definition"></a></dt>
 <dd><p>Computes single unit metrics from only the spike times, amplitudes, and
 depths for a set of units.</p>
 <dl class="simple">
@@ -793,6 +797,8 @@ depths for a set of units.</p>
 ‘spike_count’</p>
 </dd>
 </dl>
+<section id="parameters-see-the-metrics-params-constant">
+<h2>Parameters (see the METRICS_PARAMS constant)<a class="headerlink" href="#parameters-see-the-metrics-params-constant" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>spike_clusters<span class="classifier">ndarray_like</span></dt><dd><p>A vector of the unit ids for a set of spikes.</p>
 </dd>
@@ -836,10 +842,10 @@ when computing the missed spikes estimate.</p>
 </dd>
 </dl>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">returns</dt>
 <dd class="field-odd"><p><strong>r</strong> – A bunch whose keys are the computed spike metrics.</p>
 </dd>
-<dt class="field-even">Return type</dt>
+<dt class="field-even">rtype</dt>
 <dd class="field-even"><p>bunch</p>
 </dd>
 </dl>
@@ -862,11 +868,12 @@ during alf extraction of an ephys dataset in the ibl ephys extraction pipeline.<
 </dl>
 </li>
 </ol>
+</section>
 </dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.metrics.single_units.compute_labels">
-<span class="sig-name descname"><span class="pre">compute_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'RPslide_thresh':</span> <span class="pre">0.1,</span> <span class="pre">'acceptable_contamination':</span> <span class="pre">0.1,</span> <span class="pre">'bin_size':</span> <span class="pre">0.25,</span> <span class="pre">'med_amp_thresh_uv':</span> <span class="pre">50,</span> <span class="pre">'min_isi':</span> <span class="pre">0.0001,</span> <span class="pre">'min_num_bins_for_missed_spks_est':</span> <span class="pre">50,</span> <span class="pre">'nc_bins':</span> <span class="pre">100,</span> <span class="pre">'nc_n_low_bins':</span> <span class="pre">2,</span> <span class="pre">'nc_quartile_length':</span> <span class="pre">0.2,</span> <span class="pre">'nc_thresh':</span> <span class="pre">20,</span> <span class="pre">'presence_window':</span> <span class="pre">10,</span> <span class="pre">'refractory_period':</span> <span class="pre">0.0015,</span> <span class="pre">'spks_per_bin_for_missed_spks_est':</span> <span class="pre">10,</span> <span class="pre">'std_smoothing_kernel_for_missed_spks_est':</span> <span class="pre">4}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_details</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/metrics/single_units.html#compute_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.metrics.single_units.compute_labels" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compute_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'RPslide_thresh':</span> <span class="pre">0.1,</span> <span class="pre">'acceptable_contamination':</span> <span class="pre">0.1,</span> <span class="pre">'bin_size':</span> <span class="pre">0.25,</span> <span class="pre">'med_amp_thresh_uv':</span> <span class="pre">50,</span> <span class="pre">'min_isi':</span> <span class="pre">0.0001,</span> <span class="pre">'missed_spikes_est':</span> <span class="pre">{'min_num_bins':</span> <span class="pre">50,</span> <span class="pre">'sigma':</span> <span class="pre">4,</span> <span class="pre">'spks_per_bin':</span> <span class="pre">10},</span> <span class="pre">'noise_cutoff':</span> <span class="pre">{'n_bins':</span> <span class="pre">100,</span> <span class="pre">'nc_threshold':</span> <span class="pre">5,</span> <span class="pre">'percent_threshold':</span> <span class="pre">0.1,</span> <span class="pre">'quantile_length':</span> <span class="pre">0.25},</span> <span class="pre">'presence_window':</span> <span class="pre">10,</span> <span class="pre">'refractory_period':</span> <span class="pre">0.0015}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_details</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/metrics/single_units.html#compute_labels"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.metrics.single_units.compute_labels" title="Permalink to this definition"></a></dt>
 <dd><p>From a dataframe or a dictionary of unit metrics, compute a lablel</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -888,7 +895,7 @@ during alf extraction of an ephys dataset in the ibl ephys extraction pipeline.<
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="brainbox.metrics.electrode_drift.html" class="btn btn-neutral float-left" title="brainbox.metrics.electrode_drift" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="brainbox.modeling.html" class="btn btn-neutral float-right" title="brainbox.modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="brainbox.plot.html" class="btn btn-neutral float-right" title="brainbox.plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

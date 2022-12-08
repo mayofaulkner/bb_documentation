@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -85,7 +85,6 @@
 <li class="toctree-l3"><a class="reference internal" href="brainbox.io.html">brainbox.io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.lfp.html">brainbox.lfp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.metrics.html">brainbox.metrics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="brainbox.modeling.html">brainbox.modeling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot.html">brainbox.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot_base.html">brainbox.plot_base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.population.html">brainbox.population</a></li>
@@ -105,7 +104,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -121,11 +120,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="brainbox.html">brainbox</a> &raquo;</li>
-          <li><a href="brainbox.task.html">brainbox.task</a> &raquo;</li>
-      <li>brainbox.task.closed_loop</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.html">brainbox</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.task.html">brainbox.task</a></li>
+      <li class="breadcrumb-item active">brainbox.task.closed_loop</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/brainbox.task.closed_loop.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -160,10 +159,10 @@
 }
 </style>
 <section id="module-brainbox.task.closed_loop">
-<span id="brainbox-task-closed-loop"></span><h1>brainbox.task.closed_loop<a class="headerlink" href="#module-brainbox.task.closed_loop" title="Permalink to this headline"></a></h1>
+<span id="brainbox-task-closed-loop"></span><h1>brainbox.task.closed_loop<a class="headerlink" href="#module-brainbox.task.closed_loop" title="Permalink to this heading"></a></h1>
 <p>Computes task related output</p>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -184,20 +183,23 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#brainbox.task.closed_loop.generate_pseudo_stimuli" title="brainbox.task.closed_loop.generate_pseudo_stimuli"><code class="xref py py-obj docutils literal notranslate"><span class="pre">generate_pseudo_stimuli</span></code></a></p></td>
 <td><p>Generate a block structure with stimuli</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#brainbox.task.closed_loop.responsive_units" title="brainbox.task.closed_loop.responsive_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">responsive_units</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#brainbox.task.closed_loop.get_impostor_target" title="brainbox.task.closed_loop.get_impostor_target"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_impostor_target</span></code></a></p></td>
+<td><p>Generate impostor targets by selecting from a list of current targets of variable length.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#brainbox.task.closed_loop.responsive_units" title="brainbox.task.closed_loop.responsive_units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">responsive_units</span></code></a></p></td>
 <td><p>Determine responsive neurons by doing a Wilcoxon Signed-Rank test between a baseline period before a certain task event (e.g.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#brainbox.task.closed_loop.roc_between_two_events" title="brainbox.task.closed_loop.roc_between_two_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roc_between_two_events</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#brainbox.task.closed_loop.roc_between_two_events" title="brainbox.task.closed_loop.roc_between_two_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roc_between_two_events</span></code></a></p></td>
 <td><p>Calcluate area under the ROC curve that indicates how well the activity of the neuron distiguishes between two events (e.g.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#brainbox.task.closed_loop.roc_single_event" title="brainbox.task.closed_loop.roc_single_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roc_single_event</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#brainbox.task.closed_loop.roc_single_event" title="brainbox.task.closed_loop.roc_single_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">roc_single_event</span></code></a></p></td>
 <td><p>Determine how well neurons respond to a certain task event by calculating the area under the ROC curve between a baseline period before the event and a period after the event.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.task.closed_loop.responsive_units">
-<span class="sig-name descname"><span class="pre">responsive_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spike_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.5,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0.5]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#responsive_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.responsive_units" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">responsive_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spike_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.5,</span> <span class="pre">0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0,</span> <span class="pre">0.5]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fdr_corr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#responsive_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.responsive_units" title="Permalink to this definition"></a></dt>
 <dd><p>Determine responsive neurons by doing a Wilcoxon Signed-Rank test between a baseline period
 before a certain task event (e.g. stimulus onset) and a period after the task event.</p>
 <dl class="field-list simple">
@@ -210,6 +212,7 @@ before a certain task event (e.g. stimulus onset) and a period after the task ev
 window starting 0.5 seconds before the event and ending at 0.2 seconds before the event)</p></li>
 <li><p><strong>post_time</strong> (<em>two-element array</em>) – time (in seconds) to follow the event times</p></li>
 <li><p><strong>alpha</strong> (<em>float</em>) – alpha to use for statistical significance</p></li>
+<li><p><strong>fdr_corr</strong> (<em>boolean</em>) – whether to use an FDR correction (Benjamin-Hochmann) to correct for multiple testing</p></li>
 <li><p><strong>use_fr</strong> (<em>bool</em>) – whether to use the firing rate instead of total spike count</p></li>
 </ul>
 </dd>
@@ -227,7 +230,7 @@ window starting 0.5 seconds before the event and ending at 0.2 seconds before th
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.task.closed_loop.differentiate_units">
-<span class="sig-name descname"><span class="pre">differentiate_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spike_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ranksums'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#differentiate_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.differentiate_units" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">differentiate_units</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">spike_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spike_clusters</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_times</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_groups</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">post_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ranksums'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fdr_corr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#differentiate_units"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.differentiate_units" title="Permalink to this definition"></a></dt>
 <dd><p>Determine units which significantly differentiate between two task events
 (e.g. stimulus left/right) by performing a statistical test between the spike rates
 elicited by the two events. Default is a Wilcoxon Rank Sum test.</p>
@@ -249,6 +252,7 @@ elicited by the two events. Default is a Wilcoxon Rank Sum test.</p>
 </dl>
 </p></li>
 <li><p><strong>alpha</strong> (<em>float</em>) – alpha to use for statistical significance</p></li>
+<li><p><strong>fdr_corr</strong> (<em>boolean</em>) – whether to use an FDR correction (Benjamin-Hochmann) to correct for multiple testing</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -265,7 +269,7 @@ elicited by the two events. Default is a Wilcoxon Rank Sum test.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.task.closed_loop.compute_comparison_statistics">
-<span class="sig-name descname"><span class="pre">compute_comparison_statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ranksums'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#compute_comparison_statistics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.compute_comparison_statistics" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compute_comparison_statistics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'ranksums'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fdr_corr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#compute_comparison_statistics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.compute_comparison_statistics" title="Permalink to this definition"></a></dt>
 <dd><p>Compute statistical test between two arrays</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -281,6 +285,7 @@ elicited by the two events. Default is a Wilcoxon Rank Sum test.</p>
 </dl>
 </p></li>
 <li><p><strong>alpha</strong> (<em>float</em>) – alpha to use for statistical significance</p></li>
+<li><p><strong>fdr_corr</strong> (<em>boolean</em>) – whether to use an FDR correction (Benjamin-Hochmann) to correct for multiple testing</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -400,7 +405,7 @@ to be significant.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.task.closed_loop.generate_pseudo_session">
-<span class="sig-name descname"><span class="pre">generate_pseudo_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generate_choices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#generate_pseudo_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.generate_pseudo_session" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">generate_pseudo_session</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">generate_choices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast_distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'non-uniform'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#generate_pseudo_session"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.generate_pseudo_session" title="Permalink to this definition"></a></dt>
 <dd><p>Generate a complete pseudo session with biased blocks, all stimulus contrasts, choices and
 rewards and omissions. Biased blocks and stimulus contrasts are generated using the same
 statistics as used in the actual task. The choices of the animal are generated using the
@@ -413,6 +418,10 @@ No-go trials are ignored in the generating of the synthetic choices.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>trials</strong> (<em>DataFrame</em>) – Pandas dataframe with columns as trial vectors loaded using ONE</p></li>
 <li><p><strong>generate_choices</strong> (<em>bool</em>) – whether to generate the choices (runs faster without)</p></li>
+<li><p><strong>contrast_distribution</strong> (<em>str</em><em> [</em><em>'uniform'</em><em>, </em><em>'non-uniform'</em><em>]</em>) – the absolute contrast distribution.
+If uniform, the zero contrast is as likely as other contrasts: BiasedChoiceWorld task
+If ‘non-uniform’, the zero contrast is half as likely to occur: EphysChoiceWorld task
+(‘biased’ is kept for compatibility, but is deprecated as it is confusing)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -420,6 +429,35 @@ No-go trials are ignored in the generating of the synthetic choices.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="brainbox.task.closed_loop.get_impostor_target">
+<span class="sig-name descname"><span class="pre">get_impostor_target</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">targets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_label</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed_idx</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/task/closed_loop.html#get_impostor_target"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.task.closed_loop.get_impostor_target" title="Permalink to this definition"></a></dt>
+<dd><p>Generate impostor targets by selecting from a list of current targets of variable length.
+Targets are selected and stitched together to the length of the current labeled target,
+aka ‘Frankenstein’ targets, often used for evaluating a null distribution while decoding.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>targets</strong> (<em>list</em><em> of </em><em>all targets</em>) – targets may be arrays of any dimension (a,b,…,z)
+but must have the same shape except for the last dimension, z.  All targets must
+have z &gt; 0.</p></li>
+<li><p><strong>labels</strong> (<em>numpy array</em><em> of </em><em>strings</em>) – labels corresponding to each target e.g. session eid.
+only targets with unique labels are used to create impostor target.  Typically,
+use eid as the label because each eid has a unique target.</p></li>
+<li><p><strong>current_label</strong> (<em>string</em>) – targets with the current label are not used to create impostor
+target.  Size of corresponding target is used to determine size of impostor
+target.  If None, a random selection from the set of unique labels is used.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>impostor_final</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy array, same shape as all targets except last dimension</p>
 </dd>
 </dl>
 </dd></dl>

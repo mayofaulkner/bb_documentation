@@ -1,0 +1,47 @@
+ibllib.io.extractors.fibrephotometry
+====================================
+
+.. automodule:: ibllib.io.extractors.fibrephotometry
+
+   
+   
+   .. rubric:: Module attributes
+
+   .. autosummary::
+      :toctree:
+   
+      V_THRESHOLD
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      check_timestamps
+      read_daq_timestamps
+      read_daq_voltage
+      sync_photometry_to_daq
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      FibrePhotometry
+   
+   
+
+   
+   
+   
+
+
+

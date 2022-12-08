@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -91,7 +91,6 @@
 <li class="toctree-l3"><a class="reference internal" href="brainbox.io.html">brainbox.io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.lfp.html">brainbox.lfp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.metrics.html">brainbox.metrics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="brainbox.modeling.html">brainbox.modeling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot.html">brainbox.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot_base.html">brainbox.plot_base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.population.html">brainbox.population</a></li>
@@ -106,7 +105,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -122,11 +121,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="brainbox.html">brainbox</a> &raquo;</li>
-          <li><a href="brainbox.behavior.html">brainbox.behavior</a> &raquo;</li>
-      <li>brainbox.behavior.training</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.html">brainbox</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.behavior.html">brainbox.behavior</a></li>
+      <li class="breadcrumb-item active">brainbox.behavior.training</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/brainbox.behavior.training.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -161,9 +160,9 @@
 }
 </style>
 <section id="module-brainbox.behavior.training">
-<span id="brainbox-behavior-training"></span><h1>brainbox.behavior.training<a class="headerlink" href="#module-brainbox.behavior.training" title="Permalink to this headline"></a></h1>
+<span id="brainbox-behavior-training"></span><h1>brainbox.behavior.training<a class="headerlink" href="#module-brainbox.behavior.training" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -320,7 +319,7 @@ will load data from the last three training sessions that have data available</p
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>trials</strong> (<a class="reference internal" href="brainbox.core.html#brainbox.core.Bunch" title="brainbox.core.Bunch"><em>Bunch</em></a>) – dict containing trials objects from three consective training sessions</p></li>
+<li><p><strong>trials</strong> (<em>Bunch</em>) – dict containing trials objects from three consective training sessions</p></li>
 <li><p><strong>task_protocol</strong> – task protocol used for the three training session, can be ‘training’,</p></li>
 </ul>
 </dd>
@@ -352,7 +351,7 @@ will load data from the last three training sessions that have data available</p
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>subj</strong> (<em>string</em>) – subject nickname</p></li>
-<li><p><strong>sess_dates</strong> (<em>list of strings</em>) – training session dates used to determine training status</p></li>
+<li><p><strong>sess_dates</strong> (<em>list</em><em> of </em><em>strings</em>) – training session dates used to determine training status</p></li>
 <li><p><strong>status</strong> (<em>string</em>) – training status of subject</p></li>
 <li><p><strong>perf_easy</strong> (<em>np.array</em>) – performance on easy trials for each training sessions</p></li>
 <li><p><strong>n_trials</strong> (<em>np.array</em>) – number of trials for each training sessions</p></li>
@@ -488,7 +487,7 @@ returns: float containing performance on easy contrast trials</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.behavior.training.compute_psychometric">
-<span class="sig-name descname"><span class="pre">compute_psychometric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#compute_psychometric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.compute_psychometric" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compute_psychometric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plotting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_ci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#compute_psychometric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.compute_psychometric" title="Permalink to this definition"></a></dt>
 <dd><p>Compute psychometric fit parameters for trials object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -506,7 +505,7 @@ returns: float containing performance on easy contrast trials</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.behavior.training.compute_median_reaction_time">
-<span class="sig-name descname"><span class="pre">compute_median_reaction_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stim_on_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stimOn_times'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#compute_median_reaction_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.compute_median_reaction_time" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compute_median_reaction_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stim_on_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stimOn_times'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#compute_median_reaction_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.compute_median_reaction_time" title="Permalink to this definition"></a></dt>
 <dd><p>Compute median reaction time on zero contrast trials from trials object</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -526,13 +525,14 @@ trials in trials object)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.behavior.training.compute_reaction_time">
-<span class="sig-name descname"><span class="pre">compute_reaction_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stim_on_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stimOn_times'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#compute_reaction_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.compute_reaction_time" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">compute_reaction_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stim_on_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'stimOn_times'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stim_off_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'response_times'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">signed_contrast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_ci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.32</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#compute_reaction_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.compute_reaction_time" title="Permalink to this definition"></a></dt>
 <dd><p>Compute median reaction time for all contrasts</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>trials</strong> – trials object that must contain response_times and stimOn_times</p></li>
 <li><p><strong>stim_on_type</strong> – </p></li>
+<li><p><strong>stim_off_type</strong> – </p></li>
 <li><p><strong>signed_contrast</strong> – </p></li>
 <li><p><strong>block</strong> – </p></li>
 </ul>
@@ -571,7 +571,7 @@ decision-making_in_mice_Appendix_2_IBL_protocol_for_mice_training/11634729)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.behavior.training.plot_psychometric">
-<span class="sig-name descname"><span class="pre">plot_psychometric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#plot_psychometric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.plot_psychometric" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot_psychometric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_ci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci_aplha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.32</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#plot_psychometric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.plot_psychometric" title="Permalink to this definition"></a></dt>
 <dd><p>Function to plot pyschometric curve plots a la datajoint webpage</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -585,7 +585,7 @@ decision-making_in_mice_Appendix_2_IBL_protocol_for_mice_training/11634729)</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="brainbox.behavior.training.plot_reaction_time">
-<span class="sig-name descname"><span class="pre">plot_reaction_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#plot_reaction_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.plot_reaction_time" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">plot_reaction_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ax</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">plot_ci</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ci_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.32</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/behavior/training.html#plot_reaction_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.behavior.training.plot_reaction_time" title="Permalink to this definition"></a></dt>
 <dd><p>Function to plot reaction time against contrast a la datajoint webpage (inversed for some reason??)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

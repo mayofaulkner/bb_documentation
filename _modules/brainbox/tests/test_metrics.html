@@ -15,7 +15,9 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/clipboard.min.js"></script>
         <script src="../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>brainbox.tests.test_metrics</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">brainbox.tests.test_metrics</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -103,7 +103,7 @@
   <h1>Source code for brainbox.tests.test_metrics</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">brainbox.metrics</span> <span class="kn">import</span> <span class="n">electrode_drift</span>
-<span class="kn">from</span> <span class="nn">brainbox.metrics.single_units</span> <span class="kn">import</span> <span class="n">quick_unit_metrics</span>
+<span class="kn">from</span> <span class="nn">brainbox.metrics.single_units</span> <span class="kn">import</span> <span class="n">quick_unit_metrics</span><span class="p">,</span> <span class="n">noise_cutoff</span>
 <span class="kn">from</span> <span class="nn">iblutil.numerical</span> <span class="kn">import</span> <span class="n">ismember</span>
 
 <span class="n">REC_LEN_SECS</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -183,7 +183,7 @@
     <span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">multiple_spike_trains</span><span class="p">(</span><span class="n">firing_rates</span><span class="o">=</span><span class="n">frs</span><span class="p">,</span> <span class="n">rec_len_secs</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
     <span class="c1"># test negative times, no drift</span>
     <span class="n">drift</span><span class="p">,</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">electrode_drift</span><span class="o">.</span><span class="n">estimate_drift</span><span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">cells_depth</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
-    <span class="k">assert</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">drift</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">))</span>
+    <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">drift</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mf">0.01</span><span class="p">)</span>
     <span class="c1"># test drift recovery - sinusoid 40 um peak amplitude</span>
     <span class="n">dcor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">t</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">t</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="mi">50</span>
     <span class="n">drift</span><span class="p">,</span> <span class="n">ts</span> <span class="o">=</span> <span class="n">electrode_drift</span><span class="o">.</span><span class="n">estimate_drift</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">cells_depth</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">+</span> <span class="n">dcor</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -192,6 +192,12 @@
     <span class="c1"># plt.plot(ts, drift_)</span>
     <span class="c1"># plt.plot(ts, drift)</span>
     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">drift</span> <span class="o">-</span> <span class="n">drift_</span><span class="p">)[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="test_noise_cut_off"><a class="viewcode-back" href="../../../_autosummary/brainbox.tests.test_metrics.html#brainbox.tests.test_metrics.test_noise_cut_off">[docs]</a><span class="k">def</span> <span class="nf">test_noise_cut_off</span><span class="p">():</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+    <span class="n">amps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">400</span><span class="p">,)</span> <span class="o">*</span> <span class="mf">1.2</span> <span class="o">+</span> <span class="mi">4</span>
+    <span class="k">assert</span> <span class="n">noise_cutoff</span><span class="p">(</span><span class="n">amps</span><span class="p">)</span></div>
 </pre></div>
 
            </div>

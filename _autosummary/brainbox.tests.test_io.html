@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -85,7 +85,6 @@
 <li class="toctree-l3"><a class="reference internal" href="brainbox.io.html">brainbox.io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.lfp.html">brainbox.lfp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.metrics.html">brainbox.metrics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="brainbox.modeling.html">brainbox.modeling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot.html">brainbox.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot_base.html">brainbox.plot_base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.population.html">brainbox.population</a></li>
@@ -99,7 +98,6 @@
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_cca.html">brainbox.tests.test_cca</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">brainbox.tests.test_io</a></li>
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_metrics.html">brainbox.tests.test_metrics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_modeling.html">brainbox.tests.test_modeling</a></li>
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_passive.html">brainbox.tests.test_passive</a></li>
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_plot_base.html">brainbox.tests.test_plot_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_population.html">brainbox.tests.test_population</a></li>
@@ -115,7 +113,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -131,11 +129,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="brainbox.html">brainbox</a> &raquo;</li>
-          <li><a href="brainbox.tests.html">brainbox.tests</a> &raquo;</li>
-      <li>brainbox.tests.test_io</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.html">brainbox</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.tests.html">brainbox.tests</a></li>
+      <li class="breadcrumb-item active">brainbox.tests.test_io</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/brainbox.tests.test_io.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -170,9 +168,9 @@
 }
 </style>
 <section id="module-brainbox.tests.test_io">
-<span id="brainbox-tests-test-io"></span><h1>brainbox.tests.test_io<a class="headerlink" href="#module-brainbox.tests.test_io" title="Permalink to this headline"></a></h1>
+<span id="brainbox-tests-test-io"></span><h1>brainbox.tests.test_io<a class="headerlink" href="#module-brainbox.tests.test_io" title="Permalink to this heading"></a></h1>
 <p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -185,8 +183,8 @@
 </table>
 <dl class="py class">
 <dt class="sig sig-object py" id="brainbox.tests.test_io.TestIO_ALF">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">TestIO_ALF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/tests/test_io.html#TestIO_ALF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.tests.test_io.TestIO_ALF" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TestIO_ALF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">methodName</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'runTest'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/tests/test_io.html#TestIO_ALF"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.tests.test_io.TestIO_ALF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">TestCase</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="brainbox.tests.test_io.TestIO_ALF.setUp">
 <span class="sig-name descname"><span class="pre">setUp</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../_modules/brainbox/tests/test_io.html#TestIO_ALF.setUp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.tests.test_io.TestIO_ALF.setUp" title="Permalink to this definition"></a></dt>

@@ -1,0 +1,30 @@
+brainbox.atlas
+==============
+
+.. automodule:: brainbox.atlas
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      plot_atlas
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,33 @@
+ibllib.tests.extractors
+=======================
+
+.. automodule:: ibllib.tests.extractors
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   ibllib.tests.extractors.test_ephys_fpga
+   ibllib.tests.extractors.test_ephys_passive
+   ibllib.tests.extractors.test_ephys_trials
+   ibllib.tests.extractors.test_extractors
+

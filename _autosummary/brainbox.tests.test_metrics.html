@@ -16,14 +16,16 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="brainbox.tests.test_modeling" href="brainbox.tests.test_modeling.html" />
+    <link rel="next" title="brainbox.tests.test_passive" href="brainbox.tests.test_passive.html" />
     <link rel="prev" title="brainbox.tests.test_io" href="brainbox.tests.test_io.html" /> 
 </head>
 
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -85,7 +85,6 @@
 <li class="toctree-l3"><a class="reference internal" href="brainbox.io.html">brainbox.io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.lfp.html">brainbox.lfp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.metrics.html">brainbox.metrics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="brainbox.modeling.html">brainbox.modeling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot.html">brainbox.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot_base.html">brainbox.plot_base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.population.html">brainbox.population</a></li>
@@ -99,7 +98,6 @@
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_cca.html">brainbox.tests.test_cca</a></li>
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_io.html">brainbox.tests.test_io</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">brainbox.tests.test_metrics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_modeling.html">brainbox.tests.test_modeling</a></li>
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_passive.html">brainbox.tests.test_passive</a></li>
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_plot_base.html">brainbox.tests.test_plot_base</a></li>
 <li class="toctree-l4"><a class="reference internal" href="brainbox.tests.test_population.html">brainbox.tests.test_population</a></li>
@@ -115,7 +113,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -131,11 +129,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="brainbox.html">brainbox</a> &raquo;</li>
-          <li><a href="brainbox.tests.html">brainbox.tests</a> &raquo;</li>
-      <li>brainbox.tests.test_metrics</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.html">brainbox</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.tests.html">brainbox.tests</a></li>
+      <li class="breadcrumb-item active">brainbox.tests.test_metrics</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/brainbox.tests.test_metrics.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -170,9 +168,9 @@
 }
 </style>
 <section id="module-brainbox.tests.test_metrics">
-<span id="brainbox-tests-test-metrics"></span><h1>brainbox.tests.test_metrics<a class="headerlink" href="#module-brainbox.tests.test_metrics" title="Permalink to this headline"></a></h1>
+<span id="brainbox-tests-test-metrics"></span><h1>brainbox.tests.test_metrics<a class="headerlink" href="#module-brainbox.tests.test_metrics" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -194,6 +192,9 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#brainbox.tests.test_metrics.test_drift_estimate" title="brainbox.tests.test_metrics.test_drift_estimate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_drift_estimate</span></code></a></p></td>
 <td><p>From spike depths, xcorrelate drift maps to find a drift estimate</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#brainbox.tests.test_metrics.test_noise_cut_off" title="brainbox.tests.test_metrics.test_noise_cut_off"><code class="xref py py-obj docutils literal notranslate"><span class="pre">test_noise_cut_off</span></code></a></p></td>
+<td><p></p></td>
 </tr>
 </tbody>
 </table>
@@ -241,6 +242,11 @@
 <dd><p>From spike depths, xcorrelate drift maps to find a drift estimate</p>
 </dd></dl>
 
+<dl class="py function">
+<dt class="sig sig-object py" id="brainbox.tests.test_metrics.test_noise_cut_off">
+<span class="sig-name descname"><span class="pre">test_noise_cut_off</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/brainbox/tests/test_metrics.html#test_noise_cut_off"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#brainbox.tests.test_metrics.test_noise_cut_off" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
 </section>
 
 
@@ -248,7 +254,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="brainbox.tests.test_io.html" class="btn btn-neutral float-left" title="brainbox.tests.test_io" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="brainbox.tests.test_modeling.html" class="btn btn-neutral float-right" title="brainbox.tests.test_modeling" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="brainbox.tests.test_passive.html" class="btn btn-neutral float-right" title="brainbox.tests.test_passive" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

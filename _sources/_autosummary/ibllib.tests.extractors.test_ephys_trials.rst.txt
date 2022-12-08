@@ -1,0 +1,31 @@
+ibllib.tests.extractors.test\_ephys\_trials
+===========================================
+
+.. automodule:: ibllib.tests.extractors.test_ephys_trials
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      TestEphysBehaviorExtraction
+      TestEphysSyncExtraction
+   
+   
+
+   
+   
+   
+
+
+

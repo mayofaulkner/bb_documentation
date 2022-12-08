@@ -16,14 +16,16 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ibllib.misc.timing" href="ibllib.misc.timing.html" />
+    <link rel="next" title="ibllib.oneibl" href="ibllib.oneibl.html" />
     <link rel="prev" title="ibllib.misc" href="ibllib.misc.html" /> 
 </head>
 
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,22 +72,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../010_api_reference.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.io.html">ibllib.io</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="ibllib.misc.html">ibllib.misc</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">ibllib.misc.misc</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.misc.timing.html">ibllib.misc.timing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.misc.version.html">ibllib.misc.version</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.oneibl.html">ibllib.oneibl</a></li>
@@ -100,7 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -116,11 +113,11 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-          <li><a href="ibllib.misc.html">ibllib.misc</a> &raquo;</li>
-      <li>ibllib.misc.misc</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.misc.html">ibllib.misc</a></li>
+      <li class="breadcrumb-item active">ibllib.misc.misc</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.misc.misc.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -155,9 +152,9 @@
 }
 </style>
 <section id="module-ibllib.misc.misc">
-<span id="ibllib-misc-misc"></span><h1>ibllib.misc.misc<a class="headerlink" href="#module-ibllib.misc.misc" title="Permalink to this headline"></a></h1>
+<span id="ibllib-misc-misc"></span><h1>ibllib.misc.misc<a class="headerlink" href="#module-ibllib.misc.misc" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -166,16 +163,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.misc.misc.check_nvidia_driver" title="ibllib.misc.misc.check_nvidia_driver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_nvidia_driver</span></code></a></p></td>
 <td><p>Checks if the GPU driver reacts and otherwise raises a custom error.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.misc.misc.logger_config" title="ibllib.misc.misc.logger_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">logger_config</span></code></a></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.misc.misc.print_progress" title="ibllib.misc.misc.print_progress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">print_progress</span></code></a></p></td>
-<td><p>Call in a loop to create terminal progress bar</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.misc.misc.range_str" title="ibllib.misc.misc.range_str"><code class="xref py py-obj docutils literal notranslate"><span class="pre">range_str</span></code></a></p></td>
-<td><p>Given a list of integers, returns a terse string expressing the unique values.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#ibllib.misc.misc.structarr" title="ibllib.misc.misc.structarr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">structarr</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#ibllib.misc.misc.structarr" title="ibllib.misc.misc.structarr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">structarr</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>
@@ -184,51 +172,6 @@
 <dt class="sig sig-object py" id="ibllib.misc.misc.structarr">
 <span class="sig-name descname"><span class="pre">structarr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">formats</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/misc/misc.html#structarr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.misc.misc.structarr" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ibllib.misc.misc.logger_config">
-<span class="sig-name descname"><span class="pre">logger_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/misc/misc.html#logger_config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.misc.misc.logger_config" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ibllib.misc.misc.print_progress">
-<span class="sig-name descname"><span class="pre">print_progress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iteration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">suffix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fill</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'█'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ibllib/misc/misc.html#print_progress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.misc.misc.print_progress" title="Permalink to this definition"></a></dt>
-<dd><p>Call in a loop to create terminal progress bar</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>iteration</strong> – Required  : current iteration (Int)</p></li>
-<li><p><strong>total</strong> – Required  : total iterations (Int)</p></li>
-<li><p><strong>prefix</strong> – Optional  : prefix string (Str)</p></li>
-<li><p><strong>suffix</strong> – Optional: suffix string (Str)</p></li>
-<li><p><strong>decimals</strong> – Optional: positive number of decimals in percent complete (Int)</p></li>
-<li><p><strong>length</strong> – Optional: character length of bar (Int)</p></li>
-<li><p><strong>fill</strong> – Optional: bar fill character (Str)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="ibllib.misc.misc.range_str">
-<span class="sig-name descname"><span class="pre">range_str</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">iter</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="../_modules/ibllib/misc/misc.html#range_str"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ibllib.misc.misc.range_str" title="Permalink to this definition"></a></dt>
-<dd><p>Given a list of integers, returns a terse string expressing the unique values.</p>
-<p class="rubric">Example</p>
-<p>indices = [0, 1, 2, 3, 4, 7, 8, 11, 15, 20]
-range_str(indices)
-&gt;&gt; ‘0-4, 7-8, 11, 15 &amp; 20’</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>values</strong> – An iterable of ints</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-</dl>
-</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="ibllib.misc.misc.check_nvidia_driver">
@@ -244,7 +187,7 @@ Useful to check before long GPU-dependent processes.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ibllib.misc.html" class="btn btn-neutral float-left" title="ibllib.misc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ibllib.misc.timing.html" class="btn btn-neutral float-right" title="ibllib.misc.timing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ibllib.oneibl.html" class="btn btn-neutral float-right" title="ibllib.oneibl" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

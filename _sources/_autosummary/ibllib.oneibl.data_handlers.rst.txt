@@ -1,0 +1,44 @@
+ibllib.oneibl.data\_handlers
+============================
+
+.. automodule:: ibllib.oneibl.data_handlers
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      get_local_data_repository
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      DataHandler
+      LocalDataHandler
+      RemoteAwsDataHandler
+      RemoteGlobusDataHandler
+      RemoteHttpDataHandler
+      SDSCDataHandler
+      ServerDataHandler
+      ServerGlobusDataHandler
+   
+   
+
+   
+   
+   
+
+
+

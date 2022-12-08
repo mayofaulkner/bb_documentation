@@ -15,7 +15,9 @@
         <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
         <script src="../../../../_static/clipboard.min.js"></script>
         <script src="../../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../../index.html">Module code</a> &raquo;</li>
-      <li>ibllib.tests.extractors.test_extractors</li>
+      <li><a href="../../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ibllib.tests.extractors.test_extractors</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -102,10 +102,10 @@
              
   <h1>Source code for ibllib.tests.extractors.test_extractors</h1><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">functools</span>
-<span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">tempfile</span>
 <span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">import</span> <span class="nn">unittest.mock</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -156,8 +156,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">biased_ge5</span><span class="p">[</span><span class="s1">&#39;ntrials&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">raw</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">biased_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]))</span>
         <span class="c1"># turn off logging for unit testing as we will purposedly go into warning/error cases</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">wheel_ge5_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_path</span> <span class="o">/</span> <span class="s1">&#39;data&#39;</span> <span class="o">/</span> <span class="s1">&#39;wheel_ge5&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">wheel_lt5_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_path</span> <span class="o">/</span> <span class="s1">&#39;data&#39;</span> <span class="o">/</span> <span class="s1">&#39;wheel_lt5&#39;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ibllib&#39;</span><span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">wheel_lt5_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_path</span> <span class="o">/</span> <span class="s1">&#39;data&#39;</span> <span class="o">/</span> <span class="s1">&#39;wheel_lt5&#39;</span></div>
         <span class="c1"># Save some dummy wheel moves data for trial firstMovement_times extraction</span>
 
 <div class="viewcode-block" id="TestExtractTrialData.test_get_feedbackType"><a class="viewcode-back" href="../../../../_autosummary/ibllib.tests.extractors.test_extractors.html#ibllib.tests.extractors.test_extractors.TestExtractTrialData.test_get_feedbackType">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_feedbackType</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -437,19 +436,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">di</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">di</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">())</span></div>
 
-<div class="viewcode-block" id="TestExtractTrialData.test_get_iti_duration"><a class="viewcode-back" href="../../../../_autosummary/ibllib.tests.extractors.test_extractors.html#ibllib.tests.extractors.test_extractors.TestExtractTrialData.test_get_iti_duration">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_iti_duration</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="c1"># TRAINING SESSIONS</span>
-        <span class="n">iti</span> <span class="o">=</span> <span class="n">training_trials</span><span class="o">.</span><span class="n">ItiDuration</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">training_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">extract</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">iti</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">))</span>
-        <span class="c1"># -- version &gt;= 5.0.0 iti always == 0.5 sec no extract</span>
-
-        <span class="c1"># BIASED SESSIONS</span>
-        <span class="n">iti</span> <span class="o">=</span> <span class="n">biased_trials</span><span class="o">.</span><span class="n">ItiDuration</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">biased_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">extract</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">iti</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">))</span></div>
-        <span class="c1"># -- version &gt;= 5.0.0 iti always == 0.5 sec no extract</span>
-
 <div class="viewcode-block" id="TestExtractTrialData.test_get_response_times"><a class="viewcode-back" href="../../../../_autosummary/ibllib.tests.extractors.test_extractors.html#ibllib.tests.extractors.test_extractors.TestExtractTrialData.test_get_response_times">[docs]</a>    <span class="k">def</span> <span class="nf">test_get_response_times</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># TRAINING SESSIONS</span>
         <span class="n">rt</span> <span class="o">=</span> <span class="n">training_trials</span><span class="o">.</span><span class="n">ResponseTimes</span><span class="p">(</span>
@@ -559,17 +545,30 @@
 <div class="viewcode-block" id="TestExtractTrialData.test_extract_all"><a class="viewcode-back" href="../../../../_autosummary/ibllib.tests.extractors.test_extractors.html#ibllib.tests.extractors.test_extractors.TestExtractTrialData.test_extract_all">[docs]</a>    <span class="nd">@wheelMoves_fixture</span>
     <span class="k">def</span> <span class="nf">test_extract_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># TRAINING SESSIONS</span>
-        <span class="n">out</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">training_trials</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">training_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">settings</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;IBLRIG_VERSION_TAG&#39;</span><span class="p">:</span> <span class="s1">&#39;4.9.9&#39;</span><span class="p">},</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Expect an error raised because no wheel moves were present in test data</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">assertRaises</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+            <span class="n">training_trials</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">training_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">settings</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;IBLRIG_VERSION_TAG&#39;</span><span class="p">:</span> <span class="s1">&#39;4.9.9&#39;</span><span class="p">},</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="s1">&#39;_ibl_wheelMoves.intervals.npy appears to be empty&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">exception</span><span class="p">))</span>
         <span class="c1"># -- version &gt;= 5.0.0</span>
-        <span class="n">out</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">training_trials</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">training_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">training_trials</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">exists</span><span class="p">,</span> <span class="n">files</span><span class="p">)))</span>
+
         <span class="c1"># BIASED SESSIONS</span>
-        <span class="n">out</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">biased_trials</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">biased_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">settings</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;IBLRIG_VERSION_TAG&#39;</span><span class="p">:</span> <span class="s1">&#39;4.9.9&#39;</span><span class="p">},</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># The new trials extractor additionally extracts the wheel data and this fails for the &lt; 5.0</span>
+        <span class="c1"># test data so we will stub the wheel extractor</span>
+        <span class="k">with</span> <span class="n">unittest</span><span class="o">.</span><span class="n">mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="s1">&#39;ibllib.io.extractors.biased_trials.Wheel&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">Wheel</span><span class="p">:</span>
+            <span class="n">Wheel</span><span class="o">.</span><span class="n">var_names</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
+            <span class="n">Wheel</span><span class="p">()</span><span class="o">.</span><span class="n">extract</span><span class="o">.</span><span class="n">return_value</span> <span class="o">=</span> <span class="p">({},</span> <span class="p">[])</span>
+            <span class="n">out</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">biased_trials</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">biased_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">settings</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;IBLRIG_VERSION_TAG&#39;</span><span class="p">:</span> <span class="s1">&#39;4.9.9&#39;</span><span class="p">},</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">exists</span><span class="p">,</span> <span class="n">files</span><span class="p">)))</span>
         <span class="c1"># -- version &gt;= 5.0.0</span>
-        <span class="n">out</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">biased_trials</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">biased_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+        <span class="n">out</span><span class="p">,</span> <span class="n">files</span> <span class="o">=</span> <span class="n">biased_trials</span><span class="o">.</span><span class="n">extract_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">biased_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">],</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">19</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="nb">all</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="n">Path</span><span class="o">.</span><span class="n">exists</span><span class="p">,</span> <span class="n">files</span><span class="p">)))</span></div>
 
 <div class="viewcode-block" id="TestExtractTrialData.test_encoder_positions_clock_reset"><a class="viewcode-back" href="../../../../_autosummary/ibllib.tests.extractors.test_extractors.html#ibllib.tests.extractors.test_extractors.TestExtractTrialData.test_encoder_positions_clock_reset">[docs]</a>    <span class="k">def</span> <span class="nf">test_encoder_positions_clock_reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># TRAINING SESSIONS</span>
@@ -628,20 +627,31 @@
 
 <div class="viewcode-block" id="TestExtractTrialData.test_size_outputs"><a class="viewcode-back" href="../../../../_autosummary/ibllib.tests.extractors.test_extractors.html#ibllib.tests.extractors.test_extractors.TestExtractTrialData.test_size_outputs">[docs]</a>    <span class="k">def</span> <span class="nf">test_size_outputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="c1"># check the output dimensions</span>
+        <span class="c1"># VERSION &gt;= 5.0.0</span>
         <span class="kn">from</span> <span class="nn">ibllib.io.extractors.bpod_trials</span> <span class="kn">import</span> <span class="n">extract_all</span>
         <span class="n">extract_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
         <span class="n">trials</span> <span class="o">=</span> <span class="n">alfio</span><span class="o">.</span><span class="n">load_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;alf&#39;</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="s1">&#39;trials&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">alfio</span><span class="o">.</span><span class="n">check_dimensions</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">extract_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
-        <span class="n">trials</span> <span class="o">=</span> <span class="n">alfio</span><span class="o">.</span><span class="n">load_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;alf&#39;</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="s1">&#39;trials&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">alfio</span><span class="o">.</span><span class="n">check_dimensions</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">extract_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">biased_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
         <span class="n">trials</span> <span class="o">=</span> <span class="n">alfio</span><span class="o">.</span><span class="n">load_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">biased_ge5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;alf&#39;</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="s1">&#39;trials&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">alfio</span><span class="o">.</span><span class="n">check_dimensions</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># VERSION &lt; 5.0.0</span>
+        <span class="c1"># for these test data there are no wheel moves so let&#39;s mock the output</span>
+        <span class="n">mock_data</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;intervals&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">]),</span>
+            <span class="s1">&#39;peakAmplitude&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+            <span class="s1">&#39;peakVelocity_times&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])}</span>
+        <span class="n">function_name</span> <span class="o">=</span> <span class="s1">&#39;ibllib.io.extractors.training_wheel.extract_wheel_moves&#39;</span>
+        <span class="c1"># Training</span>
+        <span class="k">with</span> <span class="n">unittest</span><span class="o">.</span><span class="n">mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">function_name</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">mock_data</span><span class="p">):</span>
+            <span class="n">extract_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
+        <span class="n">trials</span> <span class="o">=</span> <span class="n">alfio</span><span class="o">.</span><span class="n">load_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">training_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;alf&#39;</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="s1">&#39;trials&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">alfio</span><span class="o">.</span><span class="n">check_dimensions</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Biased</span>
+        <span class="k">with</span> <span class="n">unittest</span><span class="o">.</span><span class="n">mock</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">function_name</span><span class="p">,</span> <span class="n">return_value</span><span class="o">=</span><span class="n">mock_data</span><span class="p">):</span>
+            <span class="n">extract_all</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">biased_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">])</span>
+        <span class="n">trials</span> <span class="o">=</span> <span class="n">alfio</span><span class="o">.</span><span class="n">load_object</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">biased_lt5</span><span class="p">[</span><span class="s1">&#39;path&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;alf&#39;</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="s1">&#39;trials&#39;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">assertTrue</span><span class="p">(</span><span class="n">alfio</span><span class="o">.</span><span class="n">check_dimensions</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span></div>
-        <span class="c1"># Wheel moves extraction fails for these wheel data; skipping</span>
-        <span class="c1"># extract_training(self.biased_lt5[&#39;path&#39;])</span>
-        <span class="c1"># trials = alf.io.load_object(self.biased_lt5[&#39;path&#39;] / &#39;alf&#39;, object=&#39;_ibl_trials&#39;)</span>
-        <span class="c1"># self.assertTrue(alf.io.check_dimensions(trials) == 0)</span>
 
 <div class="viewcode-block" id="TestExtractTrialData.tearDown"><a class="viewcode-back" href="../../../../_autosummary/ibllib.tests.extractors.test_extractors.html#ibllib.tests.extractors.test_extractors.TestExtractTrialData.tearDown">[docs]</a>    <span class="k">def</span> <span class="nf">tearDown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">main_path</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s1">&#39;_ibl_log.*.log&#39;</span><span class="p">):</span>
@@ -730,10 +740,10 @@
     <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_extract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
-        <span class="n">csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([])</span>
-        <span class="n">ssv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([])</span>
-        <span class="n">tsv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([])</span>
-        <span class="n">npy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+        <span class="n">csv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">ssv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">tsv</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+        <span class="n">npy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 
         <span class="k">return</span> <span class="p">(</span><span class="n">csv</span><span class="p">,</span> <span class="n">ssv</span><span class="p">,</span> <span class="n">tsv</span><span class="p">,</span> <span class="n">npy</span><span class="p">)</span></div>
 

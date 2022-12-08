@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -85,11 +85,18 @@
 <li class="toctree-l3"><a class="reference internal" href="brainbox.io.html">brainbox.io</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.lfp.html">brainbox.lfp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.metrics.html">brainbox.metrics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="brainbox.modeling.html">brainbox.modeling</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot.html">brainbox.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.plot_base.html">brainbox.plot_base</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.population.html">brainbox.population</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">brainbox.processing</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">brainbox.processing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#brainbox.processing.sync"><code class="docutils literal notranslate"><span class="pre">sync()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brainbox.processing.bincount2D"><code class="docutils literal notranslate"><span class="pre">bincount2D()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brainbox.processing.compute_cluster_average"><code class="docutils literal notranslate"><span class="pre">compute_cluster_average()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brainbox.processing.bin_spikes"><code class="docutils literal notranslate"><span class="pre">bin_spikes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brainbox.processing.get_units_bunch"><code class="docutils literal notranslate"><span class="pre">get_units_bunch()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#brainbox.processing.filter_units"><code class="docutils literal notranslate"><span class="pre">filter_units()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.quality.html">brainbox.quality</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.singlecell.html">brainbox.singlecell</a></li>
 <li class="toctree-l3"><a class="reference internal" href="brainbox.spike_features.html">brainbox.spike_features</a></li>
@@ -100,7 +107,7 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -116,10 +123,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="brainbox.html">brainbox</a> &raquo;</li>
-      <li>brainbox.processing</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="brainbox.html">brainbox</a></li>
+      <li class="breadcrumb-item active">brainbox.processing</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/brainbox.processing.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -154,11 +161,11 @@
 }
 </style>
 <section id="module-brainbox.processing">
-<span id="brainbox-processing"></span><h1>brainbox.processing<a class="headerlink" href="#module-brainbox.processing" title="Permalink to this headline"></a></h1>
+<span id="brainbox-processing"></span><h1>brainbox.processing<a class="headerlink" href="#module-brainbox.processing" title="Permalink to this heading"></a></h1>
 <p>Processes data from one form into another, e.g. taking spike times and binning them into
 non-overlapping bins and convolving spike times with a gaussian kernel.</p>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -199,11 +206,11 @@ See scipy.interp1d for more information regarding interp and fillval parameters.
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>dt</strong> (<em>float</em>) – Separation of points which the output timeseries will be sampled at</p></li>
-<li><p><strong>timeseries</strong> (<em>tuple of TimeSeries objects</em><em>, or </em><em>a single TimeSeries object.</em>) – A group of time series to perform alignment or a single time series.
+<li><p><strong>timeseries</strong> (<em>tuple</em><em> of </em><em>TimeSeries objects</em><em>, or </em><em>a single TimeSeries object.</em>) – A group of time series to perform alignment or a single time series.
 Must have time stamps.</p></li>
-<li><p><strong>times</strong> (<em>np.ndarray</em><em> or </em><em>list of np.ndarrays</em>) – time stamps for the observations in ‘values’]</p></li>
-<li><p><strong>values</strong> (<em>np.ndarray</em><em> or </em><em>list of np.ndarrays</em>) – observations corresponding to the timestamps in ‘times’</p></li>
-<li><p><strong>offsets</strong> (<em>tuple of floats</em><em>, </em><em>optional</em>) – tuple of offsets for time stamps of each time series. Offsets for passed
+<li><p><strong>times</strong> (<em>np.ndarray</em><em> or </em><em>list</em><em> of </em><em>np.ndarrays</em>) – time stamps for the observations in ‘values’]</p></li>
+<li><p><strong>values</strong> (<em>np.ndarray</em><em> or </em><em>list</em><em> of </em><em>np.ndarrays</em>) – observations corresponding to the timestamps in ‘times’</p></li>
+<li><p><strong>offsets</strong> (<em>tuple</em><em> of </em><em>floats</em><em>, </em><em>optional</em>) – tuple of offsets for time stamps of each time series. Offsets for passed
 TimeSeries objects first, then offsets for passed numpy arrays. defaults to None</p></li>
 <li><p><strong>interp</strong> (<em>str</em>) – Type of interpolation to use. Refer to scipy.interpolate.interp1d for possible
 values, defaults to np.nan</p></li>
@@ -300,7 +307,7 @@ each unit: these arrays are ordered and can be indexed by unit id.</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>spks_b</strong> (<em>bunch</em>) – A spikes bunch containing fields with spike information (e.g. unit IDs, times, features,
 etc.) for all spikes.</p></li>
-<li><p><strong>features</strong> (<em>list of strings</em><em> (</em><em>optional positional arg</em><em>)</em>) – A list of names of labels of spike information (which must be keys in <cite>spks</cite>) that specify
+<li><p><strong>features</strong> (<em>list</em><em> of </em><em>strings</em><em> (</em><em>optional positional arg</em><em>)</em>) – A list of names of labels of spike information (which must be keys in <cite>spks</cite>) that specify
 which labels to return as keys in <cite>units</cite>. If not provided, all keys in <cite>spks</cite> are returned
 as keys in <cite>units</cite>.</p></li>
 </ul>

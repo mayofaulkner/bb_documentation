@@ -15,7 +15,9 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/clipboard.min.js"></script>
         <script src="../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>ibllib.tests.test_tasks</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ibllib.tests.test_tasks</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -106,7 +106,6 @@
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
 
-<span class="kn">from</span> <span class="nn">ibllib.misc</span> <span class="kn">import</span> <span class="n">version</span>
 <span class="kn">import</span> <span class="nn">ibllib.pipes.tasks</span>
 <span class="kn">from</span> <span class="nn">one.api</span> <span class="kn">import</span> <span class="n">ONE</span>
 <span class="kn">from</span> <span class="nn">ibllib.tests</span> <span class="kn">import</span> <span class="n">TEST_DB</span>
@@ -134,8 +133,8 @@
 
 <span class="n">desired_datasets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;spikes.times.npy&#39;</span><span class="p">,</span> <span class="s1">&#39;spikes.amps.npy&#39;</span><span class="p">,</span> <span class="s1">&#39;spikes.clusters.npy&#39;</span><span class="p">]</span>
 <span class="n">desired_versions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;spikes.times.npy&#39;</span><span class="p">:</span> <span class="s1">&#39;custom_job00&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;spikes.amps.npy&#39;</span><span class="p">:</span> <span class="n">version</span><span class="o">.</span><span class="n">ibllib</span><span class="p">(),</span>
-                    <span class="s1">&#39;spikes.clusters.npy&#39;</span><span class="p">:</span> <span class="n">version</span><span class="o">.</span><span class="n">ibllib</span><span class="p">()}</span>
+                    <span class="s1">&#39;spikes.amps.npy&#39;</span><span class="p">:</span> <span class="n">ibllib</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span>
+                    <span class="s1">&#39;spikes.clusters.npy&#39;</span><span class="p">:</span> <span class="n">ibllib</span><span class="o">.</span><span class="n">__version__</span><span class="p">}</span>
 <span class="n">desired_logs</span> <span class="o">=</span> <span class="s1">&#39;Running on machine: testmachine&#39;</span>
 <span class="n">desired_logs_rerun</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Task00&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
@@ -268,7 +267,7 @@
 
         <span class="c1"># prepare by deleting all jobs/tasks related</span>
         <span class="n">tasks</span> <span class="o">=</span> <span class="n">one</span><span class="o">.</span><span class="n">alyx</span><span class="o">.</span><span class="n">rest</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="n">session</span><span class="o">=</span><span class="n">eid</span><span class="p">,</span> <span class="n">no_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tasks</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
 
         <span class="c1"># create tasks and jobs from scratch</span>
         <span class="n">NTASKS</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pipeline</span><span class="o">.</span><span class="n">tasks</span><span class="p">)</span>

@@ -1,0 +1,36 @@
+ibllib.tests.test\_atlas
+========================
+
+.. automodule:: ibllib.tests.test_atlas
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      TestAtlasPlots
+      TestAtlasSlicesConversion
+      TestBrainRegions
+      TestFranklinPaxinos
+      TestInsertion
+      TestTrajectory
+      TestsCoordinatesSimples
+   
+   
+
+   
+   
+   
+
+
+

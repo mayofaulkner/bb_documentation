@@ -1,0 +1,30 @@
+ibllib.io.extractors.signatures
+===============================
+
+.. automodule:: ibllib.io.extractors.signatures
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      spike_sorting_signature
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

@@ -15,7 +15,9 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/clipboard.min.js"></script>
         <script src="../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>ibllib.pipes.local_server</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+          <li class="breadcrumb-item"><a href="../pipes.html">ibllib.pipes</a></li>
+      <li class="breadcrumb-item active">ibllib.pipes.local_server</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -110,6 +111,7 @@
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">traceback</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
 
 <span class="kn">from</span> <span class="nn">one.api</span> <span class="kn">import</span> <span class="n">ONE</span>
 
@@ -117,9 +119,12 @@
 <span class="kn">from</span> <span class="nn">ibllib.pipes</span> <span class="kn">import</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">training_preprocessing</span><span class="p">,</span> <span class="n">ephys_preprocessing</span>
 <span class="kn">from</span> <span class="nn">ibllib.time</span> <span class="kn">import</span> <span class="n">date2isostr</span>
 <span class="kn">import</span> <span class="nn">ibllib.oneibl.registration</span> <span class="k">as</span> <span class="nn">registration</span>
+<span class="kn">from</span> <span class="nn">ibllib.oneibl.data_handlers</span> <span class="kn">import</span> <span class="n">get_local_data_repository</span>
+<span class="kn">from</span> <span class="nn">ibllib.io.session_params</span> <span class="kn">import</span> <span class="n">read_params</span>
+<span class="kn">from</span> <span class="nn">ibllib.pipes.dynamic_pipeline</span> <span class="kn">import</span> <span class="n">make_pipeline</span>
 
-<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ibllib&#39;</span><span class="p">)</span>
-<span class="n">LARGE_TASKS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EphysVideoCompress&#39;</span><span class="p">,</span> <span class="s1">&#39;TrainingVideoCompress&#39;</span><span class="p">,</span> <span class="s1">&#39;SpikeSorting&#39;</span><span class="p">]</span>  <span class="c1"># &#39;EphysDLC&#39;, &#39;TrainingDLC&#39;,</span>
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<span class="n">LARGE_TASKS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EphysVideoCompress&#39;</span><span class="p">,</span> <span class="s1">&#39;TrainingVideoCompress&#39;</span><span class="p">,</span> <span class="s1">&#39;SpikeSorting&#39;</span><span class="p">,</span> <span class="s1">&#39;EphysDLC&#39;</span><span class="p">]</span>
 
 
 <span class="k">def</span> <span class="nf">_get_pipeline_class</span><span class="p">(</span><span class="n">session_path</span><span class="p">,</span> <span class="n">one</span><span class="p">):</span>
@@ -216,14 +221,20 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Session ALF path mismatch: </span><span class="si">{</span><span class="n">ses</span><span class="p">[</span><span class="s2">&quot;url&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">36</span><span class="p">:]</span><span class="si">}</span><span class="s1"> </span><span class="se">\n</span><span class="s1"> &#39;</span>
                                  <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">one</span><span class="o">.</span><span class="n">eid2path</span><span class="p">(</span><span class="n">eid</span><span class="p">,</span> <span class="n">query_type</span><span class="o">=</span><span class="s2">&quot;remote&quot;</span><span class="p">)</span><span class="si">}</span><span class="s1"> in params </span><span class="se">\n</span><span class="s1">&#39;</span>
                                  <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">session_path</span><span class="si">}</span><span class="s1"> on disk </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="n">files</span><span class="p">,</span> <span class="n">dsets</span> <span class="o">=</span> <span class="n">registration</span><span class="o">.</span><span class="n">register_session_raw_data</span><span class="p">(</span>
-                <span class="n">session_path</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="n">one</span><span class="p">,</span> <span class="n">max_md5_size</span><span class="o">=</span><span class="n">max_md5_size</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">dsets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">all_datasets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dsets</span><span class="p">)</span>
-            <span class="n">pipe</span> <span class="o">=</span> <span class="n">_get_pipeline_class</span><span class="p">(</span><span class="n">session_path</span><span class="p">,</span> <span class="n">one</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">pipe</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">task_protocol</span> <span class="o">=</span> <span class="n">get_task_protocol</span><span class="p">(</span><span class="n">session_path</span><span class="p">)</span>
-                <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Session task protocol </span><span class="si">{</span><span class="n">task_protocol</span><span class="si">}</span><span class="s1"> has no matching pipeline pattern </span><span class="si">{</span><span class="n">session_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+            <span class="c1"># See if we need to create a dynamic pipeline</span>
+            <span class="n">experiment_description_file</span> <span class="o">=</span> <span class="n">read_params</span><span class="p">(</span><span class="n">session_path</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">experiment_description_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">pipe</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">session_path</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="n">one</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">files</span><span class="p">,</span> <span class="n">dsets</span> <span class="o">=</span> <span class="n">registration</span><span class="o">.</span><span class="n">register_session_raw_data</span><span class="p">(</span>
+                    <span class="n">session_path</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="n">one</span><span class="p">,</span> <span class="n">max_md5_size</span><span class="o">=</span><span class="n">max_md5_size</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">dsets</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">all_datasets</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">dsets</span><span class="p">)</span>
+                <span class="n">pipe</span> <span class="o">=</span> <span class="n">_get_pipeline_class</span><span class="p">(</span><span class="n">session_path</span><span class="p">,</span> <span class="n">one</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">pipe</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">task_protocol</span> <span class="o">=</span> <span class="n">get_task_protocol</span><span class="p">(</span><span class="n">session_path</span><span class="p">)</span>
+                    <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Session task protocol </span><span class="si">{</span><span class="n">task_protocol</span><span class="si">}</span><span class="s1"> has no matching pipeline pattern </span><span class="si">{</span><span class="n">session_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">rerun</span><span class="p">:</span>
                 <span class="n">rerun__status__in</span> <span class="o">=</span> <span class="s1">&#39;__all__&#39;</span>
             <span class="k">else</span><span class="p">:</span>
@@ -238,36 +249,49 @@
     <span class="k">return</span> <span class="n">all_datasets</span></div>
 
 
-<div class="viewcode-block" id="job_runner"><a class="viewcode-back" href="../../../_autosummary/ibllib.pipes.local_server.html#ibllib.pipes.local_server.job_runner">[docs]</a><span class="k">def</span> <span class="nf">job_runner</span><span class="p">(</span><span class="n">subjects_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">lab</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dry</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="viewcode-block" id="task_queue"><a class="viewcode-back" href="../../../_autosummary/ibllib.pipes.local_server.html#ibllib.pipes.local_server.task_queue">[docs]</a><span class="k">def</span> <span class="nf">task_queue</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">lab</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Function to be used as a process to run the jobs as they are created on the database</span>
-<span class="sd">    This will query waiting jobs from the specified Lab</span>
-<span class="sd">    :param subjects_path: on servers: /mnt/s0/Data/Subjects. Contains sessions</span>
-<span class="sd">    :param mode: Whether to run all jobs, or only small or large (video compression, DLC, spike sorting) jobs</span>
-<span class="sd">    :param lab: lab name as per Alyx</span>
-<span class="sd">    :param dry:</span>
-<span class="sd">    :param count:</span>
-<span class="sd">    :return:</span>
+<span class="sd">    Query waiting jobs from the specified Lab</span>
+<span class="sd">    :param mode: Whether to return all waiting tasks, or only small or large (specified in LARGE_TASKS) jobs</span>
+<span class="sd">    :param lab: lab name as per Alyx, otherwise try to infer from local globus install</span>
+<span class="sd">    :param one: ONE instance</span>
+<span class="sd">    -------</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">one</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">one</span> <span class="o">=</span> <span class="n">ONE</span><span class="p">(</span><span class="n">cache_rest</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">lab</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Trying to infer lab from globus installation&quot;</span><span class="p">)</span>
         <span class="n">lab</span> <span class="o">=</span> <span class="n">_get_lab</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">lab</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;No lab provided or found&quot;</span><span class="p">)</span>
         <span class="k">return</span>  <span class="c1"># if the lab is none, this will return empty tasks each time</span>
+    <span class="n">data_repo</span> <span class="o">=</span> <span class="n">get_local_data_repository</span><span class="p">(</span><span class="n">one</span><span class="p">)</span>
     <span class="c1"># Filter for tasks</span>
+    <span class="n">tasks_all</span> <span class="o">=</span> <span class="n">one</span><span class="o">.</span><span class="n">alyx</span><span class="o">.</span><span class="n">rest</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;Waiting&#39;</span><span class="p">,</span>
+                              <span class="n">django</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;session__lab__name__in,</span><span class="si">{</span><span class="n">lab</span><span class="si">}</span><span class="s1">,data_repository__name,</span><span class="si">{</span><span class="n">data_repo</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">no_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
-        <span class="n">tasks</span> <span class="o">=</span> <span class="n">one</span><span class="o">.</span><span class="n">alyx</span><span class="o">.</span><span class="n">rest</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;Waiting&#39;</span><span class="p">,</span>
-                              <span class="n">django</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;session__lab__name__in,</span><span class="si">{</span><span class="n">lab</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">no_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;small&#39;</span><span class="p">:</span>
-        <span class="n">tasks_all</span> <span class="o">=</span> <span class="n">one</span><span class="o">.</span><span class="n">alyx</span><span class="o">.</span><span class="n">rest</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;Waiting&#39;</span><span class="p">,</span>
-                                  <span class="n">django</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;session__lab__name__in,</span><span class="si">{</span><span class="n">lab</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">no_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tasks_all</span> <span class="k">if</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">LARGE_TASKS</span><span class="p">]</span>
+        <span class="n">waiting_tasks</span> <span class="o">=</span> <span class="n">tasks_all</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">small_jobs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">large_jobs</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tasks_all</span><span class="p">:</span>
+            <span class="n">strmodule</span><span class="p">,</span> <span class="n">strclass</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;executable&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">classe</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">strmodule</span><span class="p">),</span> <span class="n">strclass</span><span class="p">)</span>
+            <span class="n">job_size</span> <span class="o">=</span> <span class="n">classe</span><span class="o">.</span><span class="n">job_size</span>
+            <span class="k">if</span> <span class="n">job_size</span> <span class="o">==</span> <span class="s1">&#39;small&#39;</span><span class="p">:</span>
+                <span class="n">small_jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">large_jobs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;small&#39;</span><span class="p">:</span>
+        <span class="n">waiting_tasks</span> <span class="o">=</span> <span class="n">small_jobs</span>
     <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;large&#39;</span><span class="p">:</span>
-        <span class="n">tasks</span> <span class="o">=</span> <span class="n">one</span><span class="o">.</span><span class="n">alyx</span><span class="o">.</span><span class="n">rest</span><span class="p">(</span><span class="s1">&#39;tasks&#39;</span><span class="p">,</span> <span class="s1">&#39;list&#39;</span><span class="p">,</span> <span class="n">status</span><span class="o">=</span><span class="s1">&#39;Waiting&#39;</span><span class="p">,</span>
-                              <span class="n">django</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;session__lab__name__in,</span><span class="si">{</span><span class="n">lab</span><span class="si">}</span><span class="s1">,name__in,</span><span class="si">{</span><span class="n">LARGE_TASKS</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">no_cache</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">waiting_tasks</span> <span class="o">=</span> <span class="n">large_jobs</span>
 
-    <span class="n">tasks_runner</span><span class="p">(</span><span class="n">subjects_path</span><span class="p">,</span> <span class="n">tasks</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="n">one</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="n">count</span><span class="p">,</span> <span class="n">time_out</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span> <span class="n">dry</span><span class="o">=</span><span class="n">dry</span><span class="p">)</span></div>
+    <span class="c1"># Order tasks by priority</span>
+    <span class="n">sorted_tasks</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">waiting_tasks</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;priority&#39;</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">sorted_tasks</span></div>
 
 
 <div class="viewcode-block" id="tasks_runner"><a class="viewcode-back" href="../../../_autosummary/ibllib.pipes.local_server.html#ibllib.pipes.local_server.tasks_runner">[docs]</a><span class="k">def</span> <span class="nf">tasks_runner</span><span class="p">(</span><span class="n">subjects_path</span><span class="p">,</span> <span class="n">tasks_dict</span><span class="p">,</span> <span class="n">one</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dry</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">time_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>

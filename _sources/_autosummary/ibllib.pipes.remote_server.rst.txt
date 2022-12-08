@@ -1,0 +1,31 @@
+ibllib.pipes.remote\_server
+===========================
+
+.. automodule:: ibllib.pipes.remote_server
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      job_run_ks2
+      job_transfer_ks2
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

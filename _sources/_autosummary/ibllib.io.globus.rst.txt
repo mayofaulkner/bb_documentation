@@ -1,0 +1,34 @@
+ibllib.io.globus
+================
+
+.. automodule:: ibllib.io.globus
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      as_globus_path
+      get_local_endpoint
+      login
+      login_auto
+      setup
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

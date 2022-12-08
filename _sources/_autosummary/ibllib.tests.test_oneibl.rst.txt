@@ -1,0 +1,33 @@
+ibllib.tests.test\_oneibl
+=========================
+
+.. automodule:: ibllib.tests.test_oneibl
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      TestAlyx2Path
+      TestFTPPatcher
+      TestRegistration
+      TestRegistrationEndpoint
+   
+   
+
+   
+   
+   
+
+
+

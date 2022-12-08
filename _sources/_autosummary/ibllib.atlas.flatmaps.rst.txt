@@ -1,0 +1,33 @@
+ibllib.atlas.flatmaps
+=====================
+
+.. automodule:: ibllib.atlas.flatmaps
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      annotate_swanson
+      circles
+      plot_swanson
+      swanson
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

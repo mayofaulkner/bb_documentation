@@ -1,0 +1,32 @@
+ibllib.pipes.photometry\_tasks
+==============================
+
+.. automodule:: ibllib.pipes.photometry_tasks
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      FibrePhotometryExtractionPipeline
+      TaskFibrePhotometryPreprocess
+      TaskFibrePhotometryRegisterRaw
+   
+   
+
+   
+   
+   
+
+
+

@@ -1,0 +1,37 @@
+ibllib.pipes.behavior\_tasks
+============================
+
+.. automodule:: ibllib.pipes.behavior_tasks
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      ChoiceWorldTrialsBpod
+      ChoiceWorldTrialsNidq
+      HabituationRegisterRaw
+      HabituationTrialsBpod
+      PassiveRegisterRaw
+      PassiveTask
+      TrainingStatus
+      TrialRegisterRaw
+   
+   
+
+   
+   
+   
+
+
+

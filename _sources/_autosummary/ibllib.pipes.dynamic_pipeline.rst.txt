@@ -1,0 +1,34 @@
+ibllib.pipes.dynamic\_pipeline
+==============================
+
+.. automodule:: ibllib.pipes.dynamic_pipeline
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      acquisition_description_legacy_session
+      get_acquisition_description
+      load_pipeline_dict
+      make_pipeline
+      make_pipeline_dict
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

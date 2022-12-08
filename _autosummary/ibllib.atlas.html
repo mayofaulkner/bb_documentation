@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,7 +72,6 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
@@ -79,12 +79,12 @@
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ibllib.atlas</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.atlas.html">ibllib.atlas.atlas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.flatmaps.html">ibllib.atlas.flatmaps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.genes.html">ibllib.atlas.genes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.plots.html">ibllib.atlas.plots</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.projections.html">ibllib.atlas.projections</a></li>
 <li class="toctree-l4"><a class="reference internal" href="ibllib.atlas.regions.html">ibllib.atlas.regions</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
@@ -101,7 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -117,10 +117,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-      <li>ibllib.atlas</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+      <li class="breadcrumb-item active">ibllib.atlas</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.atlas.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -155,8 +155,8 @@
 }
 </style>
 <section id="module-ibllib.atlas">
-<span id="ibllib-atlas"></span><h1>ibllib.atlas<a class="headerlink" href="#module-ibllib.atlas" title="Permalink to this headline"></a></h1>
-<table class="longtable docutils align-default">
+<span id="ibllib-atlas"></span><h1>ibllib.atlas<a class="headerlink" href="#module-ibllib.atlas" title="Permalink to this heading"></a></h1>
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -165,13 +165,16 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="ibllib.atlas.atlas.html#module-ibllib.atlas.atlas" title="ibllib.atlas.atlas"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ibllib.atlas.atlas</span></code></a></p></td>
 <td><p></p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ibllib.atlas.flatmaps.html#module-ibllib.atlas.flatmaps" title="ibllib.atlas.flatmaps"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ibllib.atlas.flatmaps</span></code></a></p></td>
+<td><p>Module that hold techniques to project the brain volume onto 2D images for visualisation purposes</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ibllib.atlas.genes.html#module-ibllib.atlas.genes" title="ibllib.atlas.genes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ibllib.atlas.genes</span></code></a></p></td>
+<td><p></p></td>
+</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="ibllib.atlas.plots.html#module-ibllib.atlas.plots" title="ibllib.atlas.plots"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ibllib.atlas.plots</span></code></a></p></td>
 <td><p>Module that has convenience plotting functions for 2D atlas slices</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ibllib.atlas.projections.html#module-ibllib.atlas.projections" title="ibllib.atlas.projections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ibllib.atlas.projections</span></code></a></p></td>
-<td><p>Module that hold techniques to project the brain volume onto 2D images for visualisation purposes</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ibllib.atlas.regions.html#module-ibllib.atlas.regions" title="ibllib.atlas.regions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ibllib.atlas.regions</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ibllib.atlas.regions.html#module-ibllib.atlas.regions" title="ibllib.atlas.regions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ibllib.atlas.regions</span></code></a></p></td>
 <td><p></p></td>
 </tr>
 </tbody>

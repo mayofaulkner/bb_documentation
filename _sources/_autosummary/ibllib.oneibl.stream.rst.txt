@@ -1,0 +1,30 @@
+ibllib.oneibl.stream
+====================
+
+.. automodule:: ibllib.oneibl.stream
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      VideoStreamer
+   
+   
+
+   
+   
+   
+
+
+

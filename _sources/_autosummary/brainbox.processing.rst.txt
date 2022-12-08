@@ -1,0 +1,35 @@
+brainbox.processing
+===================
+
+.. automodule:: brainbox.processing
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      bin_spikes
+      bincount2D
+      compute_cluster_average
+      filter_units
+      get_units_bunch
+      sync
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

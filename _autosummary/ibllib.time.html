@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/clipboard.min.js"></script>
         <script src="../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -24,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="brainbox" href="brainbox.html" />
-    <link rel="prev" title="ibllib.tests.test_time" href="ibllib.tests.test_time.html" /> 
+    <link rel="prev" title="ibllib.tests.test_widefield" href="ibllib.tests.test_widefield.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,7 +46,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -71,14 +72,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../010_api_reference.html">API Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="ibllib.html">ibllib</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="ibllib.atlas.html">ibllib.atlas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ibllib.dsp.html">ibllib.dsp</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.ephys.html">ibllib.ephys</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.exceptions.html">ibllib.exceptions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.graphic.html">ibllib.graphic</a></li>
@@ -89,13 +88,20 @@
 <li class="toctree-l3"><a class="reference internal" href="ibllib.plots.html">ibllib.plots</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.qc.html">ibllib.qc</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ibllib.tests.html">ibllib.tests</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">ibllib.time</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ibllib.time</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ibllib.time.isostr2date"><code class="docutils literal notranslate"><span class="pre">isostr2date()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ibllib.time.date2isostr"><code class="docutils literal notranslate"><span class="pre">date2isostr()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ibllib.time.format_date_range"><code class="docutils literal notranslate"><span class="pre">format_date_range()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ibllib.time.convert_pgts"><code class="docutils literal notranslate"><span class="pre">convert_pgts()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ibllib.time.uncycle_pgts"><code class="docutils literal notranslate"><span class="pre">uncycle_pgts()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="brainbox.html">brainbox</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -111,10 +117,10 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../010_api_reference.html">API Reference</a> &raquo;</li>
-          <li><a href="ibllib.html">ibllib</a> &raquo;</li>
-      <li>ibllib.time</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../010_api_reference.html">API Reference</a></li>
+          <li class="breadcrumb-item"><a href="ibllib.html">ibllib</a></li>
+      <li class="breadcrumb-item active">ibllib.time</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/_autosummary/ibllib.time.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -149,9 +155,9 @@
 }
 </style>
 <section id="module-ibllib.time">
-<span id="ibllib-time"></span><h1>ibllib.time<a class="headerlink" href="#module-ibllib.time" title="Permalink to this headline"></a></h1>
+<span id="ibllib-time"></span><h1>ibllib.time<a class="headerlink" href="#module-ibllib.time" title="Permalink to this heading"></a></h1>
 <p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
+<table class="autosummary longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -218,7 +224,7 @@ Use convert then uncycle</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="ibllib.tests.test_time.html" class="btn btn-neutral float-left" title="ibllib.tests.test_time" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ibllib.tests.test_widefield.html" class="btn btn-neutral float-left" title="ibllib.tests.test_widefield" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="brainbox.html" class="btn btn-neutral float-right" title="brainbox" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

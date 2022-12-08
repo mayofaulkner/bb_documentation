@@ -1,0 +1,37 @@
+ibllib.atlas.plots
+==================
+
+.. automodule:: ibllib.atlas.plots
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      compute_volume_from_points
+      plot_points_on_slice
+      plot_scalar_on_barplot
+      plot_scalar_on_flatmap
+      plot_scalar_on_slice
+      plot_volume_on_slice
+      prepare_lr_data
+      reorder_data
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

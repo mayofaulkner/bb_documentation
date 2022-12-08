@@ -15,7 +15,9 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
         <script src="../../../_static/clipboard.min.js"></script>
         <script src="../../../_static/copybutton.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
@@ -41,7 +43,6 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">The Open Neurophysiology Environment</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/one_quickstart.html">ONE Quick Start</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://int-brain-lab.github.io/ONE/">Full documentation Website for ONE</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DataJoint</span></p>
@@ -68,12 +69,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../06_examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_intro/dj_intro.html">Datajoint Introductory Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../notebooks/dj_basics/dj_basics.html">Exploring the IBL Data Pipeline</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../notebooks_external/docs_wheel_moves.html">Working with wheel data</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../010_api_reference.html">API Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Detailed Index</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../genindex.html">Index</a></li>
 </ul>
 
         </div>
@@ -89,9 +89,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>ibllib.ephys.sync_probes</li>
+      <li><a href="../../../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">ibllib.ephys.sync_probes</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -108,13 +108,14 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.interpolate</span> <span class="kn">import</span> <span class="n">interp1d</span>
 <span class="kn">import</span> <span class="nn">one.alf.io</span> <span class="k">as</span> <span class="nn">alfio</span>
+<span class="kn">import</span> <span class="nn">one.alf.exceptions</span>
 <span class="kn">from</span> <span class="nn">iblutil.util</span> <span class="kn">import</span> <span class="n">Bunch</span>
+<span class="kn">import</span> <span class="nn">spikeglx</span>
 
 <span class="kn">from</span> <span class="nn">ibllib.exceptions</span> <span class="kn">import</span> <span class="n">Neuropixel3BSyncFrontsNonMatching</span>
-<span class="kn">import</span> <span class="nn">ibllib.io.spikeglx</span> <span class="k">as</span> <span class="nn">spikeglx</span>
 <span class="kn">from</span> <span class="nn">ibllib.io.extractors.ephys_fpga</span> <span class="kn">import</span> <span class="n">get_sync_fronts</span><span class="p">,</span> <span class="n">get_ibl_sync_map</span>
 
-<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;ibllib&#39;</span><span class="p">)</span>
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="apply_sync"><a class="viewcode-back" href="../../../_autosummary/ibllib.ephys.sync_probes.html#ibllib.ephys.sync_probes.apply_sync">[docs]</a><span class="k">def</span> <span class="nf">apply_sync</span><span class="p">(</span><span class="n">sync_file</span><span class="p">,</span> <span class="n">times</span><span class="p">,</span> <span class="n">forward</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -190,7 +191,7 @@
         <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Ephys sync: frame2ttl not detected on both probes, using camera sync&#39;</span><span class="p">)</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">get_sync_fronts</span><span class="p">(</span><span class="s1">&#39;right_camera&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">min</span><span class="p">([</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">]])</span> <span class="o">&gt;</span> <span class="mf">0.2</span><span class="p">:</span>
-            <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cameras started before ephys, no sync possible&#39;</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cameras started before ephys, no sync possible&#39;</span><span class="p">)</span>
     <span class="c1"># chop off to the lowest number of sync points</span>
     <span class="n">nsyncs</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">size</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s1">&#39;times&#39;</span><span class="p">]]</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">nsyncs</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
@@ -215,7 +216,7 @@
     <span class="k">return</span> <span class="n">qc_all</span><span class="p">,</span> <span class="n">out_files</span></div>
 
 
-<div class="viewcode-block" id="version3B"><a class="viewcode-back" href="../../../_autosummary/ibllib.ephys.sync_probes.html#ibllib.ephys.sync_probes.version3B">[docs]</a><span class="k">def</span> <span class="nf">version3B</span><span class="p">(</span><span class="n">ses_path</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">2.5</span><span class="p">):</span>
+<div class="viewcode-block" id="version3B"><a class="viewcode-back" href="../../../_autosummary/ibllib.ephys.sync_probes.html#ibllib.ephys.sync_probes.version3B">[docs]</a><span class="k">def</span> <span class="nf">version3B</span><span class="p">(</span><span class="n">ses_path</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">probe_names</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    From a session path with _spikeglx_sync arrays extraccted, locate ephys files for 3A and</span>
 <span class="sd">     outputs one sync.timestamps.probeN.npy file per acquired probe. By convention the reference</span>
@@ -223,17 +224,25 @@
 <span class="sd">     Assumes the _spikeglx_sync datasets are already extracted from binary data</span>
 <span class="sd">    :param ses_path:</span>
 <span class="sd">    :param type: linear, exact or smooth</span>
+<span class="sd">    :param probe_names: by default will rglob all probes in the directory. If specified, this will filter</span>
+<span class="sd">     the probes on which to perform the synchronisation, defaults to None, optional</span>
 <span class="sd">    :return: None</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">DEFAULT_TYPE</span> <span class="o">=</span> <span class="s1">&#39;smooth&#39;</span>
     <span class="n">ephys_files</span> <span class="o">=</span> <span class="n">spikeglx</span><span class="o">.</span><span class="n">glob_ephys_files</span><span class="p">(</span><span class="n">ses_path</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;meta&#39;</span><span class="p">,</span> <span class="n">bin_exists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">ef</span> <span class="ow">in</span> <span class="n">ephys_files</span><span class="p">:</span>
-        <span class="n">ef</span><span class="p">[</span><span class="s1">&#39;sync&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alfio</span><span class="o">.</span><span class="n">load_object</span><span class="p">(</span><span class="n">ef</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;sync&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;spikeglx&#39;</span><span class="p">,</span> <span class="n">short_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">ef</span><span class="p">[</span><span class="s1">&#39;sync_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_ibl_sync_map</span><span class="p">(</span><span class="n">ef</span><span class="p">,</span> <span class="s1">&#39;3B&#39;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">ef</span><span class="p">[</span><span class="s1">&#39;sync&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">alfio</span><span class="o">.</span><span class="n">load_object</span><span class="p">(</span><span class="n">ef</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;sync&#39;</span><span class="p">,</span> <span class="n">namespace</span><span class="o">=</span><span class="s1">&#39;spikeglx&#39;</span><span class="p">,</span> <span class="n">short_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">ef</span><span class="p">[</span><span class="s1">&#39;sync_map&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_ibl_sync_map</span><span class="p">(</span><span class="n">ef</span><span class="p">,</span> <span class="s1">&#39;3B&#39;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">one</span><span class="o">.</span><span class="n">alf</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">ALFObjectNotFound</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">probe_names</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">ef</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">probe_names</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">e</span>
     <span class="n">nidq_file</span> <span class="o">=</span> <span class="p">[</span><span class="n">ef</span> <span class="k">for</span> <span class="n">ef</span> <span class="ow">in</span> <span class="n">ephys_files</span> <span class="k">if</span> <span class="n">ef</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;nidq&#39;</span><span class="p">)]</span>
     <span class="n">ephys_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">ef</span> <span class="k">for</span> <span class="n">ef</span> <span class="ow">in</span> <span class="n">ephys_files</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ef</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;nidq&#39;</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="n">probe_names</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ephys_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">ef</span> <span class="k">for</span> <span class="n">ef</span> <span class="ow">in</span> <span class="n">ephys_files</span> <span class="k">if</span> <span class="n">ef</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">parts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">probe_names</span><span class="p">]</span>
     <span class="c1"># should have at least 2 probes and only one nidq</span>
-    <span class="k">assert</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">nidq_file</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">nidq_file</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
     <span class="n">nidq_file</span> <span class="o">=</span> <span class="n">nidq_file</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">sync_nidq</span> <span class="o">=</span> <span class="n">get_sync_fronts</span><span class="p">(</span><span class="n">nidq_file</span><span class="o">.</span><span class="n">sync</span><span class="p">,</span> <span class="n">nidq_file</span><span class="o">.</span><span class="n">sync_map</span><span class="p">[</span><span class="s1">&#39;imec_sync&#39;</span><span class="p">])</span>
 
@@ -244,7 +253,7 @@
         <span class="n">sr</span> <span class="o">=</span> <span class="n">_get_sr</span><span class="p">(</span><span class="n">ef</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># we say that the number of pulses should be within 10 %</span>
-            <span class="k">assert</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">sync_nidq</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">sync_probe</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">))</span>
+            <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">sync_nidq</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">sync_probe</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">AssertionError</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">Neuropixel3BSyncFrontsNonMatching</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">ses_path</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -293,7 +302,7 @@
 <span class="sd">        to the sampling rate of digital channels. The residual is fit using frequency domain</span>
 <span class="sd">        smoothing</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="kn">import</span> <span class="nn">ibllib.dsp</span> <span class="k">as</span> <span class="nn">dsp</span>
+        <span class="kn">import</span> <span class="nn">neurodsp.fourier</span>
         <span class="n">CAMERA_UPSAMPLING_RATE_HZ</span> <span class="o">=</span> <span class="mi">300</span>
         <span class="n">PAD_LENGTH_SECS</span> <span class="o">=</span> <span class="mi">60</span>
         <span class="n">STAT_LENGTH_SECS</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># median length to compute padding value</span>
@@ -308,7 +317,7 @@
         <span class="n">res_filt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">res_upsamp</span><span class="p">,</span> <span class="n">lpad</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span>
                           <span class="n">stat_length</span><span class="o">=</span><span class="n">CAMERA_UPSAMPLING_RATE_HZ</span> <span class="o">*</span> <span class="n">STAT_LENGTH_SECS</span><span class="p">)</span>
         <span class="n">fbounds</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mf">0.002</span><span class="p">]</span>
-        <span class="n">res_filt</span> <span class="o">=</span> <span class="n">dsp</span><span class="o">.</span><span class="n">lp</span><span class="p">(</span><span class="n">res_filt</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">CAMERA_UPSAMPLING_RATE_HZ</span><span class="p">,</span> <span class="n">fbounds</span><span class="p">)[</span><span class="n">lpad</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="o">-</span><span class="n">lpad</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="n">res_filt</span> <span class="o">=</span> <span class="n">neurodsp</span><span class="o">.</span><span class="n">fourier</span><span class="o">.</span><span class="n">lp</span><span class="p">(</span><span class="n">res_filt</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">CAMERA_UPSAMPLING_RATE_HZ</span><span class="p">,</span> <span class="n">fbounds</span><span class="p">)[</span><span class="n">lpad</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span><span class="o">-</span><span class="n">lpad</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
         <span class="n">tout</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">tref</span><span class="p">)</span> <span class="o">+</span> <span class="n">SYNC_SAMPLING_RATE_SECS</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
         <span class="n">sync_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">tout</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">pol</span><span class="p">,</span> <span class="n">tout</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">tout</span><span class="p">,</span> <span class="n">t_upsamp</span><span class="p">,</span> <span class="n">res_filt</span><span class="p">)]</span>
         <span class="k">if</span> <span class="n">display</span><span class="p">:</span>

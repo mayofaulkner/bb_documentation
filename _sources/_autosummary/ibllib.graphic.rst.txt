@@ -1,0 +1,30 @@
+ibllib.graphic
+==============
+
+.. automodule:: ibllib.graphic
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      popup
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

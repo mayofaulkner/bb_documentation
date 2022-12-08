@@ -1,0 +1,38 @@
+ibllib.atlas.regions
+====================
+
+.. automodule:: ibllib.atlas.regions
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      regions_from_allen_csv
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      BrainRegions
+      FranklinPaxinosRegions
+   
+   
+
+   
+   
+   
+
+
+

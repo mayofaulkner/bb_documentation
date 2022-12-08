@@ -1,0 +1,43 @@
+ibllib.tests
+============
+
+.. automodule:: ibllib.tests
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   ibllib.tests.extractors
+   ibllib.tests.fixtures
+   ibllib.tests.qc
+   ibllib.tests.test_atlas
+   ibllib.tests.test_dynamic_pipeline
+   ibllib.tests.test_ephys
+   ibllib.tests.test_histology
+   ibllib.tests.test_io
+   ibllib.tests.test_oneibl
+   ibllib.tests.test_pipes
+   ibllib.tests.test_plots
+   ibllib.tests.test_tasks
+   ibllib.tests.test_time
+   ibllib.tests.test_widefield
+

@@ -1,0 +1,42 @@
+ibllib.io.extractors.base
+=========================
+
+.. automodule:: ibllib.io.extractors.base
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      get_pipeline
+      get_session_extractor_type
+      get_task_extractor_type
+      get_task_protocol
+      run_extractor_classes
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      BaseBpodTrialsExtractor
+      BaseExtractor
+   
+   
+
+   
+   
+   
+
+
+

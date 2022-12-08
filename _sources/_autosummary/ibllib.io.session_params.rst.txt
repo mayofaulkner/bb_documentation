@@ -1,0 +1,43 @@
+ibllib.io.session\_params
+=========================
+
+.. automodule:: ibllib.io.session_params
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      aggregate_device
+      get_cameras
+      get_device_collection
+      get_sync
+      get_sync_collection
+      get_sync_extension
+      get_sync_namespace
+      get_task_collection
+      get_task_protocol
+      get_video_compressed
+      prepare_experiment
+      read_params
+      write_params
+      write_yaml
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

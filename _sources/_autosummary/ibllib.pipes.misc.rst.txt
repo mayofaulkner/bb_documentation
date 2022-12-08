@@ -1,0 +1,71 @@
+ibllib.pipes.misc
+=================
+
+.. automodule:: ibllib.pipes.misc
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+      :nosignatures:
+   
+      backup_session
+      behavior_exists
+      check_create_raw_session_flag
+      check_transfer
+      cli_ask_default
+      cli_ask_options
+      confirm_ephys_remote_folder
+      copy_wiring_files
+      copy_with_check
+      create_alyx_probe_insertions
+      create_basic_transfer_params
+      create_custom_ephys_wirings
+      create_ephys_flags
+      create_ephys_transfer_done_flag
+      create_ephyspc_params
+      create_transfer_done_flag
+      create_video_transfer_done_flag
+      create_videopc_params
+      get_directory_size
+      get_iblscripts_folder
+      get_new_filename
+      get_session_numbers_from_date_path
+      load_ephyspc_params
+      load_params_dict
+      load_videopc_params
+      move_ephys_files
+      multi_parts_flags_creation
+      probe_labels_from_session_path
+      rdiff_install
+      rename_ephys_files
+      rename_session
+      rsync_paths
+      subjects_data_folder
+      transfer_folder
+      transfer_session_folders
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      WindowsInhibitor
+   
+   
+
+   
+   
+   
+
+
+

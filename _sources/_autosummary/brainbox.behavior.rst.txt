@@ -1,0 +1,33 @@
+brainbox.behavior
+=================
+
+.. automodule:: brainbox.behavior
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   brainbox.behavior.dlc
+   brainbox.behavior.pyschofit
+   brainbox.behavior.training
+   brainbox.behavior.wheel
+

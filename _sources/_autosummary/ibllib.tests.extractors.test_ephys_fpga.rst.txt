@@ -1,0 +1,36 @@
+ibllib.tests.extractors.test\_ephys\_fpga
+=========================================
+
+.. automodule:: ibllib.tests.extractors.test_ephys_fpga
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      TestEphysFPGA_TTLsExtraction
+      TestExtractedWheelUnits
+      TestIblChannelMaps
+      TestSyncExtraction
+      TestWheelExtraction
+      TestWheelMovesExtraction
+      TestsFolderStructure
+   
+   
+
+   
+   
+   
+
+
+

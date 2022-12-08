@@ -1,0 +1,42 @@
+ibllib.pipes.ephys\_preprocessing
+=================================
+
+.. automodule:: ibllib.pipes.ephys_preprocessing
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      EphysAudio
+      EphysCellsQc
+      EphysDLC
+      EphysExtractionPipeline
+      EphysMtscomp
+      EphysPassive
+      EphysPostDLC
+      EphysPulses
+      EphysTrials
+      EphysVideoCompress
+      EphysVideoSyncQc
+      RawEphysQC
+      SpikeSorting
+   
+   
+
+   
+   
+   
+
+
+

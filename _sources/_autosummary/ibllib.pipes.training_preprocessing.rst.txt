@@ -1,0 +1,36 @@
+ibllib.pipes.training\_preprocessing
+====================================
+
+.. automodule:: ibllib.pipes.training_preprocessing
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :nosignatures:
+   
+      TrainingAudio
+      TrainingDLC
+      TrainingExtractionPipeline
+      TrainingRegisterRaw
+      TrainingStatus
+      TrainingTrials
+      TrainingVideoCompress
+   
+   
+
+   
+   
+   
+
+
+
