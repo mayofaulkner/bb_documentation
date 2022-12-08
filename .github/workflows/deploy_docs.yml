@@ -66,7 +66,7 @@ jobs:
             build_zip.zip
 
       - name: Clean up documentation
-        - run: |
+        run: |
             cd docs_gh_pages
             python make_script.py -pc
 
