@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: int-brain-lab/ibllib
-          ref: GC_Doc
+          ref: docs
           path: ibllib-repo
 
       - name: Checkout ONE-api
