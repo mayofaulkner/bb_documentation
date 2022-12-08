@@ -57,8 +57,6 @@ jobs:
         run: |
           sudo apt-get install -y zip
           zip -r build_zip docs_gh_pages/_build
-          # zip -r output_file file1 file2 folder1
-          # python -c "import shutil; shutil.make_archive('build_zip', 'zip', '.', 'docs_gh_pages/_build')"
 
       - name: Store zip file as artifacts
         uses: actions/upload-artifact@v3
@@ -66,6 +64,11 @@ jobs:
           name: build_zip
           path: |
             build_zip.zip
+
+      - name: Clean up documentation
+        - run: |
+            cd docs_gh_pages
+            python make_script.py -pc
 
       - name: Commit documentation changes
         run: |
